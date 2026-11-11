@@ -16,6 +16,8 @@ The implementation sequence is local HTML design and review, native Elementor co
 
 The first local HTML design build is ready: homepage, suites/search, six property variants, Hot Springs, Local Guide, date selection, galleries, and sample stay review. Read [Local preview and secure API setup](docs/LOCAL-PREVIEW.md).
 
+The property HTML has been redesigned using the supplied CC Stays layout reference and the current Silo Suite 2 export. Review [Silo Suite 2 locally](http://127.0.0.1:4173/suite.html?id=silo-2); see [property design notes](docs/PROPERTY-DESIGN.md) for source details and the Elementor conversion boundary.
+
 The homepage is now also available as two native Elementor page templates plus independent header/footer saved sections, using original photos from the supplied current-homepage JSON. The optional **Silo Suites Design Importer 0.1.1** imports those photos, the supplied logo, and the saved templates without replacing existing pages. See [Elementor import instructions](elementor/IMPORT.md) and [verification](docs/ELEMENTOR-VERIFICATION.md).
 
 ```sh

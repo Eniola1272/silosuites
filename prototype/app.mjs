@@ -1,3 +1,4 @@
+import { propertyPage, propertyPhotos } from './property.mjs';
 import { MAX_GUESTS, STORAGE_KEY, dateValue, isoDate, addDays, todayInUtah, validateSearch, nightCount, suites, sampleBlocks, isAvailable, sampleQuote, money, formatDate, searchParams } from './booking.mjs';
 
 const $ = (selector, root = document) => root.querySelector(selector);
@@ -73,7 +74,7 @@ if (page === 'suite') {
   } else {
     const s = chosenSuite;
     document.title = `${s.name} — Silo Suites`;
-    $('[data-suite-detail]').innerHTML = `<a class="breadcrumb" href="${escape(withState('stays.html'))}">← Back to all stays</a><div class="suite-title"><div><p class="eyebrow">${s.label} / La Verkin, Utah</p><h1>${s.name}</h1></div><p>Up to ${s.capacity} guests &nbsp; / &nbsp; ${s.bedrooms} ${s.bedrooms === 1 ? 'bedroom' : 'bedrooms'} &nbsp; / &nbsp; ${s.baths} ${s.baths === 1 ? 'bath' : 'baths'}</p></div><div class="property-gallery"><button class="gallery-primary" type="button" data-gallery="0" aria-label="Open suite photo gallery"><img src="assets/${s.image}" width="1600" height="851" alt="${s.name}, property reference interior"><span>View the gallery ↗</span></button><button class="gallery-secondary" type="button" data-gallery="1" aria-label="Open second suite photograph"><img src="assets/${s.secondary}" width="800" height="523" alt="Quiet bedroom detail from the property reference photographs"></button></div><div class="property-content"><div class="property-copy"><p class="eyebrow">A place to make your own</p><h2>A little character.<br><em>A lot to come home to.</em></h2><p>${s.description}</p><section><h3>The little things, considered.</h3><ul class="amenity-list"><li>Thoughtful interiors</li><li>Space to settle in</li><li>Historic farm setting</li><li>A base for Southern Utah</li></ul></section>${s.category === 'group' ? '<section><h3>One farm. Four spaces.</h3><p>The group stay shares availability with Silo Suites 1–4. In this preview, all four must be free for your dates. Capacities and room counts are sample data pending Hostaway verification.</p></section>' : ''}<section><h3>A little further afield.</h3><p>Head out to explore, or keep the day close to home. Find a few ideas in our local guide.</p><a class="text-link" href="local-guide.html">Explore the area <span aria-hidden="true">↗</span></a></section><section><h3>Before you arrive.</h3><p>House rules, cancellation terms, and arrival details will be matched to the verified Hostaway listing before live booking opens.</p></section></div><aside class="booking-panel" id="booking-panel" aria-labelledby="booking-heading"><h2 id="booking-heading">Make yourself at home.</h2><p>Choose your dates for a little escape.</p><form class="search-form" data-search data-property-search><button class="search-date" type="button" data-date-open="in"><span class="eyebrow">Check in</span><span data-date-label="in">Choose a date</span></button><button class="search-date" type="button" data-date-open="out"><span class="eyebrow">Check out</span><span data-date-label="out">Choose a date</span></button><label class="search-guests"><span class="eyebrow">Who's coming?</span><select name="guests" aria-label="Number of guests" data-guests></select></label><button class="button button-dark" type="submit">Review your stay <span aria-hidden="true">↗</span></button></form><p class="search-error" data-search-error role="alert"></p><div id="property-quote" aria-live="polite"></div><p class="sample-note">Design preview. Sample availability, imagery assignments, and prices.</p><a href="stays.html" data-carry-dates class="text-link">Compare all stays <span aria-hidden="true">↗</span></a></aside></div><div class="mobile-booking"><p id="mobile-price">Your own little escape<span>Choose dates to see a sample total</span></p><a class="button button-olive" href="#booking-panel">Check dates <span aria-hidden="true">↗</span></a></div>`;
+    $('[data-suite-detail]').innerHTML = propertyPage(s, escape(withState('stays.html')));
   }
 }
 
@@ -235,7 +236,7 @@ $('#hero-next')?.addEventListener('click', () => {
 });
 
 if (chosenSuite) {
-  const gallery = [chosenSuite.image, chosenSuite.secondary];
+  const gallery = propertyPhotos(chosenSuite);
   let index = 0;
   function galleryImage() {
     $('#lightbox-image').src = `assets/${gallery[index]}`;

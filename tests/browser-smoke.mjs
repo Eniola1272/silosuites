@@ -45,7 +45,7 @@ try {
   assert.equal(await desktop.locator('#review-dialog').isVisible(), true);
   assert.match(await desktop.locator('#review-content').innerText(), /18 guests/);
   await desktop.locator('#close-review').click();
-  await desktop.locator('[data-gallery="0"]').click();
+  await desktop.locator('[data-gallery="0"]').first().click();
   assert.equal(await desktop.locator('#lightbox-dialog').isVisible(), true);
   await desktop.keyboard.press('Escape');
   await desktop.screenshot({ path: 'test-results/property-desktop.png', fullPage: true });
