@@ -1,0 +1,33 @@
+<div class="ss-design ss-search-block">
+  <form class="ss-search" data-ss-design-search novalidate>
+    <label><span>Check in</span><input type="date" name="check_in" required aria-label="Check-in date"></label>
+    <label><span>Check out</span><input type="date" name="check_out" required aria-label="Check-out date"></label>
+    <label><span>Who's coming?</span><select name="guests" aria-label="Number of guests"><option value="1">1 guest</option><option value="2" selected>2 guests</option><option value="3">3 guests</option><option value="4">4 guests</option><option value="5">5 guests</option><option value="6">6 guests</option><option value="7">7 guests</option><option value="8">8 guests</option><option value="9">9 guests</option><option value="10">10 guests</option><option value="11">11 guests</option><option value="12">12 guests</option><option value="13">13 guests</option><option value="14">14 guests</option><option value="15">15 guests</option><option value="16">16 guests</option><option value="17">17 guests</option><option value="18">18 guests</option></select></label>
+    <button type="submit">Find a stay <span aria-hidden="true">↗</span></button>
+  </form>
+  <p class="ss-search-error" role="status" aria-live="polite"></p>
+  <p class="ss-search-note">Dates first. Your own little corner. &nbsp; <a href="/our-silo-suites/">Or explore all suites ↗</a></p>
+</div>
+<script>
+(function(){
+  function init(){
+    document.querySelectorAll('[data-ss-design-search]').forEach(function(form){
+      if(form.dataset.ssBound)return;form.dataset.ssBound='yes';
+      var start=form.elements.check_in,end=form.elements.check_out;
+      var parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/Denver',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
+      function part(type){return parts.find(function(p){return p.type===type}).value}
+      start.min=part('year')+'-'+part('month')+'-'+part('day');end.min=start.min;
+      start.addEventListener('change',function(){end.min=start.value||start.min;if(end.value&&end.value<=start.value)end.value=''});
+      form.addEventListener('submit',function(event){
+        event.preventDefault();
+        var status=form.parentElement.querySelector('.ss-search-error');
+        if(!form.checkValidity()){form.reportValidity();return}
+        if(start.value<start.min||end.value<=start.value){status.textContent='Choose a check-out date after your check-in date.';return}
+        status.textContent='Your dates are selected. Live availability search is not connected in this design template yet. Use “explore all suites” to browse.';
+      });
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+  if(window.jQuery)window.jQuery(window).on('elementor/frontend/init',function(){if(window.elementorFrontend)window.elementorFrontend.hooks.addAction('frontend/element_ready/html.default',init)});
+})();
+</script>

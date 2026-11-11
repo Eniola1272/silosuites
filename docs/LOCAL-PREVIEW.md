@@ -21,7 +21,9 @@ The preview is plain HTML, CSS, and JavaScript. There is no npm install or build
 - Full-screen phone date picker and two-month desktop picker, keyboard support, guest selection, and dates carried between pages through URLs and browser storage.
 - A stay-review dialog that explicitly creates no reservation and takes no payment.
 
-The Design preview button opens review notes. All booking data is synthetic: nightly rates, fees, tax, availability blocks, minimum stays, group capacity, and room facts are for design review. Do not interpret displayed totals as live quotes. Image-to-suite assignments still need to be reconciled with Hostaway. The prototype does not include a live checkout, plugin, or Elementor exports yet.
+The Design preview button opens review notes. All booking data is synthetic: nightly rates, fees, tax, availability blocks, minimum stays, group capacity, and room facts are for design review. Do not interpret displayed totals as live quotes. Primary suite-photo assignments now follow the supplied current-homepage Elementor export; final facts and galleries still need Hostaway verification. The prototype does not include live checkout.
+
+The homepage also has [native Elementor templates and an optional media importer](../elementor/IMPORT.md). That installer is separate from the future booking connector and is not required to run the HTML preview.
 
 Sample calendar blocks are relative to the current property-local date. For example, Silo 3 is blocked from day 7 through day 10. A blocked child suppresses the All Four Silos option; a group block suppresses each child. Dairy is independent.
 
@@ -64,4 +66,4 @@ node --test tests/booking.test.mjs
 
 Optional browser verification uses `tests/browser-smoke.mjs`, Playwright, and a local browser. Set `SILO_PLAYWRIGHT_MODULE` to the available Playwright package and `SILO_CHROME_EXECUTABLE` if using an existing Chrome. It checks the date-first journey, filters, property review, gallery, mobile controls, responsive overflow, and private-file isolation. Screenshots are saved in the ignored `test-results/` folder. Browser checks use local fixtures and never access the client's Hostaway account.
 
-No plugin code has been created in this milestone. The mandatory version bump applies when the first plugin build is delivered and on every subsequent plugin update.
+The design-importer plugin's first release is `0.1.0`; the Hostaway booking connector remains unimplemented. The mandatory version bump applies to every subsequent delivered plugin update.

@@ -6,6 +6,8 @@ We will design and refine the entire guest journey in HTML first. After design s
 
 Implementation update, 11 November 2026: the first local HTML preview is built, including the homepage, sample availability search, six property variants, galleries, Hot Springs, and Local Guide. Local setup and secure API configuration are documented in [Local preview](LOCAL-PREVIEW.md). Live Hostaway integration, checkout, Elementor conversion, and the plugin are still pending.
 
+Subsequent update: the homepage has been converted into native Elementor templates using the current-homepage export's original assets. A separate design-importer plugin, version 0.1.0, installs the media and saved templates without changing existing pages. See [import instructions](../elementor/IMPORT.md). This completes the initial homepage conversion; the full site conversion, Hostaway connector, and live checkout remain pending.
+
 ## Project understanding
 
 Silo Suites is a boutique stay on the historic Church Dairy Farm in La Verkin, Utah, near Zion National Park. The experience should express the property's history and contemporary comfort through real photography, editorial typography, and calm, practical booking controls.

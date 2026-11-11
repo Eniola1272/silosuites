@@ -1,0 +1,23 @@
+{
+  "release": "0.1.0",
+  "source_export": "elementor-3801-2026-11-11.json",
+  "source_sha256": "8d3d0f8270e405d45132f80280910719764cb3032ca92581f0335d3ac1ebbfff",
+  "verification": "Actual WordPress import, local media, editor headline change/restore, responsive layouts, repeat-import preservation, anonymous denial, and installer-deactivation rendering passed.",
+  "artifacts": [
+    {
+      "file": "silosuites-design-importer-0.1.0.zip",
+      "bytes": 4026278,
+      "sha256": "df6a25b2c22779dbd33bef1d3e9c4ae9f755384d893a55ff88a3f25e87dc3cfd"
+    },
+    {
+      "file": "silosuites-home-templates-0.1.0.zip",
+      "bytes": 26382,
+      "sha256": "e52e22c40bf63ce6747024e1edf1c42e3186fb167f0de6d2e18c4ae2e17e3b23"
+    },
+    {
+      "file": "silosuites-homepage-delivery-0.1.0.zip",
+      "bytes": 4054563,
+      "sha256": "a43f4fa91bfd30e2b8396e11a864bf2e5ac13951c765e55d640809ccf540da51"
+    }
+  ]
+}

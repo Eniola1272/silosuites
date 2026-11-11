@@ -38,3 +38,12 @@ The user requires a version update for every plugin update.
 - Verify genuine Elementor import/editability on a fresh supported WordPress installation before calling templates importable.
 - Package the Elementor kit separately from the custom plugin. Exclude secrets and paid third-party binaries.
 - Test booking integrity and duplicate/recovery scenarios, as well as layout and phone usability.
+
+## Elementor delivery
+
+- The original reference export is `elementor-3801-2026-11-11.json`; preserve it unchanged.
+- `tools/build_elementor.py` generates native homepage templates and the design-importer's payload from `elementor/` source files.
+- Canonical release version: `elementor/release.json`. Keep the design-importer PHP header/runtime constant, readme stable tag/changelog, payload, and ZIP names consistent.
+- `tools/package_elementor.py` rejects changes to an existing release ZIP without a version increment. Do not bypass that check.
+- The design importer only installs media and saved templates. Keep it independent of Hostaway credentials and booking operations; imported editorial content must work with the importer deactivated.
+- The three small HTML widgets contain styles, search preview, and mobile navigation only. Keep editorial content native. Date search must not claim live availability until the booking connector supports it.

@@ -222,8 +222,8 @@ $('#apply-dates').addEventListener('click', () => {
 });
 
 const heroSlides = [
-  { src: 'silo-loft.jpg', alt: 'A welcoming Silo Suite with original brick, a timber loft, and soft white bedding', label: 'Inside the silos' },
-  { src: 'dairy-interior.jpg', alt: 'A bright Dairy Suite with natural timber beams and warm white interiors', label: 'The Dairy Suite' },
+  { src: 'elementor/The-Silo-Suites-50-1-scaled.jpg', alt: 'A welcoming Silo Suite with original brick, a timber loft, and soft white bedding', label: 'Inside the silos' },
+  { src: 'elementor/studio-apartmentsdwww.jpg', alt: 'A bright Dairy Suite with natural timber beams and warm white interiors', label: 'The Dairy Suite' },
 ];
 let heroIndex = 0;
 $('#hero-next')?.addEventListener('click', () => {

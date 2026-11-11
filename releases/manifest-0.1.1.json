@@ -1,0 +1,32 @@
+{
+  "release": "0.1.1",
+  "templates": [
+    "home-content",
+    "home-complete",
+    "header",
+    "footer"
+  ],
+  "verification": "Real section imports, native edit preservation, responsive rendering, local logos, global anchor links, mobile menu, and prior release preservation passed.",
+  "artifacts": [
+    {
+      "file": "silosuites-design-importer-0.1.1.zip",
+      "sha256": "2f340141e6d343366f24e7f13345d61368e9b15f8c992e8d44f9f68c6b75a6ed",
+      "bytes": 4035407
+    },
+    {
+      "file": "silosuites-header-footer-0.1.1.zip",
+      "sha256": "73fc1b7fdc1abe0d0e994088691572c1ffa6540fda8a86735e674cb4827f4b9e",
+      "bytes": 8425
+    },
+    {
+      "file": "silosuites-home-templates-0.1.1.zip",
+      "sha256": "250cfd184bcf08d239cc210eb0555860b229967b7778a73e3c111f982c0a8b35",
+      "bytes": 34974
+    },
+    {
+      "file": "silosuites-homepage-delivery-0.1.1.zip",
+      "sha256": "07609421af2317e5758daebbd998cb896a19fa0fb03245a3acc7d7ca7d48ae84",
+      "bytes": 4072585
+    }
+  ]
+}
