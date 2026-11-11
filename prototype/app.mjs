@@ -1,3 +1,4 @@
+import { initPropertyMap } from './property-map.mjs';
 import { propertyPage, propertyPhotos } from './property.mjs';
 import { MAX_GUESTS, STORAGE_KEY, dateValue, isoDate, addDays, todayInUtah, validateSearch, nightCount, suites, sampleBlocks, isAvailable, sampleQuote, money, formatDate, searchParams } from './booking.mjs';
 
@@ -34,14 +35,23 @@ document.body.insertAdjacentHTML('beforeend', `
   <dialog id="review-dialog" aria-labelledby="review-title"><div class="dialog-header"><h2 id="review-title">Your stay, at a glance.</h2><button type="button" class="close-button" data-close aria-label="Close stay review">×</button></div><div class="dialog-text" id="review-content"></div></dialog>
   <dialog id="lightbox-dialog" class="lightbox-dialog" aria-labelledby="lightbox-title"><div class="dialog-header"><h2 id="lightbox-title">A closer look</h2><button type="button" class="close-button" data-close aria-label="Close gallery">×</button></div><img id="lightbox-image" alt=""><div class="lightbox-nav"><button type="button" data-gallery-step="-1" aria-label="Previous photograph">← Previous</button><span id="gallery-counter" role="status"></span><button type="button" data-gallery-step="1" aria-label="Next photograph">Next →</button></div></dialog>`);
 
-let dialogTrigger = null;
-function openDialog(dialog, trigger) { dialogTrigger = trigger || document.activeElement; dialog.showModal(); document.body.classList.add('dialog-open'); }
+const dialogTriggers = new WeakMap();
+function openDialog(dialog, trigger) { dialogTriggers.set(dialog, trigger || document.activeElement); dialog.showModal(); document.body.classList.add('dialog-open'); }
 function closeDialog(dialog) { dialog.close(); }
-$$('dialog').forEach(dialog => {
+function bindDialog(dialog) {
+  dialog.addEventListener('keydown', event => {
+    if (event.key !== 'Tab') return;
+    const controls = $$('button, a[href], input, select, textarea, [tabindex="0"]', dialog).filter(el => !el.disabled && el.getClientRects().length);
+    const first = controls[0], last = controls.at(-1);
+    if (!first) { event.preventDefault(); return; }
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+  });
   $$('[data-close]', dialog).forEach(button => button.addEventListener('click', () => closeDialog(dialog)));
-  dialog.addEventListener('close', () => { document.body.classList.remove('dialog-open'); dialogTrigger?.focus(); });
+  dialog.addEventListener('close', () => { if (!$('dialog[open]')) { document.body.classList.remove('dialog-open'); dialogTriggers.get(dialog)?.focus({preventScroll: true}); } });
   dialog.addEventListener('click', event => { if (event.target === dialog) { const r = dialog.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) closeDialog(dialog); } });
-});
+}
+$$('dialog').forEach(bindDialog);
 $('[data-preview-open]').addEventListener('click', event => openDialog($('#preview-dialog'), event.currentTarget));
 
 const menuToggle = $('.menu-toggle'), mobileMenu = $('#mobile-menu');
@@ -76,6 +86,60 @@ if (page === 'suite') {
     document.title = `${s.name} — Silo Suites`;
     $('[data-suite-detail]').innerHTML = propertyPage(s, escape(withState('stays.html')));
   }
+}
+
+if (chosenSuite) {
+  $$('[data-property-dialog]').forEach(bindDialog);
+  $$('[data-property-open]').forEach(button => button.addEventListener('click', () => openDialog(document.getElementById(button.dataset.propertyOpen), button)));
+  initPropertyNavigation();
+  initPropertyMap();
+}
+function initPropertyNavigation() {
+  document.documentElement.classList.add('property-page');
+  const nav = $('.property-subnav');
+  const header = $('[data-site-header]');
+  const start = $('#about-stay');
+  const links = $$('a', nav);
+  const targets = links.map(link => $(link.getAttribute('href')));
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  let scheduled = false;
+  function update() {
+    scheduled = false;
+    const top = Math.max(0, header.getBoundingClientRect().bottom);
+    document.documentElement.style.setProperty('--property-header-height', `${top}px`);
+    const height = nav.hidden ? (matchMedia('(max-width: 800px)').matches ? 58 : 62) : nav.offsetHeight;
+    const show = start.getBoundingClientRect().top <= top + height + 24;
+    nav.hidden = !show;
+    document.documentElement.style.setProperty('--property-nav-height', `${height}px`);
+    document.body.classList.toggle('property-nav-visible', show);
+    let active = targets[0];
+    targets.forEach(target => { if (target.getBoundingClientRect().top <= top + height + 32) active = target; });
+    links.forEach(link => {
+      const current = link.hash === `#${active.id}`;
+      if (current) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+      if (current && show) {
+        const container = link.parentElement;
+        if (link.offsetLeft < container.scrollLeft || link.offsetLeft + link.offsetWidth > container.scrollLeft + container.clientWidth) container.scrollTo({left: link.offsetLeft - container.clientWidth / 2 + link.offsetWidth / 2, behavior: 'instant'});
+      }
+    });
+  }
+  function schedule() { if (!scheduled) { scheduled = true; requestAnimationFrame(update); } }
+  $$('.property-subnav a').forEach(link => link.addEventListener('click', event => {
+    event.preventDefault();
+    const target = $(link.hash);
+    const top = header.getBoundingClientRect().bottom;
+    const navHeight = nav.hidden ? 60 : nav.offsetHeight;
+    window.scrollTo({top: Math.max(0, scrollY + target.getBoundingClientRect().top - top - navHeight - 20), behavior: reduceMotion.matches ? 'instant' : 'smooth'});
+    // Keyboard users arrive at the section, rather than tabbing through stale navigation.
+    target.tabIndex = -1;
+    target.focus({preventScroll: true});
+    history.replaceState(null, '', link.hash);
+  }));
+  addEventListener('scroll', schedule, {passive: true});
+  addEventListener('resize', schedule);
+  new ResizeObserver(schedule).observe(header);
+  update();
 }
 
 function updateLinks() { $$('[data-carry-dates]').forEach(a => { a.href = withState(a.getAttribute('href')); }); }

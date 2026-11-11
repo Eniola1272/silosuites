@@ -1,0 +1,38 @@
+import assert from 'node:assert/strict';
+import { createRequire } from 'node:module';
+const require=createRequire(import.meta.url);
+const {chromium}=require(process.env.SILO_PLAYWRIGHT_MODULE || 'playwright');
+const browser=await chromium.launch({headless:true,executablePath:process.env.SILO_CHROME_EXECUTABLE});
+const base=process.env.SILO_PREVIEW_URL || 'http://127.0.0.1:4173';
+try {
+ const p=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'reduce'});
+ const errors=[];p.on('pageerror',e=>errors.push(e.message));
+ await p.goto(`${base}/suite.html?id=silo-2`,{waitUntil:'networkidle'});
+ assert.equal(await p.locator('.leaflet-container').count(),0,'map stays lazy until location approaches');
+ await p.locator('[data-property-map]').scrollIntoViewIfNeeded();
+ await p.locator('[data-map-ready=true]').waitFor();
+ await p.locator('.leaflet-tile-loaded').first().waitFor({timeout:20000});
+ assert.equal(await p.locator('.silo-map-core img').getAttribute('src'),'assets/logo.png');
+ assert.match(await p.locator('#map-area-note').innerText(),/not the exact property/);
+ assert.equal(await p.locator('.leaflet-control-attribution a[href="https://www.openstreetmap.org/copyright"]').count(),1);
+ await p.locator('.leaflet-marker-icon').click();
+ await p.locator('.leaflet-popup-content').waitFor({state:'visible'});
+ await p.locator('.leaflet-popup-close-button').click();
+ await p.locator('.leaflet-control-zoom-in').click();
+ await p.waitForFunction(()=>[...document.querySelectorAll('.leaflet-tile-loaded')].some(el=>el.src.includes('/14/')));
+ await p.locator('#location').evaluate(el=>el.scrollIntoView({behavior:'instant',block:'start'}));
+ await p.screenshot({path:'test-results/silo-map-desktop.png',animations:'disabled'});
+ await p.setViewportSize({width:390,height:844});
+ await p.locator('#location').evaluate(el=>el.scrollIntoView({behavior:'instant',block:'start'}));
+ assert.ok(await p.evaluate(()=>document.documentElement.scrollWidth-innerWidth)<=1);
+ await p.screenshot({path:'test-results/silo-map-mobile.png',animations:'disabled'});
+ assert.deepEqual(errors,[]);
+ const offline=await browser.newPage();
+ await offline.route('https://tile.openstreetmap.org/**',route=>route.abort());
+ await offline.goto(`${base}/suite.html?id=silo-2`,{waitUntil:'networkidle'});
+ await offline.locator('[data-property-map]').scrollIntoViewIfNeeded();
+ await offline.locator('[data-map-status]').filter({hasText:'Map tiles could not load'}).waitFor();
+ assert.equal(await offline.getByRole('link',{name:'Open the area map'}).isVisible(),true);
+ await offline.close();
+ console.log('PASS: lazy Leaflet loading, real OSM tiles, supplied logo marker/popup, zoom, attribution, responsive resize, and tile-failure fallback.');
+} finally {await browser.close();}
