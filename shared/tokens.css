@@ -1,0 +1,14 @@
+:root {
+  --olive: #7e8e76;
+  --cream: #f8f5eb;
+  --tan: #d6c3ae;
+  --ink: #181a16;
+  --black: #000;
+  --white: #fff;
+  --muted: #595d54;
+  --rule: #d8d8cc;
+  --serif: Georgia, 'Times New Roman', serif;
+  --sans: Arial, Helvetica, sans-serif;
+  --page: 1320px;
+  --gutter: clamp(24px, 5vw, 80px);
+}

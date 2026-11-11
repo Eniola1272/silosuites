@@ -1,0 +1,79 @@
+[
+  {
+    "file": "silo-loft.jpg",
+    "width": 2560,
+    "height": 1707,
+    "source": "Supplied visual brand board",
+    "object": 3
+  },
+  {
+    "file": "farm-family.jpg",
+    "width": 543,
+    "height": 533,
+    "source": "Supplied visual brand board",
+    "object": 7
+  },
+  {
+    "file": "silo-wide.jpg",
+    "width": 1600,
+    "height": 851,
+    "source": "Supplied visual brand board",
+    "object": 8
+  },
+  {
+    "file": "hot-springs.jpg",
+    "width": 1500,
+    "height": 721,
+    "source": "Supplied visual brand board",
+    "object": 9
+  },
+  {
+    "file": "logo-reverse.jpg",
+    "width": 450,
+    "height": 337,
+    "source": "Supplied visual brand board",
+    "object": 11
+  },
+  {
+    "file": "quiet-bedroom.jpg",
+    "width": 800,
+    "height": 523,
+    "source": "Supplied visual brand board",
+    "object": 15
+  },
+  {
+    "file": "silo-interior.jpg",
+    "width": 800,
+    "height": 523,
+    "source": "Supplied visual brand board",
+    "object": 16
+  },
+  {
+    "file": "dairy-interior.jpg",
+    "width": 800,
+    "height": 522,
+    "source": "Supplied visual brand board",
+    "object": 17
+  },
+  {
+    "file": "silo-hero-dark.jpg",
+    "width": 1600,
+    "height": 851,
+    "source": "Supplied visual brand board",
+    "object": 20
+  },
+  {
+    "file": "logo-reference.png",
+    "width": 143,
+    "height": 123,
+    "source": "Unchanged embedded brand-board artwork; temporary until high-resolution chat logo is available on disk"
+  },
+  {
+    "file": "logo.png",
+    "source": "Original user-supplied SILO-LOGO-NO-PIG.png from Downloads; copied unchanged"
+  },
+  {
+    "file": "logo-transparent.png",
+    "source": "Original user-supplied silo logo transparent.png from Downloads; copied unchanged"
+  }
+]
