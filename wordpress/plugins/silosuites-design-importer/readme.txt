@@ -2,7 +2,7 @@
 Contributors: homlay
 Requires at least: 6.8
 Requires PHP: 7.4
-Stable tag: 0.2.1
+Stable tag: 0.2.3
 License: GPLv2 or later
 
 Installs supplied media, editable homepage and property pages, popup-content sections, and header/footer sections.
@@ -20,6 +20,12 @@ This creates templates and Media Library images only. Existing pages and the hom
 The plugin may be deactivated after import. Repeating an import reuses this version's saved templates and images; it does not overwrite client edits.
 
 == Changelog ==
+= 0.2.3 =
+Add a standard one-step form submission that works without fetch or JavaScript, keep admin requests on the current origin, and explain network/login failures. Every submission remains bounded and resumable.
+
+= 0.2.2 =
+Import media and templates through small, resumable authenticated requests to avoid a long single import on shared hosting. Preserve completed steps and editorial edits; show accurate progress and pause/retry messages.
+
 = 0.2.1 =
 Preserve native Elementor document styles inside editable popup dialogs and refine property heading spacing.
 

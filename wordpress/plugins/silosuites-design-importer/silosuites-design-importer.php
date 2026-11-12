@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Silo Suites Design Importer
  * Description: Imports the supplied Silo Suites media and editable Elementor homepage and property templates. Does not change the live homepage or connect to Hostaway.
- * Version: 0.2.1
+ * Version: 0.2.3
  * Requires at least: 6.8
  * Requires PHP: 7.4
  * Author: Homlay
@@ -13,7 +13,7 @@
 namespace SiloSuites\DesignImporter;
 
 defined( 'ABSPATH' ) || exit;
-const VERSION = '0.2.1';
+const VERSION = '0.2.3';
 
 add_action( 'admin_menu', function () {
     add_management_page( 'Silo Suites Design', 'Silo Suites Design', 'manage_options', 'silosuites-design', __NAMESPACE__ . '\\admin_page' );
@@ -24,8 +24,17 @@ add_action( 'admin_post_ssdi_import_design', function () {
         wp_die( esc_html__( 'An administrator with permission to import HTML is required.', 'silosuites-design-importer' ), '', array( 'response' => 403 ) );
     }
     check_admin_referer( 'ssdi_import_design' );
-    $result = import_design();
-    set_transient( 'ssdi_result_' . get_current_user_id(), is_wp_error( $result ) ? $result->get_error_message() : 'Imported successfully. Find the saved templates below.', 120 );
+    $batch = isset( $_POST['ssdi_batch'] ) && '1' === $_POST['ssdi_batch'];
+    $pending = false;
+    $result = import_design( 1, $pending );
+    if ( $batch ) {
+        if ( is_wp_error( $result ) ) { wp_send_json_error( array( 'message' => $result->get_error_message() ), 400 ); }
+        $complete = 10 === count( $result ) && ! $pending;
+        if ( $complete ) { set_transient( 'ssdi_result_' . get_current_user_id(), 'Imported successfully. All ten saved templates are ready.', 120 ); }
+        wp_send_json_success( array( 'complete' => $complete, 'templates' => count( $result ), 'total' => 10 ) );
+    }
+    $message = is_wp_error( $result ) ? $result->get_error_message() : ( $pending ? 'Step saved. Click Continue one step to resume; completed content is preserved.' : 'Imported successfully. All ten saved templates are ready.' );
+    set_transient( 'ssdi_result_' . get_current_user_id(), $message, 120 );
     wp_safe_redirect( admin_url( 'tools.php?page=silosuites-design' ) );
     exit;
 } );
@@ -50,11 +59,56 @@ function admin_page() {
         <?php elseif ( ! current_user_can( 'unfiltered_html' ) ) : ?>
             <div class="notice notice-error"><p>This template includes a scoped stylesheet and a preview date form. An administrator allowed to import HTML must run the import.</p></div>
         <?php else : ?>
-            <form action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="post">
+            <form id="ssdi-import-form" action="<?php echo esc_url( admin_url( 'admin-post.php', 'relative' ) ); ?>" method="post">
                 <input type="hidden" name="action" value="ssdi_import_design">
                 <?php wp_nonce_field( 'ssdi_import_design' ); ?>
                 <?php submit_button( 'Import Silo Suites design' ); ?>
+                <p><button type="submit" class="button" name="ssdi_compat" value="1">Continue one step</button> — standard page submission, useful if automatic import reports a network error.</p>
+                <noscript><p>JavaScript is unavailable. Each submission imports one item; repeat until all ten templates are ready.</p></noscript>
             </form>
+            <p id="ssdi-import-progress" role="status" aria-live="polite"></p>
+            <script>
+            (function () {
+                var form = document.getElementById('ssdi-import-form');
+                var progress = document.getElementById('ssdi-import-progress');
+                var active = false;
+                form.addEventListener('submit', async function (event) {
+                    if (event.submitter && event.submitter.name === 'ssdi_compat') return;
+                    event.preventDefault();
+                    if (active) return;
+                    active = true;
+                    var button = form.querySelector('[type=submit]');
+                    var compatibility = form.querySelector('[name=ssdi_compat]');
+                    button.disabled = true;
+                    compatibility.disabled = true;
+                    try {
+                        for (var step = 0; step < 64; step++) {
+                            progress.textContent = 'Importing in small steps. Keep this tab open. Previously imported content will be preserved.';
+                            var body = new FormData(form);
+                            body.set('ssdi_batch', '1');
+                            var response = await fetch(form.getAttribute('action'), {method:'POST', credentials:'same-origin', redirect:'error', body:body});
+                            if (response.status === 401 || response.status === 403) throw new Error('WordPress rejected this request (HTTP ' + response.status + '). Reload this page to refresh your login and security token, then continue.');
+                            var result;
+                            try { result = await response.json(); } catch (_) { throw new Error('The server did not finish this step. Reload this page and continue; completed steps are preserved.'); }
+                            if (!response.ok || !result.success) throw new Error(result.data && result.data.message || 'Import paused. Reload this page and continue.');
+                            progress.textContent = result.data.templates + ' of ' + result.data.total + ' templates ready. Preparing any remaining media or templates…';
+                            if (result.data.complete) {
+                                progress.textContent = 'All ten templates imported successfully.';
+                                window.location.reload();
+                                return;
+                            }
+                        }
+                        throw new Error('Import paused at its step limit. Reload this page and continue.');
+                    } catch (error) {
+                        progress.textContent = error instanceof TypeError ? 'Automatic import could not reach WordPress. Click Continue one step to use a standard page submission. Completed steps are preserved. If that also fails, note the error shown on the resulting page.' : error.message;
+                    } finally {
+                        active = false;
+                        button.disabled = false;
+                        compatibility.disabled = false;
+                    }
+                });
+            })();
+            </script>
         <?php endif; ?>
         <?php if ( $templates ) : ?>
             <h2>Saved templates</h2><ul>
@@ -93,7 +147,14 @@ function rewrite_media( $value, $mapping ) {
     return $value;
 }
 
-function import_design() {
+function current_templates() {
+    $history = get_option( 'ssdi_import_history', array() );
+    $templates = $history[ VERSION ]['templates'] ?? array();
+    return array_filter( $templates, function ( $id ) { return 'elementor_library' === get_post_type( $id ); } );
+}
+
+function import_design( $max_work = null, &$pending = null ) {
+    $pending = false;
     if ( ! current_user_can( 'manage_options' ) || ! current_user_can( 'unfiltered_html' ) ) {
         return new \WP_Error( 'ssdi_forbidden', 'Administrator permission is required.' );
     }
@@ -105,6 +166,7 @@ function import_design() {
     if ( ! add_option( 'ssdi_import_lock', time(), '', false ) ) {
         return new \WP_Error( 'ssdi_busy', 'An import is already running. Wait for it to finish.' );
     }
+    $work = 0;
     try {
         require_once ABSPATH . 'wp-admin/includes/file.php';
         require_once ABSPATH . 'wp-admin/includes/media.php';
@@ -123,12 +185,14 @@ function import_design() {
             $existing = get_posts( array( 'post_type' => 'attachment', 'post_status' => 'inherit', 'fields' => 'ids', 'posts_per_page' => 1, 'meta_key' => '_ssdi_source_sha256', 'meta_value' => $asset['sha256'] ) );
             $id = $existing ? (int) $existing[0] : 0;
             if ( ! $id || ! is_file( (string) get_attached_file( $id ) ) ) {
+                if ( null !== $max_work && $work >= $max_work ) { $pending = true; return current_templates(); }
                 $temporary = wp_tempnam( $filename );
                 if ( ! $temporary || ! copy( $file, $temporary ) ) { return new \WP_Error( 'ssdi_copy_failed', 'Could not prepare a bundled image for import.' ); }
                 $id = media_handle_sideload( array( 'name' => $filename, 'tmp_name' => $temporary ), 0 );
                 if ( is_wp_error( $id ) ) { @unlink( $temporary ); return $id; }
                 update_post_meta( $id, '_ssdi_source_sha256', $asset['sha256'] );
                 update_post_meta( $id, '_wp_attachment_image_alt', sanitize_text_field( $asset['alt'] ) );
+                ++$work;
             }
             $url = wp_get_attachment_url( $id );
             if ( ! $url ) { return new \WP_Error( 'ssdi_media_url', 'An imported image has no Media Library URL.' ); }
@@ -146,6 +210,7 @@ function import_design() {
         foreach ( array( 'home-content', 'home-complete', 'header', 'footer', 'property', 'property-complete', 'popup-about', 'popup-amenities', 'popup-rules', 'popup-cancellation' ) as $name ) {
             $existing_id = isset( $history[ VERSION ]['templates'][ $name ] ) ? $history[ VERSION ]['templates'][ $name ] : 0;
             if ( $existing_id && 'elementor_library' === get_post_type( $existing_id ) ) { continue; }
+            if ( null !== $max_work && $work >= $max_work ) { $pending = true; return current_templates(); }
             $data = json_decode( file_get_contents( $payload . $name . '.json' ), true );
             $expected_type = ( in_array( $name, array( 'header', 'footer' ), true ) || 0 === strpos( $name, 'popup-' ) ) ? 'section' : 'page';
             if ( ! is_array( $data ) || empty( $data['content'] ) || $expected_type !== $data['type'] ) { return new \WP_Error( 'ssdi_template', 'A bundled template is invalid.' ); }
@@ -157,6 +222,7 @@ function import_design() {
             } finally { @unlink( $temporary ); }
             if ( is_wp_error( $result ) ) { return $result; }
             if ( empty( $result[0]['template_id'] ) ) { return new \WP_Error( 'ssdi_template_id', 'Elementor did not return an imported template ID.' ); }
+            ++$work;
             $history[ VERSION ]['templates'][ $name ] = (int) $result[0]['template_id'];
             $history[ VERSION ]['imported_at'] = gmdate( 'c' );
             update_option( 'ssdi_import_history', $history, false );

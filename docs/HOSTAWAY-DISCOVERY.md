@@ -96,3 +96,8 @@ No reservations, guest records, messages, payments, inventory or webhooks were r
 ## User environment confirmation — 12 November 2026
 
 User confirmed https://darkseagreen-butterfly-103736.hostingersite.com/ as staging and silosuites.com as the final migration target. Their current Hostaway listing screenshot shows five listings total on a single page: Silos 1–4 and Dairy, all with Live badges. No separate All Four Silos listing is shown. Direct booking availability, account cross-listing relationships and transaction behaviour remain separate checks. Remote WordPress admin/server access is still needed; no staging changes were performed.
+
+
+## Booking URL metadata check — 12 November 2026
+
+A further authenticated GET of listing metadata checked only the `bookingEngineUrls` field. It was empty or absent on all five returned listings. No reservation, guest, payment or inventory endpoint was called. This is not proof that the booking website is unpublished: the field may depend on account/API configuration. Native booking-website publication, URLs, optional extras and payment support still need dashboard/provider verification. A sanitised report is kept in ignored `.secrets/hostaway-booking-urls.json`.

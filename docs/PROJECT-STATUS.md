@@ -46,3 +46,13 @@ For production, move shared interaction/booking behaviour from embedded template
 ## Staging review update — 12 November 2026
 
 Signed-in WordPress dashboard access now works through native Chrome UI. A 718.64 MB local Duplicator backup was created before changes and marked available for disaster recovery. The installed plugin list and template library were inspected. Custom plugin installation is awaiting the browser tool's required confirmation. Existing Home content v0.1.0 was found; the latest property/popup package is not installed yet. The dashboard shows an expired Elementor Pro subscription notice. See STAGING-REVIEW.md for the concrete environment, backup evidence and next actions. Checkout and sync remain unverified.
+
+
+## Staging plugins installed — 12 November 2026
+
+Design Importer 0.2.1 and Booking 0.1.0 are installed and active on the confirmed Hostinger staging site. Their Tools pages are available. Home content and Complete homepage v0.2.1 have been observed; the full property/popup/media import still requires verification. The Booking page correctly reports missing server credentials and disables its connection check. Local Hostaway authentication remains verified separately. Hosting/server configuration access is now needed to connect the remote plugin securely; no secret was copied into WordPress during installation. Checkout and booking sync remain unverified.
+
+
+## Ready local update
+
+Importer 0.2.2 is built and tested to process imports in small resumable requests. It has not been installed on staging because Chrome window access became unavailable. The remote installed importer remains 0.2.1, and full template/property-draft verification is still pending. This distinction is independent of the Hostaway credential/configuration and checkout work.

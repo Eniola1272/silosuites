@@ -1,14 +1,14 @@
-# Silo Suites property template 0.2.1
+# Silo Suites property template 0.2.2
 
 ## Recommended import
 
-1. Install or update **Silo Suites Design Importer 0.2.1** from the supplied ZIP. Activate Elementor first.
+1. Install or update **Silo Suites Design Importer 0.2.2** from the supplied ZIP. Activate Elementor first.
 2. Go to **Tools → Silo Suites Design → Import Silo Suites design**. This installs original media and saved templates. It does not replace pages or change the live site.
-3. Create a draft property page, open Elementor and insert **Silo Suites — Silo Suite 2 v0.2.1** from My Templates. Use **Elementor Full Width** with your global header/footer.
+3. Create a draft property page, open Elementor and insert **Silo Suites — Silo Suite 2 v0.2.2** from My Templates. Use **Elementor Full Width** with your global header/footer.
 4. Alternatively use **Complete Silo Suite 2** with **Elementor Canvas**, which includes a header and footer.
 5. Review on staging before publishing. This release's source content describes Silo Suite 2 only.
 
-The `silosuites-property-templates-0.2.1.zip` can also be imported through Elementor's template-library ZIP importer. Install the media importer first: some new original photographs and the logo use portable media references, resolved by that importer. Manual JSON-only import requires selecting your uploaded images in the native Image widgets. The importer can be deactivated after import.
+The `silosuites-property-templates-0.2.2.zip` can also be imported through Elementor's template-library ZIP importer. Install the media importer first: some new original photographs and the logo use portable media references, resolved by that importer. Manual JSON-only import requires selecting your uploaded images in the native Image widgets. The importer can be deactivated after import.
 
 ## How the client edits popup content
 
@@ -46,4 +46,6 @@ Leaflet 1.9.4 and its BSD license are embedded in the functional widget for port
 
 The map shows a labelled La Verkin town reference until verified property coordinates are supplied. Confirm listing facts, cancellation policy, amenities, telephone number and destination slugs before publishing. Duplicating this page for another suite requires replacing its property-specific facts, all gallery and sleeping photos, popup content and eventual Hostaway listing mapping.
 
-No released 0.1.x ZIPs have been replaced. This update increments the design importer to **0.2.1**.
+No released 0.1.x ZIPs have been replaced. This update increments the design importer to **0.2.2**.
+
+The importer processes one new media asset or template per request. Keep the tab open until it reports all ten templates ready. If a request stops, reload and run it again to continue from completed work. Earlier versioned templates and edits remain intact.

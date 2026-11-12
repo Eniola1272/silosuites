@@ -46,3 +46,15 @@ Imported the 0.2.1 payload through Elementor's real template import API into the
 Browser checks cover both property-only and complete property pages, all four editorial popups, gallery, hidden-until-sticky Overview navigation, OSM tiles, the safe preview date form, and 768/390/320px widths. The real Elementor editor shows all four popup containers; clicking its native Heading control and typing updates the visible popup-content heading. No runtime modal is created in editor mode. Screenshots: `test-results/elementor-property-popup-editor.png`, `elementor-property-amenities.png`, `elementor-property-desktop.png`, `elementor-property-popup-mobile.png`, and complete-page equivalents.
 
 This is a saved page template for Silo Suite 2, not yet an automated Theme Builder Single template connected to Hostaway property records. Other suites require property-specific content replacement. The booking form remains a design preview; no reservation/payment operation is implemented. Leaflet uses a labelled town reference until verified coordinates are available. No live site was modified.
+
+
+## Resumable importer release 0.2.2
+
+Staging exposed partial import progress with the monolithic importer, so the browser workflow now uses authenticated small steps: at most one new media asset or saved template per request. Native editorial content and popup structure are unchanged. It preserves completed version history and client edits, reports pending media correctly, and pauses safely on failed requests. The importer version, runtime constant, stable tag and package name increment together. Earlier archives remain unchanged.
+
+Verification: `tests/elementor-batch-import.php` proves one-template steps, durable progress, old-history/edit preservation, deduplication, concurrent lock protection and anonymous rejection. `tests/elementor-batch-media.php` exercises one-image steps and the pending-media flag even with complete template history. `tests/elementor-batch-browser.mjs` verifies real nonce-bearing JSON requests and simulated network-failure pause/retry ending with ten saved templates. The original native import/security checks also run against this version. These are isolated local QA results; staging completion is recorded separately in STAGING-REVIEW.md.
+
+
+## Importer 0.2.3 network recovery
+
+Local WordPress/Elementor verification passed: PHP syntax, one-template batches, one-media batches, pending-media completion, preserved edits and old history, deduplication, locking, permission checks, and the real nonce-protected browser endpoint. The browser test aborted an automatic request, recovered via a standard POST and redirect, completed automatic retry, and verified the same standard submission with JavaScript disabled. Every path showed ten saved templates. Navigation waits prevent assertions against stale pages. Staging still needs the user to install this update and confirm completion; generic fetch failure alone does not identify its hosting cause.

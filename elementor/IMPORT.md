@@ -1,4 +1,12 @@
-Current delivery: **0.2.1**, adding property pages and editable popup content. Follow [PROPERTY-IMPORT.md](PROPERTY-IMPORT.md) for the property workflow. Install `silosuites-design-importer-0.2.1.zip`; it imports ten saved templates and 21 media originals. The homepage-only 0.1.1 instructions below remain available for that earlier package.
+## If automatic import reports “Failed to fetch”
+
+Update the existing importer with `releases/silosuites-design-importer-0.2.3.zip` using Plugins → Add Plugin → Upload Plugin → Replace current with uploaded. Then reload Tools → Silo Suites Design and confirm Version 0.2.3.
+
+Click **Continue one step**. The page reloads after importing one image or template. Repeat while the notice says **Step saved**; stop when it says **Imported successfully. All ten saved templates are ready.** A fresh import may require up to 31 clicks; existing media are reused. This button works without fetch or JavaScript. Existing pages, earlier templates, and client edits remain preserved.
+
+If a standard submission also fails, record the exact error/HTTP status on the resulting page. That supplies information to distinguish login expiry, server errors, or a hosting/security block; the original “Failed to fetch” alone does not establish the cause. Do not delete templates or repeatedly submit while a request is still running.
+
+Current delivery: **0.2.3**, adding property pages and editable popup content. Follow [PROPERTY-IMPORT.md](PROPERTY-IMPORT.md) for the property workflow. Install `silosuites-design-importer-0.2.3.zip`; it imports ten saved templates and 21 media originals. The homepage-only 0.1.1 instructions below remain available for that earlier package.
 
 # Import the Silo Suites homepage
 

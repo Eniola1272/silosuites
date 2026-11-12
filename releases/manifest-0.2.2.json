@@ -1,0 +1,44 @@
+{
+  "release": "0.2.2",
+  "scope": "Resumable one-new-item-per-request design importer; unchanged native editorial and popup content.",
+  "verification": [
+    "real native imports",
+    "bounded template/media steps",
+    "pending media correctness",
+    "edit/history preservation",
+    "pause/retry browser workflow",
+    "authorization and nonce checks"
+  ],
+  "artifacts": [
+    {
+      "file": "silosuites-design-importer-0.2.2.zip",
+      "sha256": "f4b9c220fb69709cc5454488eb082226b3b530c4cd50781a6433271aff62d2f9",
+      "bytes": 5241434
+    },
+    {
+      "file": "silosuites-header-footer-0.2.2.zip",
+      "sha256": "7fde917fa1e9c22f11cdbeb02af2b52dea8e63007a43971d83368314ceb2d761",
+      "bytes": 8424
+    },
+    {
+      "file": "silosuites-home-templates-0.2.2.zip",
+      "sha256": "6ccb0c4dfdef59d737b163cca0498742268fceb3be9a0235a2a083f26c8b2e2d",
+      "bytes": 199284
+    },
+    {
+      "file": "silosuites-homepage-delivery-0.2.2.zip",
+      "sha256": "d3b118dacbed3dc0eba46fd8491e383b6386c9de06915173c4ce51d22ecb2765",
+      "bytes": 5441578
+    },
+    {
+      "file": "silosuites-property-delivery-0.2.2.zip",
+      "sha256": "1830c7127f9c6cef701a633c3b80382e297c277d85bbfeb2b1139792c8918f70",
+      "bytes": 5405671
+    },
+    {
+      "file": "silosuites-property-templates-0.2.2.zip",
+      "sha256": "dc18e6de447a5ee71ac1ce30750f1be24ca9e037eacdb12040dad101b432919b",
+      "bytes": 166746
+    }
+  ]
+}
