@@ -16,7 +16,7 @@ try {
   await desktop.goto(base, { waitUntil: 'networkidle' });
   await desktop.locator('.suite-card').first().waitFor();
   assert.equal(await desktop.locator('h1').count(), 1);
-  assert.equal(await desktop.locator('.suite-card').count(), 3);
+  assert.equal(await desktop.locator('.suite-card').count(), 6);
   await desktop.locator('img[loading="lazy"]').evaluateAll(images => images.forEach(i => { i.loading = 'eager'; }));
   await desktop.waitForFunction(() => [...document.images].filter(i => i.hasAttribute('src')).every(i => i.complete && i.naturalWidth > 0));
   assert.equal(await desktop.locator('img[src]').evaluateAll(images => images.every(i => !i.complete || i.naturalWidth > 0)), true);

@@ -4,7 +4,7 @@ This is a local review iteration only. Staging pages, Elementor export payloads,
 
 The homepage now uses the wide original silo exterior (The-Silo-Suites-51.jpg), a directional overlay, the retained headline and a direct location/accommodation description. Hero actions open date selection or jump to the suites. The date bar immediately follows the hero and uses a charcoal Check availability button. Home-specific typography, including navigation, labels, descriptions and links, is larger in home.css; property styles remain independent.
 
-The introduction includes a real porch detail. Featured cards compare Silo 1, Silo 2 and Dairy with capacity, bathrooms, bed information and a distinguishing detail. Silo 2's original export supplies its king/queen/twin arrangement and interior photograph; other bed types are not invented. Capacity/bed counts agree with the read-only Hostaway metadata. Photographs remain review assets pending final per-property checks. No starting prices appear on the homepage.
+The introduction includes a real porch detail. Cards now show all six configured stay options (four individual silos, Dairy and the group option), following the user’s subsequent request. They compare capacity, bathrooms, bed information and a distinguishing detail. Silo 2's original export supplies its king/queen/twin arrangement and interior photograph; other bed types are not invented. Capacity/bed counts agree with the read-only Hostaway metadata. Photographs remain review assets pending final per-property checks. No starting prices appear on the homepage.
 
 Page order: hero and date search, introduction, suite comparison, guest reviews, shorter family story, Stay & Soak, two destination image cards, native FAQ disclosures, direct final booking CTA.
 
@@ -17,3 +17,6 @@ The destination photographs come from the existing supplied export. No estimated
 ## Verification
 
 Existing browser smoke checks passed: homepage assets, date picker/search and carry, results filters, group fixture flow, galleries, invalid dates, private-file isolation, mobile navigation and responsive overflow. Additional review covers 320, 390, 768, 1024 and 1440px widths, the hero booking action, native FAQ disclosure and photo control. Review screenshots are generated locally under test-results/.
+
+
+The subsequent two-action property-card implementation and production PHP/Elementor architecture are documented in [Homepage booking paths](HOMEPAGE-BOOKING-PATHS.md).

@@ -41,3 +41,5 @@ Every delivered plugin update must increment its version and include a changelog
 Rebuild the templates and payload with `python3 tools/build_elementor.py` followed by `python3 tools/build_property_elementor.py`. Package a release with `python3 tools/package_elementor.py`; this checks version consistency, native structure, media hashes, and prevents changed content from replacing an existing release ZIP under the same version.
 
 Read [current project status](docs/PROJECT-STATUS.md) and [booking integration setup](docs/BOOKING-INTEGRATION.md). Build the separate development booking plugin with `python3 tools/package_booking.py`.
+
+Homepage booking shortcuts: all six configured stay options now appear in the local HTML. Check availability opens a property-specific calendar/guest/quote dialog; View suite opens its property page. Both lead to the same explicitly non-transactional checkout preview. See [booking paths and production PHP widget plan](docs/HOMEPAGE-BOOKING-PATHS.md). No live booking/plugin upgrade is implied by this prototype revision.
