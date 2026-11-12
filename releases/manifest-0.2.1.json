@@ -1,0 +1,48 @@
+{
+  "release": "0.2.1",
+  "templates": [
+    "home-content",
+    "home-complete",
+    "header",
+    "footer",
+    "property",
+    "property-complete",
+    "popup-about",
+    "popup-amenities",
+    "popup-rules",
+    "popup-cancellation"
+  ],
+  "verification": "Real Elementor imports, local media, native popup text/style saving, editor heading controls, inactive-importer rendering, responsive modal/gallery/navigation/map/form checks, and repeat-import deduplication passed.",
+  "artifacts": [
+    {
+      "file": "silosuites-design-importer-0.2.1.zip",
+      "sha256": "6fa5e27dee2ea6cf6b97b623b7a08f9c4184c7df4eed7607c2f6a507d7a86d43",
+      "bytes": 5240325
+    },
+    {
+      "file": "silosuites-header-footer-0.2.1.zip",
+      "sha256": "a0041e7c53b924ed6626aa41907f6a7e3974aa87ee68be25534132552ad0a11a",
+      "bytes": 8424
+    },
+    {
+      "file": "silosuites-home-templates-0.2.1.zip",
+      "sha256": "b807a7dfe7249578c2b0771b47934d941589bb9f4976cd96e93441e74d24bd02",
+      "bytes": 199284
+    },
+    {
+      "file": "silosuites-homepage-delivery-0.2.1.zip",
+      "sha256": "9807294c5f25cf25e6050d28dbb2d72c1d799f1d876ecbb77106f6b860622e00",
+      "bytes": 5440461
+    },
+    {
+      "file": "silosuites-property-delivery-0.2.1.zip",
+      "sha256": "5d8d812c9d8d992adc9dd2e85a68e0ba85677cd8f752c27117e8ef3bd0d8d502",
+      "bytes": 5404441
+    },
+    {
+      "file": "silosuites-property-templates-0.2.1.zip",
+      "sha256": "dea279d42c65b163e7929bb303f7ef48f1ef49b28d10420a3e97e00beedaaf4a",
+      "bytes": 166632
+    }
+  ]
+}

@@ -35,6 +35,9 @@ def template_check(path):
     walk(data['content'])
     if data['type']=='page':
         assert len(headings)==1 and widgets.count('heading')>20
+    elif 'popup-' in path.name:
+        assert not headings and widgets.count('heading') >= 1
+        assert any('sp-popup-source' in n['settings'].get('css_classes','') for n in data['content'])
     else:
         assert not headings and widgets.count('image')==1
         assert any(any(marker in n['settings'].get('css_classes','').split() for marker in ('ss-site-header','ss-site-footer')) for n in data['content'])
@@ -68,11 +71,11 @@ def main():
     assert re.search(r'\* Version: '+re.escape(VERSION)+r'\s',php)
     assert f"const VERSION = '{VERSION}';" in php
     assert f'Stable tag: {VERSION}\n' in readme and f'= {VERSION} =' in readme
-    parts=['home-content','home-complete','header','footer']
+    parts=['home-content','home-complete','header','footer','property','property-complete','popup-about','popup-amenities','popup-rules','popup-cancellation']
     names=[f'silosuites-{part}-{VERSION}.json' for part in parts]
     for name in names:template_check(ROOT/'elementor'/name)
     manifest=json.loads((PLUGIN/'payload/media-manifest.json').read_text())
-    assert len(manifest)==16
+    assert len(manifest)>=16
     for asset in manifest:
         assert Path(asset['filename']).name==asset['filename']
         path=PLUGIN/'payload/assets'/asset['filename']
@@ -89,9 +92,11 @@ def main():
     OUTPUT.mkdir(exist_ok=True)
     release(f'silosuites-design-importer-{VERSION}.zip',installer)
     release(f'silosuites-home-templates-{VERSION}.zip',templates)
+    release(f'silosuites-property-templates-{VERSION}.zip',archive([(name,(ROOT/'elementor'/name).read_bytes()) for name in names if '-property-' in name or '-popup-' in name]+[('PROPERTY-IMPORT.md',(ROOT/'elementor/PROPERTY-IMPORT.md').read_bytes())]))
     release(f'silosuites-header-footer-{VERSION}.zip',archive([(name,(ROOT/'elementor'/name).read_bytes()) for name in names if '-header-' in name or '-footer-' in name]))
     delivery=archive([('IMPORT.md',(ROOT/'elementor/IMPORT.md').read_bytes()),(f'silosuites-design-importer-{VERSION}.zip',installer),*[(name,(ROOT/'elementor'/name).read_bytes()) for name in names]])
     release(f'silosuites-homepage-delivery-{VERSION}.zip',delivery)
+    release(f'silosuites-property-delivery-{VERSION}.zip',archive([('PROPERTY-IMPORT.md',(ROOT/'elementor/PROPERTY-IMPORT.md').read_bytes()),(f'silosuites-design-importer-{VERSION}.zip',installer),*[(name,(ROOT/'elementor'/name).read_bytes()) for name in names if '-property-' in name or '-popup-' in name]]))
     print('PASS: template structure, unique IDs, native widgets, media checksums, version consistency, payload parity, and immutable release checks.')
 
 

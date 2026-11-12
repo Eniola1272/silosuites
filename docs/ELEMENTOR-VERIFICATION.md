@@ -35,3 +35,14 @@ Both imported pages also rendered in fresh HTTP requests with the installer deac
 This verifies the homepage design import. It does not verify Hostaway availability, rates, payments, add-ons, guest messaging, site-wide Theme Builder conditions, physical-phone behaviour, or production Core Web Vitals. The date form is deliberately a preview. The importer does not replace the homepage or modify existing pages, and it can be deactivated after importing.
 
 The complete JSON's portable logo reference is resolved by the installer. When importing that JSON manually without the installer, select the supplied logo in the two Image widgets. The direct content-only JSON relies on the original media host being reachable; the installer bundles originals and removes that dependency.
+
+
+## Property release 0.2.1
+
+Imported the 0.2.1 payload through Elementor's real template import API into the isolated WordPress 7.0.1 / Elementor 4.4.0 / PHP 8.2.29 site. All ten templates import; 21 original media assets are local. Property content contains 32 native containers, 29 headings, 24 Text Editor widgets, 8 Image widgets and 15 Button widgets. Four HTML widgets supply styles, the preview form, map mount point and interaction runtime. Four popup content containers remain native Elementor content.
+
+`tests/elementor-property-import.php` verifies media remapping, native popup storage, repeat-import deduplication, and saved text edits. A native popup heading was saved with a new title, colour #123456 and 29px size. `tests/elementor-property.mjs` verified all three values in the opened frontend modal while the importer was deactivated. The runtime preserves Elementor's document CSS scope around portalled content, so native style edits survive opening a popup.
+
+Browser checks cover both property-only and complete property pages, all four editorial popups, gallery, hidden-until-sticky Overview navigation, OSM tiles, the safe preview date form, and 768/390/320px widths. The real Elementor editor shows all four popup containers; clicking its native Heading control and typing updates the visible popup-content heading. No runtime modal is created in editor mode. Screenshots: `test-results/elementor-property-popup-editor.png`, `elementor-property-amenities.png`, `elementor-property-desktop.png`, `elementor-property-popup-mobile.png`, and complete-page equivalents.
+
+This is a saved page template for Silo Suite 2, not yet an automated Theme Builder Single template connected to Hostaway property records. Other suites require property-specific content replacement. The booking form remains a design preview; no reservation/payment operation is implemented. Leaflet uses a labelled town reference until verified coordinates are available. No live site was modified.

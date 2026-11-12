@@ -1,0 +1,75 @@
+{
+  "checked_at_utc": "2026-11-11T23:38:22Z",
+  "source": "Authenticated read-only Hostaway listings response",
+  "scope": "Listing identity and room metadata only; no rates, availability, checkout, payment or cross-listing proof",
+  "listings": [
+    {
+      "property": "dairy",
+      "display_name": "The Dairy Suite",
+      "listing_id": "603415",
+      "capacity": 4,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "beds": 2,
+      "currency": "USD",
+      "mapping_basis": "Listing identity and metadata from the connected Hostaway account; publication and bookability unverified"
+    },
+    {
+      "property": "silo-1",
+      "display_name": "Silo Suite 1",
+      "listing_id": "143824",
+      "capacity": 4,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "beds": 2,
+      "currency": "USD",
+      "mapping_basis": "Listing identity and metadata from the connected Hostaway account; publication and bookability unverified"
+    },
+    {
+      "property": "silo-2",
+      "display_name": "Silo Suite 2",
+      "listing_id": "143823",
+      "capacity": 5,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "beds": 3,
+      "currency": "USD",
+      "mapping_basis": "Listing identity and metadata from the connected Hostaway account; publication and bookability unverified"
+    },
+    {
+      "property": "silo-3",
+      "display_name": "Silo Suite 3",
+      "listing_id": "143826",
+      "capacity": 5,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "beds": 3,
+      "currency": "USD",
+      "mapping_basis": "Listing identity and metadata from the connected Hostaway account; publication and bookability unverified"
+    },
+    {
+      "property": "silo-4",
+      "display_name": "Silo Suite 4",
+      "listing_id": "143825",
+      "capacity": 4,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "beds": 2,
+      "currency": "USD",
+      "mapping_basis": "Listing identity and metadata from the connected Hostaway account; publication and bookability unverified"
+    }
+  ],
+  "unresolved": [
+    {
+      "property": "all-silos",
+      "listing_id": null,
+      "reason": "No separate group listing returned by this API credential; verify listing/account access and cross-listing setup before enabling group booking."
+    }
+  ],
+  "dashboard_status_evidence": {
+    "source": "User-supplied Hostaway listing screenshot, 12 November 2026",
+    "listing_count": 5,
+    "displayed_status": "Live for all five returned listings",
+    "scope": "Dashboard status only, not proof of direct-booking availability or transaction support"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "plugin": "silosuites-booking",
+  "version": "0.1.0",
+  "scope": "Read-only authentication, listing metadata and property mapping. No checkout or booking sync.",
+  "artifact": "silosuites-booking-0.1.0.zip",
+  "sha256": "6df3316c0732dc14e28087ecbbe5849c2329f17d1ef80e803f68f082876de9e5",
+  "bytes": 6513,
+  "tests": [
+    "WordPress HTTP fixture integration",
+    "administrator browser and nonce checks"
+  ]
+}

@@ -10,7 +10,7 @@ wp_set_current_user( 1 );
 $media_before = (int) wp_count_posts( 'attachment' )->inherit;
 $templates_before = (int) wp_count_posts( 'elementor_library' )->publish;
 $result = \SiloSuites\DesignImporter\import_design();
-ssqa_assert( ! is_wp_error( $result ) && 4 === count( $result ), 'Four imported templates required.' );
+ssqa_assert( ! is_wp_error( $result ) && 10 === count( $result ), 'Ten imported templates required.' );
 ssqa_assert( $media_before === (int) wp_count_posts( 'attachment' )->inherit, 'Repeat import duplicated media.' );
 ssqa_assert( $templates_before === (int) wp_count_posts( 'elementor_library' )->publish, 'Repeat import duplicated templates.' );
 

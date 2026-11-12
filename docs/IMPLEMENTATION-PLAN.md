@@ -4,7 +4,7 @@ Prepared 11 November 2026. This plan covers the local HTML design, WordPress and
 
 We will design and refine the entire guest journey in HTML first. After design sign-off, we will recreate editorial content as native Elementor elements and deliver an installable PHP plugin for the dynamic booking system. Hostaway will remain the operational system of record.
 
-Implementation update, 11 November 2026: the first local HTML preview is built, including the homepage, sample availability search, six property variants, galleries, Hot Springs, and Local Guide. Local setup and secure API configuration are documented in [Local preview](LOCAL-PREVIEW.md). Live Hostaway integration, checkout, Elementor conversion, and the plugin are still pending.
+Implementation update, 11 November 2026: the first local HTML preview is built, including the homepage, sample availability search, six property variants, galleries, Hot Springs, and Local Guide. Local setup and secure API configuration are documented in [Local preview](LOCAL-PREVIEW.md). Native Elementor home/property/header/footer templates now exist. The separate Hostaway booking plugin 0.1.0 supplies read-only connection diagnostics and mapping. Live availability, checkout and booking sync remain pending. See PROJECT-STATUS.md for current progress.
 
 Subsequent update: the homepage has been converted into native Elementor templates using the current-homepage export's original assets. A separate design-importer plugin, version 0.1.0, installs the media and saved templates without changing existing pages. See [import instructions](../elementor/IMPORT.md). This completes the initial homepage conversion; the full site conversion, Hostaway connector, and live checkout remain pending.
 

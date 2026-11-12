@@ -80,3 +80,19 @@ The spike must produce a concrete recommendation, with evidence for each item:
 9. Record checkout choice A/B/C, account dependencies, unsupported requirements, cost differences, and Homlay's written decision.
 
 Do not send a support request, create bookings, charge/refund, alter inventory, or modify the live website as part of this read-only planning task. Prepare the exact questions/test procedure first and perform external operations only within the user's explicit instructions and the approved test setup.
+
+Development update: Silo Suites Booking 0.1.0 now implements server-side read-only authentication/listing metadata diagnostics and manual listing mapping. Integration tests used synthetic HTTP responses in isolated WordPress; they did not contact the live account. The secure local credential file was still absent at the latest review. Checkout, add-on, processor, group blocking, channel sync and messaging capabilities remain unverified. See BOOKING-INTEGRATION.md and PROJECT-STATUS.md.
+
+
+## Live account connection confirmed — 12 November 2026 (Africa/Lagos)
+
+Authenticated successfully using privately configured credentials and read listing metadata. Five listings were returned: Silo Suite 1 (143824), Silo Suite 2 (143823), Silo Suite 3 (143826), Silo Suite 4 (143825), and Dairy Suite (603415). The returned Silo Suite 2 counts are 5 guests, 2 bedrooms, 3 beds and 1 bathroom, matching the supplied property export. A safe public-field mapping is recorded in `shared/hostaway-listing-map.json`; credentials and the discovery report remain private.
+
+No separate All Four Silos/group listing was returned by this API credential. This does not establish that a group listing is absent from every account or access scope. Group checkout remains blocked pending verified listing identity, publication and parent/child relationships. Dairy is present in the API; that does not establish that it is published or accepting direct bookings. Fee settings present on a listing do not prove that optional extras are complete or purchasable in the selected checkout.
+
+No reservations, guest records, messages, payments, inventory or webhooks were read or changed by this check. Only authentication and listing metadata were exercised. Live availability, rates, checkout, extras, payment processing, group inventory and channel sync remain unverified. The local discovery connection does not automatically configure credentials on WordPress staging or a live server.
+
+
+## User environment confirmation — 12 November 2026
+
+User confirmed https://darkseagreen-butterfly-103736.hostingersite.com/ as staging and silosuites.com as the final migration target. Their current Hostaway listing screenshot shows five listings total on a single page: Silos 1–4 and Dairy, all with Live badges. No separate All Four Silos listing is shown. Direct booking availability, account cross-listing relationships and transaction behaviour remain separate checks. Remote WordPress admin/server access is still needed; no staging changes were performed.

@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Silo Suites Design Importer
- * Description: Imports the supplied Silo Suites media and editable Elementor homepage templates. Does not change the live homepage or connect to Hostaway.
- * Version: 0.1.1
+ * Description: Imports the supplied Silo Suites media and editable Elementor homepage and property templates. Does not change the live homepage or connect to Hostaway.
+ * Version: 0.2.1
  * Requires at least: 6.8
  * Requires PHP: 7.4
  * Author: Homlay
@@ -13,7 +13,7 @@
 namespace SiloSuites\DesignImporter;
 
 defined( 'ABSPATH' ) || exit;
-const VERSION = '0.1.1';
+const VERSION = '0.2.1';
 
 add_action( 'admin_menu', function () {
     add_management_page( 'Silo Suites Design', 'Silo Suites Design', 'manage_options', 'silosuites-design', __NAMESPACE__ . '\\admin_page' );
@@ -25,7 +25,7 @@ add_action( 'admin_post_ssdi_import_design', function () {
     }
     check_admin_referer( 'ssdi_import_design' );
     $result = import_design();
-    set_transient( 'ssdi_result_' . get_current_user_id(), is_wp_error( $result ) ? $result->get_error_message() : 'Imported successfully. Find the four saved templates below.', 120 );
+    set_transient( 'ssdi_result_' . get_current_user_id(), is_wp_error( $result ) ? $result->get_error_message() : 'Imported successfully. Find the saved templates below.', 120 );
     wp_safe_redirect( admin_url( 'tools.php?page=silosuites-design' ) );
     exit;
 } );
@@ -38,7 +38,7 @@ function admin_page() {
     ?>
     <div class="wrap">
         <h1>Silo Suites Design</h1>
-        <p>Version <?php echo esc_html( VERSION ); ?>. Import the original media, homepage templates, and separate header/footer sections into this site's Elementor library.</p>
+        <p>Version <?php echo esc_html( VERSION ); ?>. Import the original media, homepage and property templates, editable popup sections, and header/footer sections into this site's Elementor library.</p>
         <p>This creates saved templates only. It does not replace pages, change the homepage, connect to Hostaway, or create bookings.</p>
         <?php $message = get_transient( 'ssdi_result_' . get_current_user_id() ); ?>
         <?php if ( $message ) : ?>
@@ -143,11 +143,11 @@ function import_design() {
         }
         $history = get_option( 'ssdi_import_history', array() );
         if ( ! isset( $history[ VERSION ] ) ) { $history[ VERSION ] = array( 'templates' => array() ); }
-        foreach ( array( 'home-content', 'home-complete', 'header', 'footer' ) as $name ) {
+        foreach ( array( 'home-content', 'home-complete', 'header', 'footer', 'property', 'property-complete', 'popup-about', 'popup-amenities', 'popup-rules', 'popup-cancellation' ) as $name ) {
             $existing_id = isset( $history[ VERSION ]['templates'][ $name ] ) ? $history[ VERSION ]['templates'][ $name ] : 0;
             if ( $existing_id && 'elementor_library' === get_post_type( $existing_id ) ) { continue; }
             $data = json_decode( file_get_contents( $payload . $name . '.json' ), true );
-            $expected_type = in_array( $name, array( 'header', 'footer' ), true ) ? 'section' : 'page';
+            $expected_type = ( in_array( $name, array( 'header', 'footer' ), true ) || 0 === strpos( $name, 'popup-' ) ) ? 'section' : 'page';
             if ( ! is_array( $data ) || empty( $data['content'] ) || $expected_type !== $data['type'] ) { return new \WP_Error( 'ssdi_template', 'A bundled template is invalid.' ); }
             $data = rewrite_media( $data, $mapping );
             $temporary = wp_tempnam( $name . '.json' );

@@ -47,3 +47,5 @@ The user requires a version update for every plugin update.
 - `tools/package_elementor.py` rejects changes to an existing release ZIP without a version increment. Do not bypass that check.
 - The design importer only installs media and saved templates. Keep it independent of Hostaway credentials and booking operations; imported editorial content must work with the importer deactivated.
 - The three small HTML widgets contain styles, search preview, and mobile navigation only. Keep editorial content native. Date search must not claim live availability until the booking connector supports it.
+
+- Property templates: run `tools/build_property_elementor.py` after `tools/build_elementor.py` before packaging. Native popup containers own editorial content; `elementor/property-runtime.js` only supplies behaviour. Preserve Elementor document CSS scope when moving popup content into dialogs, and disable that runtime in editor mode. Read `elementor/PROPERTY-IMPORT.md` for client editing instructions.

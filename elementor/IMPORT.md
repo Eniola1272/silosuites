@@ -1,3 +1,5 @@
+Current delivery: **0.2.1**, adding property pages and editable popup content. Follow [PROPERTY-IMPORT.md](PROPERTY-IMPORT.md) for the property workflow. Install `silosuites-design-importer-0.2.1.zip`; it imports ten saved templates and 21 media originals. The homepage-only 0.1.1 instructions below remain available for that earlier package.
+
 # Import the Silo Suites homepage
 
 Release 0.1.1. This converts the new homepage direction into native Elementor containers, headings, images, text, and buttons. It reuses the original photos referenced in `elementor-3801-2026-11-11.json` and your supplied no-pig logo.

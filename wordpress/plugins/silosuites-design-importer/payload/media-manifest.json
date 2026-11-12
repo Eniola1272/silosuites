@@ -110,5 +110,40 @@
     "sha256": "97cb5f80dc7b1559868d2994ec383b74bfea5d9e367c1ff7243fcdde52960799",
     "source_id": 9990001,
     "alt": "Silo Suites \u2014 Historic Church's Dairy, La Verkin, Utah"
+  },
+  {
+    "filename": "property-2-The-Silo-Suites-12-3.jpg",
+    "template_url": "/wp-content/uploads/silosuites-design/property-2-The-Silo-Suites-12-3.jpg",
+    "source_id": 9990100,
+    "sha256": "44a2fc4582624fb204cc69dd0a24117a1452e2e6176316a97e1ebf234797acc1",
+    "alt": "Silo Suite 2 \u2014 main floor bedroom"
+  },
+  {
+    "filename": "The-Silo-Suites-13.jpg",
+    "template_url": "/wp-content/uploads/silosuites-design/The-Silo-Suites-13.jpg",
+    "source_id": 9990101,
+    "sha256": "80e769be0bdfd19877cb1e81f2c776fa421b0ba5df5f13f55085265403dea2da",
+    "alt": "Silo Suite 2 \u2014 sitting area and bedroom"
+  },
+  {
+    "filename": "The-Silo-Suites-36.jpg",
+    "template_url": "/wp-content/uploads/silosuites-design/The-Silo-Suites-36.jpg",
+    "source_id": 9990102,
+    "sha256": "bc8a18af2c765d5379899028374e36817e68653089713e92e17909cea30720e0",
+    "alt": "Silo Suite 2 \u2014 upstairs sleeping space"
+  },
+  {
+    "filename": "The-Silo-Suites-17.jpg",
+    "template_url": "/wp-content/uploads/silosuites-design/The-Silo-Suites-17.jpg",
+    "source_id": 9990103,
+    "sha256": "b6c8902d0f39d2f55f98dbcfd9fdb19668ef94d5b449e6619be3dbf608157580",
+    "alt": "Silo Suite 2 \u2014 bright interior"
+  },
+  {
+    "filename": "property-2-The-Silo-Suites-51.jpg",
+    "template_url": "/wp-content/uploads/silosuites-design/property-2-The-Silo-Suites-51.jpg",
+    "source_id": 9990104,
+    "sha256": "377798da3183bda278a9e37b11088a768a9d26872f4741fa72057deb43d06645",
+    "alt": "Silo Suite 2 \u2014 farm exterior"
   }
 ]

@@ -1,0 +1,1092 @@
+{
+  "content": [
+    {
+      "id": "78dd5493",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "_title": "Footer — Scoped styles — keep this section",
+        "content_width": "full",
+        "width": {
+          "unit": "%",
+          "size": 100,
+          "sizes": []
+        },
+        "flex_direction": "column",
+        "flex_gap": {
+          "unit": "px",
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "css_classes": "ss-design ss-zero"
+      },
+      "elements": [
+        {
+          "id": "a254550a",
+          "elType": "widget",
+          "widgetType": "html",
+          "isInner": false,
+          "settings": {
+            "_title": "00 — Design styles — keep this widget",
+            "_margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "html": "<style>\n/* Scoped presentation helpers. Text, media, spacing, type and colour controls remain native. */\n:where(.ss-design) { --ss-ink:#181a16; --ss-olive:#7e8e76; --ss-cream:#f8f5eb; --ss-tan:#d6c3ae; color:var(--ss-ink); font-family:Arial,Helvetica,sans-serif; }\n:where(.ss-design) * { box-sizing:border-box; }\n:where(.ss-design) a { text-decoration:none; }\n:where(.ss-design) p:last-child { margin-bottom:0; }\n:where(.ss-design) .elementor-heading-title { text-transform:none; }\n:where(.ss-design) em { font-weight:400; }\n:where(.ss-design) :focus-visible { outline:2px solid currentColor; outline-offset:5px; }\n.ss-design.ss-wrap { max-width:min(1320px,calc(100% - 10vw)); margin-inline:auto; }\n.ss-design.ss-zero { min-height:0; height:0; overflow:visible; padding:0; margin:0; }\n.ss-design .ss-link .elementor-button { padding:10px 0; border-bottom:1px solid currentColor; }\n.ss-design .ss-button .elementor-button { min-height:50px; display:inline-flex; align-items:center; justify-content:space-between; gap:28px; }\n.ss-design .ss-has-arrow .elementor-button-content-wrapper { width:100%; }\n.ss-design .ss-has-arrow .elementor-button-text { display:flex; align-items:center; justify-content:space-between; gap:28px; text-align:left; }\n.ss-design .ss-has-arrow .elementor-button-text::after { content:'↗'; font-size:21px; line-height:1; }\n.ss-design .ss-card-image img { display:block; width:100%; height:330px; object-fit:cover; transition:transform .35s ease; }\n.ss-design .ss-card-image { overflow:hidden; }\n.ss-design .ss-card-image:hover img { transform:scale(1.025); }\n.ss-design .ss-hero { isolation:isolate; }\n.ss-design .ss-logo img { width:92px; height:80px; object-fit:contain; }\n.ss-design .ss-story-image img { width:100%; height:auto; aspect-ratio:1; object-fit:cover; border:8px solid #f8f5eb; }\n.ss-design .ss-soak-image img { width:100%; height:auto; aspect-ratio:1.93; object-fit:cover; }\n.ss-design .ss-soak-card { z-index:2; }\n.ss-design .ss-guide-image img { width:100%; height:auto; aspect-ratio:1.7; object-fit:cover; }\n.ss-design .ss-eyebrow .elementor-heading-title { line-height:1.7; }\n.ss-design .ss-style-widget { width:100%; margin:0; }\n.ss-search { display:grid; grid-template-columns:1fr 1fr .85fr 1.15fr; background:white; padding:20px; border:1px solid #e5e4da; box-shadow:0 12px 40px #0000000b; font-family:Arial,Helvetica,sans-serif; }\n.ss-search label { display:flex; flex-direction:column; justify-content:center; gap:8px; padding:3px 24px; border-right:1px solid #d8d8cc; min-width:0; }\n.ss-search label span { font-size:9px; font-weight:600; letter-spacing:.15em; text-transform:uppercase; }\n.ss-search input,.ss-search select { font:16px Arial,Helvetica,sans-serif; width:100%; color:#181a16; background:transparent; border:0; border-radius:0; padding:4px 0; min-height:32px; min-width:0; }\n.ss-search label:nth-child(3) { border:0; }\n.ss-search button { background:#7e8e76; color:#000; border:0; border-radius:0; font:12px Arial,Helvetica,sans-serif; min-height:62px; padding:15px 24px; display:flex; align-items:center; justify-content:space-between; gap:15px; cursor:pointer; }\n.ss-search button span { font-size:23px; }\n.ss-search button:hover { background:#9ba78f; }\n.ss-search-error { font:14px/1.6 Arial,Helvetica,sans-serif; color:#82382a; margin-top:12px; }\n.ss-search-note { font:11px/1.5 Arial,Helvetica,sans-serif; color:#595d54; margin:12px 0 0; }\n.ss-search-note a { text-decoration:underline; color:inherit; }\n.ss-mobile-menu { position:relative; font:13px Arial,Helvetica,sans-serif; }\n.ss-mobile-menu summary { min-height:44px; display:flex; align-items:center; cursor:pointer; list-style:none; }\n.ss-mobile-menu summary::-webkit-details-marker { display:none; }\n.ss-mobile-menu nav { position:absolute; right:0; top:52px; z-index:90; min-width:240px; padding:18px 24px; background:#f8f5eb; box-shadow:0 8px 25px #0002; }\n.ss-mobile-menu nav a { display:block; font:23px/1.3 Georgia,serif; color:#181a16; padding:14px 0; border-bottom:1px solid #d6c3ae; }\n@media(max-width:1024px) {\n  .ss-design.ss-wrap { max-width:calc(100% - 64px); }\n  .ss-design .ss-card-image img { height:270px; }\n  .ss-search label { padding-inline:16px; }\n}\n@media(max-width:767px) {\n  .ss-design.ss-wrap { max-width:calc(100% - 48px); }\n  .ss-design .ss-logo img { width:74px; height:68px; }\n  .ss-design .ss-card-image img { height:auto; aspect-ratio:1.16; }\n  .ss-design .ss-soak-image img { aspect-ratio:1.25; }\n  .ss-design .ss-story-image { max-width:390px; }\n  .ss-search { grid-template-columns:1fr 1fr; padding:10px; }\n  .ss-search label { padding:14px; min-height:80px; }\n  .ss-search label:nth-child(2) { border:0; }\n  .ss-search label:nth-child(3) { border-top:1px solid #d8d8cc; }\n  .ss-search button { margin:8px 0 0 8px; padding-inline:15px; }\n  .ss-search input,.ss-search select { font-size:16px; }\n}\n@media(prefers-reduced-motion:reduce) { .ss-design * { transition:none!important; animation:none!important; scroll-behavior:auto!important; } }\n\n</style>",
+            "_css_classes": "ss-style-widget"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "d2e97d96",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "_title": "Footer — Page footer",
+        "content_width": "full",
+        "width": {
+          "unit": "%",
+          "size": 100,
+          "sizes": []
+        },
+        "flex_direction": "column",
+        "flex_gap": {
+          "unit": "px",
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "60",
+          "right": "0",
+          "bottom": "25",
+          "left": "0",
+          "isLinked": false
+        },
+        "css_classes": "ss-design ss-section ss-site-footer",
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding_mobile": {
+          "unit": "px",
+          "top": "65",
+          "right": "0",
+          "bottom": "65",
+          "left": "0",
+          "isLinked": false
+        },
+        "html_tag": "div"
+      },
+      "elements": [
+        {
+          "id": "41bbb93f",
+          "elType": "container",
+          "isInner": false,
+          "settings": {
+            "_title": "Footer — Inner",
+            "content_width": "full",
+            "width": {
+              "unit": "%",
+              "size": 100,
+              "sizes": []
+            },
+            "flex_direction": "column",
+            "flex_gap": {
+              "unit": "px",
+              "column": "0",
+              "row": "0",
+              "isLinked": true,
+              "size": 0
+            },
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "css_classes": "ss-design ss-wrap"
+          },
+          "elements": [
+            {
+              "id": "cafdfbf4",
+              "elType": "container",
+              "isInner": false,
+              "settings": {
+                "_title": "Footer — Columns",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 100,
+                  "sizes": []
+                },
+                "flex_direction": "row",
+                "flex_gap": {
+                  "unit": "px",
+                  "column": "40",
+                  "row": "40",
+                  "isLinked": true,
+                  "size": 40
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "css_classes": "ss-design ",
+                "flex_direction_mobile": "column"
+              },
+              "elements": [
+                {
+                  "id": "ca95e1ff",
+                  "elType": "container",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "Footer — Brand",
+                    "content_width": "full",
+                    "width": {
+                      "unit": "%",
+                      "size": 34,
+                      "sizes": []
+                    },
+                    "flex_direction": "column",
+                    "flex_gap": {
+                      "unit": "px",
+                      "column": "0",
+                      "row": "0",
+                      "isLinked": true,
+                      "size": 0
+                    },
+                    "padding": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "css_classes": "ss-design ",
+                    "width_mobile": {
+                      "unit": "%",
+                      "size": 100,
+                      "sizes": []
+                    }
+                  },
+                  "elements": [
+                    {
+                      "id": "27f0f66f",
+                      "elType": "widget",
+                      "widgetType": "image",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "Footer — Original logo",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "image": {
+                          "url": "/wp-content/uploads/silosuites-design/silo-logo.png",
+                          "id": 9990001,
+                          "alt": "Silo Suites — Historic Church's Dairy, La Verkin, Utah",
+                          "source": "library",
+                          "size": ""
+                        },
+                        "image_size": "full",
+                        "align": "left",
+                        "_css_classes": "ss-logo",
+                        "link_to": "custom",
+                        "link": {
+                          "url": "/"
+                        },
+                        "_element_width": "auto"
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "33c2ecff",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "Footer — Brand line",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "title": "A little history.<br><em>A lot of comfort.</em>",
+                        "header_size": "p",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Georgia",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 21,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "px",
+                          "size": 21,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "400",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.12,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "px",
+                          "size": -1,
+                          "sizes": []
+                        },
+                        "title_color": "#181A16",
+                        "_css_classes": ""
+                      },
+                      "elements": []
+                    }
+                  ]
+                },
+                {
+                  "id": "b56c3d81",
+                  "elType": "container",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "Footer — Navigation",
+                    "content_width": "full",
+                    "width": {
+                      "unit": "%",
+                      "size": 25,
+                      "sizes": []
+                    },
+                    "flex_direction": "column",
+                    "flex_gap": {
+                      "unit": "px",
+                      "column": "0",
+                      "row": "0",
+                      "isLinked": true,
+                      "size": 0
+                    },
+                    "padding": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "css_classes": "ss-design ",
+                    "width_mobile": {
+                      "unit": "%",
+                      "size": 100,
+                      "sizes": []
+                    }
+                  },
+                  "elements": [
+                    {
+                      "id": "8e22a377",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "Footer — Explore label",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "18",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "title": "Make yourself at home",
+                        "header_size": "p",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Arial",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "600",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.7,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "px",
+                          "size": 1.5,
+                          "sizes": []
+                        },
+                        "title_color": "#595D54",
+                        "_css_classes": "ss-eyebrow",
+                        "typography_text_transform": "uppercase"
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "ca49e759",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "Footer link 0",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "text": "Our suites",
+                        "link": {
+                          "url": "/our-silo-suites/",
+                          "is_external": "",
+                          "nofollow": "",
+                          "custom_attributes": ""
+                        },
+                        "typography_typography": "custom",
+                        "typography_font_family": "Arial",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 12,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "400",
+                        "button_text_color": "#181A16",
+                        "background_color": "#FFFFFF00",
+                        "hover_color": "#181A16",
+                        "button_background_hover_color": "#FFFFFF00",
+                        "border_radius": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "text_padding": {
+                          "unit": "px",
+                          "top": "10",
+                          "right": "0",
+                          "bottom": "10",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "_css_classes": "",
+                        "_element_width": "auto"
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "49118027",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "Footer link 1",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "text": "Our story",
+                        "link": {
+                          "url": "/#our-story",
+                          "is_external": "",
+                          "nofollow": "",
+                          "custom_attributes": ""
+                        },
+                        "typography_typography": "custom",
+                        "typography_font_family": "Arial",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 12,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "400",
+                        "button_text_color": "#181A16",
+                        "background_color": "#FFFFFF00",
+                        "hover_color": "#181A16",
+                        "button_background_hover_color": "#FFFFFF00",
+                        "border_radius": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "text_padding": {
+                          "unit": "px",
+                          "top": "10",
+                          "right": "0",
+                          "bottom": "10",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "_css_classes": "",
+                        "_element_width": "auto"
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "96ed4db3",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "Footer link 2",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "text": "Stay & Soak",
+                        "link": {
+                          "url": "/hot-springs/",
+                          "is_external": "",
+                          "nofollow": "",
+                          "custom_attributes": ""
+                        },
+                        "typography_typography": "custom",
+                        "typography_font_family": "Arial",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 12,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "400",
+                        "button_text_color": "#181A16",
+                        "background_color": "#FFFFFF00",
+                        "hover_color": "#181A16",
+                        "button_background_hover_color": "#FFFFFF00",
+                        "border_radius": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "text_padding": {
+                          "unit": "px",
+                          "top": "10",
+                          "right": "0",
+                          "bottom": "10",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "_css_classes": "",
+                        "_element_width": "auto"
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "88045a57",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "Footer link 3",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "text": "Local guide",
+                        "link": {
+                          "url": "/local-guide/",
+                          "is_external": "",
+                          "nofollow": "",
+                          "custom_attributes": ""
+                        },
+                        "typography_typography": "custom",
+                        "typography_font_family": "Arial",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 12,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "400",
+                        "button_text_color": "#181A16",
+                        "background_color": "#FFFFFF00",
+                        "hover_color": "#181A16",
+                        "button_background_hover_color": "#FFFFFF00",
+                        "border_radius": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "text_padding": {
+                          "unit": "px",
+                          "top": "10",
+                          "right": "0",
+                          "bottom": "10",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "_css_classes": "",
+                        "_element_width": "auto"
+                      },
+                      "elements": []
+                    }
+                  ]
+                },
+                {
+                  "id": "1b65749a",
+                  "elType": "container",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "Footer — Location",
+                    "content_width": "full",
+                    "width": {
+                      "unit": "%",
+                      "size": 25,
+                      "sizes": []
+                    },
+                    "flex_direction": "column",
+                    "flex_gap": {
+                      "unit": "px",
+                      "column": "0",
+                      "row": "0",
+                      "isLinked": true,
+                      "size": 0
+                    },
+                    "padding": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "css_classes": "ss-design ",
+                    "width_mobile": {
+                      "unit": "%",
+                      "size": 100,
+                      "sizes": []
+                    }
+                  },
+                  "elements": [
+                    {
+                      "id": "d2d730ac",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "Footer — Location label",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "18",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "title": "Find us",
+                        "header_size": "p",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Arial",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "600",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.7,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "px",
+                          "size": 1.5,
+                          "sizes": []
+                        },
+                        "title_color": "#595D54",
+                        "_css_classes": "ss-eyebrow",
+                        "typography_text_transform": "uppercase"
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "fecefd20",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "Footer — Address",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "editor": "<p>Historic Church Dairy Farm<br>La Verkin, Utah<br>Near Zion National Park</p>",
+                        "text_color": "#595D54",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Arial",
+                        "typography_font_weight": "400",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 13,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "px",
+                          "size": 16,
+                          "sizes": []
+                        },
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.8,
+                          "sizes": []
+                        }
+                      },
+                      "elements": []
+                    }
+                  ]
+                },
+                {
+                  "id": "0e4f2380",
+                  "elType": "container",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "Footer — Contact",
+                    "content_width": "full",
+                    "width": {
+                      "unit": "%",
+                      "size": 25,
+                      "sizes": []
+                    },
+                    "flex_direction": "column",
+                    "flex_gap": {
+                      "unit": "px",
+                      "column": "0",
+                      "row": "0",
+                      "isLinked": true,
+                      "size": 0
+                    },
+                    "padding": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "css_classes": "ss-design ",
+                    "width_mobile": {
+                      "unit": "%",
+                      "size": 100,
+                      "sizes": []
+                    }
+                  },
+                  "elements": [
+                    {
+                      "id": "47b392e8",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "Footer — Contact label",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "18",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "title": "A warm welcome awaits",
+                        "header_size": "p",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Arial",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "600",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.7,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "px",
+                          "size": 1.5,
+                          "sizes": []
+                        },
+                        "title_color": "#595D54",
+                        "_css_classes": "ss-eyebrow",
+                        "typography_text_transform": "uppercase"
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "380e9c9b",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "Footer — Phone",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "text": "435 586 8658",
+                        "link": {
+                          "url": "tel:+14355868658",
+                          "is_external": "",
+                          "nofollow": "",
+                          "custom_attributes": ""
+                        },
+                        "typography_typography": "custom",
+                        "typography_font_family": "Arial",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 12,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "400",
+                        "button_text_color": "#181A16",
+                        "background_color": "#FFFFFF00",
+                        "hover_color": "#181A16",
+                        "button_background_hover_color": "#FFFFFF00",
+                        "border_radius": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "text_padding": {
+                          "unit": "px",
+                          "top": "10",
+                          "right": "0",
+                          "bottom": "10",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "_css_classes": "",
+                        "_element_width": "auto"
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "b12fcaf1",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "Footer — Stay link",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "text": "Find your stay",
+                        "link": {
+                          "url": "/our-silo-suites/",
+                          "is_external": "",
+                          "nofollow": "",
+                          "custom_attributes": ""
+                        },
+                        "typography_typography": "custom",
+                        "typography_font_family": "Arial",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 12,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "400",
+                        "button_text_color": "#181A16",
+                        "background_color": "#FFFFFF00",
+                        "hover_color": "#181A16",
+                        "button_background_hover_color": "#FFFFFF00",
+                        "border_radius": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "text_padding": {
+                          "unit": "px",
+                          "top": "10",
+                          "right": "0",
+                          "bottom": "10",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "_css_classes": " ss-has-arrow",
+                        "_element_width": "auto"
+                      },
+                      "elements": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "f562cb50",
+              "elType": "container",
+              "isInner": false,
+              "settings": {
+                "_title": "Footer — Bottom",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 100,
+                  "sizes": []
+                },
+                "flex_direction": "row",
+                "flex_gap": {
+                  "unit": "px",
+                  "column": "30",
+                  "row": "30",
+                  "isLinked": true,
+                  "size": 30
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "20",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "css_classes": "ss-design ",
+                "flex_direction_mobile": "column",
+                "flex_justify_content": "space-between",
+                "margin": {
+                  "unit": "px",
+                  "top": "35",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "border_color": "#D8D8CC"
+              },
+              "elements": [
+                {
+                  "id": "0051141f",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "Footer — Copyright",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "editor": "<p>© Silo Suites. All rights reserved.</p>",
+                    "text_color": "#595D54",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Arial",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 10,
+                      "sizes": []
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 16,
+                      "sizes": []
+                    },
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.8,
+                      "sizes": []
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "d4302359",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "Footer — Signature",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "editor": "<p>Heritage / Comfort / Near Zion</p>",
+                    "text_color": "#595D54",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Arial",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 10,
+                      "sizes": []
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 16,
+                      "sizes": []
+                    },
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.8,
+                      "sizes": []
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "445c65df",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "Footer — Homlay credit",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "text": "Website by Homlay",
+                    "link": {
+                      "url": "https://homlay.com/",
+                      "is_external": "",
+                      "nofollow": "",
+                      "custom_attributes": ""
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Arial",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 12,
+                      "sizes": []
+                    },
+                    "typography_font_weight": "400",
+                    "button_text_color": "#181A16",
+                    "background_color": "#FFFFFF00",
+                    "hover_color": "#181A16",
+                    "button_background_hover_color": "#FFFFFF00",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "text_padding": {
+                      "unit": "px",
+                      "top": "10",
+                      "right": "0",
+                      "bottom": "10",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "_css_classes": " ss-has-arrow",
+                    "_element_width": "auto"
+                  },
+                  "elements": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "page_settings": [],
+  "version": "0.4",
+  "title": "Silo Suites — Footer v0.2.0",
+  "type": "section"
+}
