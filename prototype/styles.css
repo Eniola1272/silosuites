@@ -238,8 +238,10 @@ dialog::backdrop { background: #171a16a6; backdrop-filter: blur(3px); }
 .editorial-copy .button { margin-top: 28px; }
 .editorial-copy .text-link { display: flex; width: fit-content; margin-top: 20px; }
 .destinations { padding-bottom: 80px; }
-.destinations > article { display: grid; grid-template-columns: 1fr 1.7fr; gap: 80px; padding-block: 50px; border-top: 1px solid var(--rule); scroll-margin-top: 120px; }
-.destination-number { color: var(--olive); font: 60px var(--serif); }
+.destinations > article { display: grid; grid-template-columns: 1fr 1.6fr; gap: clamp(40px, 6vw, 75px); align-items: start; padding-block: 55px; border-top: 1px solid var(--rule); scroll-margin-top: 120px; }
+.destination-media { overflow: hidden; background: var(--tan); aspect-ratio: 1.35; }
+.destination-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
+.destinations > article:hover .destination-media img { transform: scale(1.025); }
 .destinations h2 { margin-top: 12px; }
 .destinations article p:not(.eyebrow) { max-width: 580px; margin-top: 22px; color: var(--muted); }
 .destinations .text-link { margin-top: 20px; }
@@ -350,8 +352,8 @@ dialog::backdrop { background: #171a16a6; backdrop-filter: blur(3px); }
   .mobile-booking p { font-size: 14px; line-height: 1.5; }
   .mobile-booking p span { display: block; color: var(--muted); font-size: 10px; }
   .mobile-booking .button { min-height: 48px; }
-  .destinations > article { grid-template-columns: 36px 1fr; gap: 20px; padding-block: 33px; }
-  .destination-number { font-size: 32px; }
+  .destinations > article { grid-template-columns: 1fr; gap: 24px; padding-block: 36px; }
+  .destination-media { aspect-ratio: 1.45; }
   .destinations h2 { font-size: 34px; }
   .editorial-hero { aspect-ratio: 1.15; }
   dialog { width: min(540px, calc(100% - 32px)); max-height: calc(100dvh - 32px); }
