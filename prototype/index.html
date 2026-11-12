@@ -7,8 +7,9 @@
   <meta name="description" content="A little history. A lot of comfort. Discover Silo Suites, a boutique stay on a historic dairy farm in La Verkin, Utah, near Zion.">
   <title>Silo Suites — A stay with a story</title>
   <link rel="icon" href="assets/logo.png">
-  <link rel="preload" as="image" href="assets/elementor/The-Silo-Suites-50-1-scaled.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/elementor/The-Silo-Suites-51.jpg" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="home.css">
   <script type="module" src="app.mjs"></script>
 </head>
 <body data-page="home">
@@ -16,45 +17,51 @@
   <div data-site-header></div>
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-photo"><img id="hero-image" src="assets/elementor/The-Silo-Suites-50-1-scaled.jpg" width="2560" height="1707" alt="A welcoming Silo Suite with original brick, a timber loft, and soft white bedding" fetchpriority="high"></div>
+      <div class="hero-photo"><img id="hero-image" src="assets/elementor/The-Silo-Suites-51.jpg" width="1500" height="1000" alt="The historic farm building framed by the distinctive round metal silos at Silo Suites" fetchpriority="high"></div>
       <div class="hero-shade"></div>
       <div class="hero-content wrap">
         <p class="eyebrow light">A boutique stay in La Verkin, Utah</p>
         <h1 id="hero-title">A little history.<br><em>A lot of comfort.</em></h1>
-        <p class="hero-description">Thoughtfully reimagined farm stays.<br>A quieter way to experience Southern Utah.</p>
-        <a class="hero-link" href="stays.html" data-carry-dates>Find your place <span aria-hidden="true">↗</span></a>
+        <p class="hero-description">Distinctive silo suites on a historic farm in La Verkin, Utah. Your comfortable base for exploring Southern Utah.</p>
+        <div class="hero-actions"><a class="button button-dark" href="#availability" data-start-search>Check availability <span aria-hidden="true">↗</span></a><a class="hero-link" href="#suites">Explore the suites <span aria-hidden="true">↓</span></a></div>
       </div>
-      <div class="hero-caption"><span id="hero-count">01 / 02</span><span id="hero-label">Inside the silos</span><button id="hero-next" type="button" aria-label="Show the Dairy Suite photograph">→</button></div>
+      <div class="hero-caption"><button id="hero-next" type="button" aria-label="Show the silo interior photograph">→</button></div>
     </section>
 
-    <section class="booking-section wrap" aria-label="Find your stay">
+    <section id="availability" class="booking-section wrap" aria-label="Find your stay">
       <form class="search-form" data-search>
-        <button class="search-date" type="button" data-date-open="in"><span class="eyebrow">Check in</span><span data-date-label="in">Choose a date</span><span class="field-arrow" aria-hidden="true">⌄</span></button>
-        <button class="search-date" type="button" data-date-open="out"><span class="eyebrow">Check out</span><span data-date-label="out">Choose a date</span><span class="field-arrow" aria-hidden="true">⌄</span></button>
-        <label class="search-guests"><span class="eyebrow">Who's coming?</span><select name="guests" aria-label="Number of guests" data-guests></select></label>
-        <button class="button button-olive search-submit" type="submit">Find a stay <span aria-hidden="true">↗</span></button>
+        <button class="search-date" type="button" data-date-open="in"><span class="eyebrow">Arrival</span><span data-date-label="in">Choose a date</span><span class="field-arrow" aria-hidden="true">⌄</span></button>
+        <button class="search-date" type="button" data-date-open="out"><span class="eyebrow">Departure</span><span data-date-label="out">Choose a date</span><span class="field-arrow" aria-hidden="true">⌄</span></button>
+        <label class="search-guests"><span class="eyebrow">Guests</span><select name="guests" aria-label="Number of guests" data-guests></select></label>
+        <button class="button button-dark search-submit" type="submit">Check availability <span aria-hidden="true">↗</span></button>
       </form>
       <p class="search-error" data-search-error role="alert"></p>
-      <div class="booking-caption"><span>YOUR DATES. YOUR OWN LITTLE CORNER.</span><span>HISTORIC FARM CHARACTER, CLOSE TO ZION.</span></div>
+      <div class="booking-caption"><span>Choose your dates. Find your favourite suite.</span><span>La Verkin, Utah · Near Zion National Park</span></div>
     </section>
 
-    <section class="introduction wrap section-space">
-      <p class="eyebrow">Rooted in the past.<br>Ready for your next chapter.</p>
-      <div><h2>A farm story, made<br>for a <em>slower stay.</em></h2><p>Settle into a thoughtfully designed suite on the historic Church Dairy Farm. Here, original character meets everyday comfort, with the landscapes of Southern Utah waiting just beyond your door.</p><a href="#our-story" class="text-link">Get to know Silo Suites <span aria-hidden="true">↗</span></a></div>
+    <section class="introduction wrap section-space" aria-labelledby="intro-heading">
+      <figure class="intro-detail"><img src="assets/elementor/5c56e762-8c5c-4fe6-abbb-eec232e9355e-1.jpeg" width="720" height="480" loading="lazy" alt="Two white chairs beside the curved metal wall and timber porch of a silo"><figcaption>Your own little corner of the farm.</figcaption></figure>
+      <div><p class="eyebrow">Welcome to Silo Suites</p><h2 id="intro-heading">Somewhere different.<br><em>Somewhere to settle in.</em></h2><p>Original silos. Thoughtful interiors. A family farm with a new chapter. Come home to a place with character after a day exploring Southern Utah.</p><a href="#our-story" class="text-link">Meet the family behind your stay <span aria-hidden="true">↗</span></a></div>
     </section>
 
     <section class="suites-section section-space" id="suites" aria-labelledby="suites-heading">
       <div class="wrap">
-        <div class="section-heading"><div><p class="eyebrow">The stays</p><h2 id="suites-heading">A space to call <em>your own.</em></h2></div><a class="text-link" href="stays.html" data-carry-dates>Explore all suites <span aria-hidden="true">↗</span></a></div>
+        <div class="section-heading"><div><p class="eyebrow">The stays</p><h2 id="suites-heading">A space to call <em>your own.</em></h2></div><a class="text-link" href="stays.html" data-carry-dates>Compare all five suites <span aria-hidden="true">↗</span></a></div>
         <div class="suite-grid" data-featured></div>
-        <div class="group-note"><span class="eyebrow">Better together</span><p>Coming with your favourite people? Make all four silos yours.</p><a class="text-link" href="suite.html?id=all-silos" data-carry-dates>Explore group stays <span aria-hidden="true">↗</span></a></div>
+        <div class="group-note"><span class="eyebrow">Better together</span><p>Planning a stay with a larger group? Explore the four silos together.</p><a class="text-link" href="suite.html?id=all-silos" data-carry-dates>See the group stay <span aria-hidden="true">↗</span></a></div>
       </div>
+    </section>
+
+    <section class="guest-reviews wrap" aria-labelledby="reviews-heading">
+      <div class="review-intro"><p class="eyebrow">From our guests</p><h2 id="reviews-heading">Good stays.<br><em>In their words.</em></h2><p class="review-rating"><strong>4.99</strong><span>out of 5<br>169 reviews</span></p><p class="review-source">Airbnb · Silo Suite 4</p></div>
+      <figure class="review-quote"><p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p><blockquote>“Jaime’s Silo 4 was perfect and adorable! Decorated so well, very clean, and comfortable. Would definitely recommend!”</blockquote><figcaption><strong>Alissa</strong><span>Airbnb · September 2026</span></figcaption></figure>
+      <figure class="review-quote"><p class="review-stars" aria-label="5 out of 5 stars">★★★★★</p><blockquote>“Jamie communicated well, offered special discounts for area activities, and prepared a beautiful, comfortable living space for our relaxing girls weekend.”</blockquote><figcaption><strong>Tessa</strong><span>Airbnb · October 2026 · Review excerpt</span></figcaption></figure>
     </section>
 
     <section class="story-section" id="our-story" aria-labelledby="story-heading">
       <div class="wrap story-layout">
         <figure class="story-photo"><img src="assets/elementor/our_story.jpeg" width="543" height="533" loading="lazy" alt="The family behind Silo Suites, photographed outdoors at the farm"><figcaption>A family farm. A new chapter.</figcaption></figure>
-        <div class="story-copy"><p class="eyebrow">The historic Church Dairy Farm</p><h2 id="story-heading">Some places have<br>a story. <em>This one<br>welcomes you in.</em></h2><p>Once a working dairy farm, this land has been part of the Church family's story for generations. Today, its next chapter is a collection of distinctive stays, shaped by the same sense of place.</p><p>Honest materials. Thoughtful details. A warm welcome to our corner of Utah.</p><a class="text-link" href="stays.html" data-carry-dates>Come stay a while <span aria-hidden="true">↗</span></a></div>
+        <div class="story-copy"><p class="eyebrow">The historic Church Dairy Farm</p><h2 id="story-heading">A family farm.<br><em>A personal welcome.</em></h2><p>The historic Church Dairy Farm is part of our family's story. Today, we're sharing its next chapter through distinctive suites with original character and everyday comfort.</p><a class="text-link" href="stays.html" data-carry-dates>Come stay a while <span aria-hidden="true">↗</span></a></div>
       </div>
     </section>
 
@@ -65,11 +72,13 @@
     </section>
 
     <section class="guide-section wrap section-space" aria-labelledby="guide-heading">
-      <div><p class="eyebrow">A few local favourites</p><h2 id="guide-heading">Out here, there's<br>room to <em>wander.</em></h2><p>Big landscapes, small-town stops, and a good cup of coffee. A few places we think you'll love, close to your home for the weekend.</p><a href="local-guide.html" class="text-link">Open the local guide <span aria-hidden="true">↗</span></a></div>
-      <div class="guide-list"><a href="local-guide.html#zion"><span class="guide-number">01</span><span><span class="eyebrow">For the adventure</span><strong>Zion National Park</strong></span><span aria-hidden="true">↗</span></a><a href="local-guide.html#sand-hollow"><span class="guide-number">02</span><span><span class="eyebrow">For a change of pace</span><strong>Sand Hollow</strong></span><span aria-hidden="true">↗</span></a><a href="local-guide.html#food"><span class="guide-number">03</span><span><span class="eyebrow">For the little moments</span><strong>A taste of local life</strong></span><span aria-hidden="true">↗</span></a></div>
+      <div class="section-heading"><div><p class="eyebrow">Make a day of it</p><h2 id="guide-heading">Big days out.<br><em>A lovely place to come back to.</em></h2></div><a href="local-guide.html" class="text-link">Explore the local guide <span aria-hidden="true">↗</span></a></div>
+      <div class="destination-cards"><a class="destination-card" href="local-guide.html#zion"><div class="destination-photo"><img src="assets/elementor/Zion-national-park11.jpg" width="900" height="506" loading="lazy" alt="Sunlit sandstone cliffs above the green valley in Zion National Park"></div><div class="destination-copy"><p class="eyebrow">For the adventure</p><h3>Zion National Park <span aria-hidden="true">↗</span></h3><p>Leave a day for the canyon. Find visitor information and ideas for your time in the park.</p></div></a><a class="destination-card" href="local-guide.html"><div class="destination-photo"><img src="assets/elementor/pioneerpark-stgeorge-family-hiking-19-e1603479587211.jpg" width="1600" height="1041" loading="lazy" alt="A family taking in a sweeping view from the red rocks above St. George"></div><div class="destination-copy"><p class="eyebrow">For everything in between</p><h3>A little more Southern Utah <span aria-hidden="true">↗</span></h3><p>Red rock views, local stops and room to wander. Start planning the rest of your getaway.</p></div></a></div>
     </section>
 
-    <section class="closing-section"><div class="wrap"><p class="eyebrow">Heritage. Comfort. Near Zion.</p><h2>Make room for<br><em>a little history.</em></h2><a href="#main" class="button button-dark" data-start-search>Find your stay <span aria-hidden="true">↗</span></a></div></section>
+    <section class="home-faq wrap" aria-labelledby="faq-heading"><div><p class="eyebrow">A few things to know</p><h2 id="faq-heading">Before you<br><em>make yourself at home.</em></h2></div><div class="faq-list"><details><summary>Where is Silo Suites?</summary><p>You'll find us on the historic Church Dairy Farm in La Verkin, Utah, near Zion National Park. Visit your suite page for location information.</p></details><details><summary>Which suite is right for our group?</summary><p>Our individual suites accommodate up to 4 or 5 guests. Compare bedrooms, beds and amenities on the suite pages. For a larger gathering, explore the All Four Silos option and confirm its booking arrangements with us.</p></details><details><summary>Where can I find check-in times and house rules?</summary><p>Each suite page includes its own arrival information, amenities, house rules and cancellation terms. Review the details for your chosen suite before booking.</p></details><details><summary>Can we include a visit to the hot springs?</summary><p>Zion Canyon Hot Springs is a regional experience featured in our Stay &amp; Soak guide. Visit that page for details, and confirm the current guest offer before purchasing.</p></details></div></section>
+
+    <section class="closing-section"><div class="wrap"><p class="eyebrow">Heritage. Comfort. Near Zion.</p><h2>Your Southern Utah<br><em>stay starts here.</em></h2><a href="#main" class="button button-dark" data-start-search>Check availability <span aria-hidden="true">↗</span></a></div></section>
   </main>
   <div data-site-footer></div>
   <noscript><p class="no-script">Please enable JavaScript for date selection and the interactive design preview.</p></noscript>

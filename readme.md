@@ -26,6 +26,8 @@ The homepage is now also available as two native Elementor page templates plus i
 python3 tools/serve.py
 ```
 
+The homepage HTML has a new review iteration with an exterior hero, larger typography, comparison details, sourced guest quotes, image-led destinations and FAQs. See [homepage review notes](docs/HOMEPAGE-REVIEW.md). Elementor/staging conversion of this revision awaits design approval.
+
 Open **http://127.0.0.1:4173**. The preview now uses original Elementor-export photos and supplied logo files. Booking data is explicitly synthetic; no reservation or payment can be made. The native homepage templates and media installer are implemented; the new Hostaway booking plugin 0.1.0 adds server-side connection diagnostics and mapping; live availability, checkout and booking sync remain unimplemented.
 
 Configure Hostaway credentials at hidden terminal prompts with `python3 tools/configure_hostaway.py`. Optional connection check: `python3 tools/hostaway_discover.py`. Credentials and reports remain outside the served folder in ignored `.secrets/`. Local API authentication and metadata discovery succeeded on 12 November 2026: five listings were returned. All Four Silos was not returned; checkout, availability, payment and sync verification remain pending. WordPress server credentials must be configured separately.
