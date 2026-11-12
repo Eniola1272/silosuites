@@ -2,7 +2,7 @@
 
 ## What exists
 
-The separate **Silo Suites Booking** WordPress plugin now provides server-only Hostaway authentication, administrator connection diagnostics, a safe listing metadata snapshot, and validated mapping for the six property slots. It is independent of the design importer (still 0.2.1). The new plugin has no public endpoints, scheduled jobs, frontend booking forms or reservation/payment operations.
+The separate **Silo Suites Booking** WordPress plugin now provides server-only Hostaway authentication, administrator connection diagnostics, a safe listing metadata snapshot, and validated mapping for the six property slots. It is independent of the design importer (0.2.3, with staging import completion confirmed by the user). The new plugin has no public endpoints, scheduled jobs, frontend booking forms or reservation/payment operations.
 
 Only `POST /v1/accessTokens` and `GET /v1/listings?limit=100&offset=...` exist in its adapter. Hostaway documents a one-second delay before new tokens become usable; the adapter observes it. Tokens are cached server-side, scoped by a credential fingerprint, and refreshed once after a 401. TLS verification stays enabled and redirects are disabled so a token cannot be forwarded elsewhere. Rate-limit, HTTP and network failures return generic messages without provider response bodies. Safe fields are explicitly allowlisted. An incomplete response never replaces the last successful snapshot.
 
@@ -43,6 +43,6 @@ A custom payment flow remains a separate engineering path until the account's ca
 
 `tests/booking-plugin.php` runs against an isolated local WordPress installation with synthetic responses intercepted using `pre_http_request`. It checks the HTTP allowlist, secure request options, private-field filtering, token cache and refresh, rate/network/schema errors, incomplete pagination recovery, cooldown, mapping validation and anonymous access rejection. `tests/booking-admin-browser.mjs` checks the actual admin page, disabled state without configuration, six mapping controls and nonce enforcement.
 
-These tests do not prove live account access, availability correctness, a successful booking, payment, an add-on, a channel block, a message automation, webhook authentication or recovery. No real Hostaway request, reservation or payment was made by those tests. The local credential file was absent at implementation review.
+These tests do not prove live account access, availability correctness, a successful booking, payment, an add-on, a channel block, a message automation, webhook authentication or recovery. No real Hostaway request, reservation or payment was made by those tests. Subsequent local read-only discovery authenticated successfully and returned five listing identities; the staging server still requires its own credential configuration.
 
 Deactivation preserves metadata and mappings. No cron job is installed. Tokens are stored as server-only WordPress transients, so protect the database/backups as part of normal secret handling.

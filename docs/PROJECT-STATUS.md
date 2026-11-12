@@ -1,5 +1,9 @@
 # Silo Suites implementation status
 
+## Latest staging status — 12 November 2026
+
+The user reports that the Design Importer 0.2.3 import succeeded after using the recovery update. Treat the staging import as user-confirmed complete; older deployment notes below are historical. Assembly of the imported templates into review pages, global header/footer conditions, and frontend staging review remain outstanding. Booking 0.1.0 remains a diagnostics-only build; live checkout and synchronisation are not enabled by importing templates.
+
 ## Current assessment
 
 Design and client editing are well advanced. The site is not booking-ready. Checkout, live availability and booking synchronisation are not enabled in the new build. A rough overall assessment is around halfway to production; this is a scope assessment, not a timeline or a verified percentage. Integration proof can materially change the remaining work.

@@ -55,3 +55,6 @@ The user reopened the staging window. The Chrome Window menu exposed a separate 
 A direct browser observation confirmed Version 0.2.2 on staging and the visible error “Failed to fetch”. This supersedes the earlier installed-version record. No completed 0.2.2 import was verified. The user prefers manual browser actions because remote control is slow; browser control stopped after this read-only observation.
 
 Version 0.2.3 adds an ordinary, nonce-protected standard form submission (Continue one step), bounded to one media item or template just like automatic mode. The request action uses the current origin. Automatic failures now explain recovery instead of displaying a raw fetch exception. No PHP/server/WAF root cause is asserted from the browser's generic error. The new update has not been installed on staging by the agent; remote completion remains to be confirmed.
+
+
+The user subsequently confirmed that the 0.2.3 import was successful. This is user-reported completion; no further remote browser verification was performed. Proceed to assembling and reviewing staging pages.
