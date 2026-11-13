@@ -12,6 +12,8 @@ Footer refinement: the brand line "A little history. A lot of comfort." beside t
 
 Suite card refinement: the secondary "View suite" action is aligned to the left (matching the primary button's left padding) and uses a straight arrow (`→`) while diagonal arrows (`↗`) are maintained on primary CTAs and external links.
 
+Hero refinement: the down arrow (`↓`) on the secondary "Explore the suites" hero action link has been removed, retaining the clean underlined label.
+
 ## Review sources
 
 The user supplied Airbnb review text and a 4.99/5 rating from 169 reviews on 12 November 2026. Alissa's September 2026 quote explicitly identifies Silo 4. The homepage labels this as an Airbnb Silo Suite 4 review snapshot rather than a collection-wide or live rating. Alissa's full supplied quote and an exact excerpt from Tessa's October 2026 review are used with names/months/source. A direct Airbnb listing URL was not supplied; none is invented. Reconfirm listing scope and refresh the count before launch. Top 1%/Guest Favorite badges are not reproduced as current verified claims.
