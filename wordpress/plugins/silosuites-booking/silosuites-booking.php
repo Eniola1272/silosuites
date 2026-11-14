@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Silo Suites Booking
- * Description: Server-side Hostaway connection diagnostics and property mapping. Development build: live booking and checkout are not enabled.
- * Version: 0.1.0
+ * Description: Server-side Hostaway live availability search, property mapping and quote calculation.
+ * Version: 0.2.0
  * Requires at least: 6.8
  * Requires PHP: 7.4
  * Author: Homlay
@@ -11,11 +11,22 @@
  */
 namespace SiloSuites\Booking;
 defined( 'ABSPATH' ) || exit;
-const VERSION = '0.1.0';
+const VERSION = '0.2.0';
+
 require_once __DIR__ . '/includes/class-hostaway-client.php';
+require_once __DIR__ . '/includes/class-availability-service.php';
+
 function properties() {
-    return array( 'silo-1' => 'Silo Suite 1', 'silo-2' => 'Silo Suite 2', 'silo-3' => 'Silo Suite 3', 'silo-4' => 'Silo Suite 4', 'dairy' => 'The Dairy Suite', 'all-silos' => 'All Four Silos' );
+    return array(
+        'silo-1'    => 'Silo Suite 1',
+        'silo-2'    => 'Silo Suite 2',
+        'silo-3'    => 'Silo Suite 3',
+        'silo-4'    => 'Silo Suite 4',
+        'dairy'     => 'The Dairy Suite',
+        'all-silos' => 'All Four Silos',
+    );
 }
+
 function refresh_metadata() {
     if ( ! current_user_can( 'manage_options' ) ) { return new \WP_Error( 'ssb_forbidden', 'Administrator access is required.' ); }
     $client = new Hostaway_Client();
@@ -36,6 +47,7 @@ function refresh_metadata() {
         return $rows;
     } finally { delete_option( 'ssb_discovery_lock' ); }
 }
+
 function save_mapping( $input ) {
     if ( ! current_user_can( 'manage_options' ) ) { return new \WP_Error( 'ssb_forbidden', 'Administrator access is required.' ); }
     if ( ! is_array( $input ) ) { return new \WP_Error( 'ssb_mapping', 'Invalid property mapping.' ); }
@@ -53,7 +65,11 @@ function save_mapping( $input ) {
     update_option( 'ssb_property_mapping', $mapping, false );
     return true;
 }
-add_action( 'admin_menu', function () { add_management_page( 'Silo Suites Booking', 'Silo Suites Booking', 'manage_options', 'silosuites-booking', __NAMESPACE__ . '\\admin_page' ); } );
+
+add_action( 'admin_menu', function () {
+    add_management_page( 'Silo Suites Booking', 'Silo Suites Booking', 'manage_options', 'silosuites-booking', __NAMESPACE__ . '\\admin_page' );
+} );
+
 add_action( 'admin_post_ssb_discover', function () {
     if ( ! current_user_can( 'manage_options' ) ) { wp_die( 'Administrator access is required.', '', array( 'response' => 403 ) ); }
     check_admin_referer( 'ssb_discover' );
@@ -61,6 +77,7 @@ add_action( 'admin_post_ssb_discover', function () {
     set_transient( 'ssb_notice_' . get_current_user_id(), is_wp_error( $result ) ? $result->get_error_message() : 'Hostaway listing metadata refreshed. No bookings or payments changed.', 120 );
     wp_safe_redirect( admin_url( 'tools.php?page=silosuites-booking' ) ); exit;
 } );
+
 add_action( 'admin_post_ssb_mapping', function () {
     if ( ! current_user_can( 'manage_options' ) ) { wp_die( 'Administrator access is required.', '', array( 'response' => 403 ) ); }
     check_admin_referer( 'ssb_mapping' );
@@ -68,6 +85,57 @@ add_action( 'admin_post_ssb_mapping', function () {
     set_transient( 'ssb_notice_' . get_current_user_id(), is_wp_error( $result ) ? $result->get_error_message() : 'Listing mapping saved. This does not enable checkout or verify group inventory.', 120 );
     wp_safe_redirect( admin_url( 'tools.php?page=silosuites-booking' ) ); exit;
 } );
+
+add_action( 'rest_api_init', function () {
+    register_rest_route( 'silosuites/v1', '/availability', array(
+        'methods'             => 'GET',
+        'callback'            => __NAMESPACE__ . '\\rest_availability',
+        'permission_callback' => '__return_true',
+    ) );
+    register_rest_route( 'silosuites/v1', '/quote', array(
+        'methods'             => 'GET',
+        'callback'            => __NAMESPACE__ . '\\rest_quote',
+        'permission_callback' => '__return_true',
+    ) );
+} );
+
+function rest_availability( \WP_REST_Request $request ) {
+    $service = new Availability_Service();
+    $check_in = sanitize_text_field( $request->get_param( 'check_in' ) ?? '' );
+    $check_out = sanitize_text_field( $request->get_param( 'check_out' ) ?? '' );
+    $guests = (int) ( $request->get_param( 'guests' ) ?? 1 );
+
+    $result = $service->evaluate_availability( $check_in, $check_out, $guests );
+    if ( is_wp_error( $result ) ) {
+        return new \WP_REST_Response( array(
+            'status'  => 'error',
+            'code'    => $result->get_error_code(),
+            'message' => $result->get_error_message(),
+        ), 400 );
+    }
+
+    return new \WP_REST_Response( $result, 200 );
+}
+
+function rest_quote( \WP_REST_Request $request ) {
+    $service = new Availability_Service();
+    $property = sanitize_text_field( $request->get_param( 'property' ) ?? '' );
+    $check_in = sanitize_text_field( $request->get_param( 'check_in' ) ?? '' );
+    $check_out = sanitize_text_field( $request->get_param( 'check_out' ) ?? '' );
+    $guests = (int) ( $request->get_param( 'guests' ) ?? 1 );
+
+    $result = $service->generate_quote( $property, $check_in, $check_out, $guests );
+    if ( is_wp_error( $result ) ) {
+        return new \WP_REST_Response( array(
+            'status'  => 'error',
+            'code'    => $result->get_error_code(),
+            'message' => $result->get_error_message(),
+        ), 400 );
+    }
+
+    return new \WP_REST_Response( $result, 200 );
+}
+
 function admin_page() {
     if ( ! current_user_can( 'manage_options' ) ) { return; }
     $client = new Hostaway_Client(); $snapshot = get_option( 'ssb_listing_snapshot', array() ); $last = get_option( 'ssb_last_check', array() ); $mapping = get_option( 'ssb_property_mapping', array() );
@@ -75,19 +143,23 @@ function admin_page() {
     ?>
     <div class="wrap"><h1>Silo Suites Booking <small><?php echo esc_html( VERSION ); ?></small></h1>
     <?php if ( $notice ) : ?><div class="notice notice-info"><p><?php echo esc_html( $notice ); ?></p></div><?php endif; ?>
-    <p><strong>Development: checkout and booking sync are not enabled.</strong> This build authenticates with Hostaway and reads listing metadata only. It does not read guest data, create reservations, charge cards, change inventory, or send messages.</p>
+    <p><strong>Phase 4 Development Build:</strong> Server-side Hostaway availability search, property mapping, multi-silo composite availability, and quote calculation are active. Checkout transaction and reservation creation remain in staging testing.</p>
     <h2>Server configuration</h2><p>Credentials: <strong><?php echo $client->configured() ? 'configured' : 'not configured'; ?></strong>. Values are never displayed here.</p>
     <p>Set <code>SILOSUITES_HOSTAWAY_ACCOUNT_ID</code> and <code>SILOSUITES_HOSTAWAY_CLIENT_SECRET</code> in private server environment variables or wp-config.php. Use the Hostaway Account ID, not an API-key row ID. No credentials are accepted from a browser form.</p>
     <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>"><input type="hidden" name="action" value="ssb_discover"><?php wp_nonce_field( 'ssb_discover' ); ?><p><button class="button button-primary" <?php disabled( ! $client->configured() ); ?>>Check Hostaway connection and listings</button></p></form>
     <?php if ( $last ) : ?><p>Last check: <?php echo esc_html( $last['at'] ); ?> — <?php echo esc_html( $last['message'] ); ?></p><?php endif; ?>
-    <h2>Listing metadata snapshot</h2><p>This is not an availability calendar or a live price feed. Snapshot time: <?php echo esc_html( $snapshot['checked_at_utc'] ?? 'none' ); ?>. After a failed check, the last successful snapshot remains for reference.</p>
+    <h2>Listing metadata snapshot</h2><p>Snapshot time: <?php echo esc_html( $snapshot['checked_at_utc'] ?? 'none' ); ?>. After a failed check, the last successful snapshot remains for reference.</p>
     <table class="widefat striped"><thead><tr><th>ID</th><th>Name</th><th>Guests</th><th>Bedrooms</th><th>Beds</th><th>Bathrooms</th><th>Currency</th></tr></thead><tbody>
     <?php foreach ( $snapshot['listings'] ?? array() as $row ) : ?><tr><?php foreach ( array( 'id', 'name', 'personCapacity', 'bedroomsNumber', 'bedsNumber', 'bathroomsNumber', 'currencyCode' ) as $key ) : ?><td><?php echo esc_html( $row[ $key ] ?? 'Unknown' ); ?></td><?php endforeach; ?></tr><?php endforeach; ?>
-    </tbody></table><h2>Property mapping</h2><p>The exported Silo Suite 2 template references listing 143823; this is provisional until confirmed against the connected account. Each mapping below is a manual association, not proof of parent/child inventory relationships.</p>
+    </tbody></table><h2>Property mapping</h2><p>Mapped listing IDs are queried for live calendar availability and pricing calculations.</p>
     <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>"><input type="hidden" name="action" value="ssb_mapping"><?php wp_nonce_field( 'ssb_mapping' ); ?><table class="form-table">
     <?php foreach ( properties() as $slug => $label ) : ?><tr><th><label for="ssb-<?php echo esc_attr( $slug ); ?>"><?php echo esc_html( $label ); ?></label></th><td><select id="ssb-<?php echo esc_attr( $slug ); ?>" name="mapping[<?php echo esc_attr( $slug ); ?>]"><option value="">Not mapped</option>
     <?php if ( ! empty( $mapping[ $slug ] ) && ! in_array( $mapping[ $slug ], array_column( $snapshot['listings'] ?? array(), 'id' ), true ) ) : ?><option selected value="">Previous ID absent from latest snapshot — remap required</option><?php endif; ?>
     <?php foreach ( $snapshot['listings'] ?? array() as $row ) : ?><option value="<?php echo esc_attr( $row['id'] ); ?>" <?php selected( $mapping[ $slug ] ?? '', $row['id'] ); ?>><?php echo esc_html( $row['id'] . ' — ' . $row['name'] ); ?></option><?php endforeach; ?></select></td></tr><?php endforeach; ?></table><?php submit_button( 'Save listing mapping' ); ?></form>
-    <h2>Still required for production</h2><ul><li>Verify live dates, capacity, minimum stays and final prices.</li><li>Verify All Four Silos parent/child blocking in Hostaway.</li><li>Choose and prove hosted checkout or supported custom checkout, including every add-on and the existing processor.</li><li>Test reservation creation, payment recovery, channel blocking and messaging in the approved test environment.</li><li>Implement and verify webhook/reconciliation handling where needed.</li></ul>
+    <h2>REST API Endpoints</h2>
+    <ul>
+        <li><code>GET /wp-json/silosuites/v1/availability?check_in=YYYY-MM-DD&amp;check_out=YYYY-MM-DD&amp;guests=N</code></li>
+        <li><code>GET /wp-json/silosuites/v1/quote?property={slug}&amp;check_in=YYYY-MM-DD&amp;check_out=YYYY-MM-DD&amp;guests=N</code></li>
+    </ul>
     </div><?php
 }

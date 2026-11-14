@@ -84,4 +84,110 @@ final class Hostaway_Client {
         }
         return new \WP_Error( 'ssb_pagination', 'Listing limit reached. No incomplete metadata snapshot was saved.' );
     }
+    public function calendar( $listing_id, $start_date, $end_date, $retry = true ) {
+        if ( ! preg_match( '/^[0-9]{1,32}$/D', (string) $listing_id ) ) {
+            return new \WP_Error( 'ssb_invalid_id', 'Invalid listing ID.' );
+        }
+        if ( ! preg_match( '/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/D', (string) $start_date ) || ! preg_match( '/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/D', (string) $end_date ) ) {
+            return new \WP_Error( 'ssb_invalid_dates', 'Invalid date format. Expected YYYY-MM-DD.' );
+        }
+        $token = $this->token();
+        if ( is_wp_error( $token ) ) { return $token; }
+
+        $url = 'https://api.hostaway.com/v1/listings/' . rawurlencode( (string) $listing_id ) . '/calendar?startDate=' . rawurlencode( (string) $start_date ) . '&endDate=' . rawurlencode( (string) $end_date );
+        $response = wp_remote_get( $url, array(
+            'timeout' => 20, 'redirection' => 0, 'sslverify' => true, 'limit_response_size' => 8388609,
+            'headers' => array( 'Accept' => 'application/json', 'Authorization' => 'Bearer ' . $token ),
+        ) );
+        if ( ! is_wp_error( $response ) && 401 === wp_remote_retrieve_response_code( $response ) && $retry ) {
+            delete_transient( $this->token_key );
+            return $this->calendar( $listing_id, $start_date, $end_date, false );
+        }
+        $data = $this->response( $response );
+        if ( is_wp_error( $data ) ) { return $data; }
+
+        $result = $data['result'] ?? null;
+        if ( ! is_array( $result ) ) {
+            return new \WP_Error( 'ssb_calendar', 'Hostaway returned unexpected calendar format.' );
+        }
+
+        $days = array();
+        foreach ( $result as $entry ) {
+            if ( ! is_array( $entry ) || empty( $entry['date'] ) || ! preg_match( '/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/D', (string) $entry['date'] ) ) {
+                continue;
+            }
+            $date = (string) $entry['date'];
+            $is_available = true;
+            if ( isset( $entry['isAvailable'] ) ) {
+                $is_available = ( (int) $entry['isAvailable'] === 1 );
+            } elseif ( isset( $entry['status'] ) ) {
+                $is_available = ( 'available' === strtolower( (string) $entry['status'] ) );
+            }
+
+            $price = isset( $entry['price'] ) && is_numeric( $entry['price'] ) ? (float) $entry['price'] : 0.0;
+            $min_stay = isset( $entry['minimumStay'] ) && is_numeric( $entry['minimumStay'] ) ? max( 1, (int) $entry['minimumStay'] ) : 1;
+            $max_stay = isset( $entry['maximumStay'] ) && is_numeric( $entry['maximumStay'] ) ? (int) $entry['maximumStay'] : null;
+            $closed_arrival = ! empty( $entry['closedOnArrival'] );
+            $closed_departure = ! empty( $entry['closedOnDeparture'] );
+
+            $days[ $date ] = array(
+                'date'              => $date,
+                'is_available'      => $is_available,
+                'price'             => $price,
+                'minimum_stay'      => $min_stay,
+                'maximum_stay'      => $max_stay,
+                'closed_arrival'    => $closed_arrival,
+                'closed_departure'  => $closed_departure,
+            );
+        }
+
+        return $days;
+    }
+    public function price_details( $listing_id, $starting_date, $ending_date, $number_of_guests, $retry = true ) {
+        if ( ! preg_match( '/^[0-9]{1,32}$/D', (string) $listing_id ) ) {
+            return new \WP_Error( 'ssb_invalid_id', 'Invalid listing ID.' );
+        }
+        if ( ! preg_match( '/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/D', (string) $starting_date ) || ! preg_match( '/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/D', (string) $ending_date ) ) {
+            return new \WP_Error( 'ssb_invalid_dates', 'Invalid date format. Expected YYYY-MM-DD.' );
+        }
+        $guests = max( 1, (int) $number_of_guests );
+
+        $token = $this->token();
+        if ( is_wp_error( $token ) ) { return $token; }
+
+        $url = 'https://api.hostaway.com/v1/reservations/price';
+        $body = wp_json_encode( array(
+            'listingId'      => (int) $listing_id,
+            'startingDate'   => (string) $starting_date,
+            'endingDate'     => (string) $ending_date,
+            'numberOfGuests' => $guests,
+        ) );
+
+        $response = wp_remote_post( $url, array(
+            'timeout' => 20, 'redirection' => 0, 'sslverify' => true, 'limit_response_size' => 8388609,
+            'headers' => array( 'Accept' => 'application/json', 'Content-Type' => 'application/json', 'Authorization' => 'Bearer ' . $token ),
+            'body'    => $body,
+        ) );
+
+        if ( ! is_wp_error( $response ) && 401 === wp_remote_retrieve_response_code( $response ) && $retry ) {
+            delete_transient( $this->token_key );
+            return $this->price_details( $listing_id, $starting_date, $ending_date, $number_of_guests, false );
+        }
+
+        $data = $this->response( $response );
+        if ( is_wp_error( $data ) ) { return $data; }
+
+        $result = $data['result'] ?? null;
+        if ( ! is_array( $result ) ) {
+            return new \WP_Error( 'ssb_price', 'Hostaway returned unexpected price calculation format.' );
+        }
+
+        return array(
+            'total_price'  => isset( $result['totalPrice'] ) ? (float) $result['totalPrice'] : 0.0,
+            'base_price'   => isset( $result['basePrice'] ) ? (float) $result['basePrice'] : 0.0,
+            'cleaning_fee' => isset( $result['cleaningFee'] ) ? (float) $result['cleaningFee'] : 0.0,
+            'taxes'        => isset( $result['taxAmount'] ) ? (float) $result['taxAmount'] : ( isset( $result['taxes'] ) ? (float) $result['taxes'] : 0.0 ),
+            'currency'     => sanitize_text_field( $result['currency'] ?? 'USD' ),
+        );
+    }
 }

@@ -1,5 +1,18 @@
 # Silo Suites implementation status
 
+## Remote staging connection confirmed — 14 November 2026
+
+The user configured `SILOSUITES_HOSTAWAY_ACCOUNT_ID` and `SILOSUITES_HOSTAWAY_CLIENT_SECRET` in `wp-config.php` on the Hostinger staging server (`darkseagreen-butterfly-103736.hostingersite.com`). 
+
+Remote Hostaway authentication succeeded via **Tools → Silo Suites Booking**. The live snapshot returned the 5 active listings:
+- **143823**: SILO 2 Luxury King Bed / Sleeps 5 (5 guests, 2 bed, 3 beds, 1 bath)
+- **143824**: Silo Suites – Silo 1 (4 guests, 1 bed, 2 beds, 1 bath)
+- **143825**: Silo Suites – Silo 4 | Honeymoon Suite with Soaker Tub | Sleeps 4 (4 guests, 1 bed, 2 beds, 1 bath)
+- **143826**: Silo Suites – Silo 3 / King Bed Main floor +Queen and Sofa Twin Sleeper Upstairs (5 guests, 2 bed, 3 beds, 1 bath)
+- **603415**: Dairy Suite Near Zion Park and Hot Spring (4 guests, 1 bed, 2 beds, 1 bath)
+
+All five listings are mapped to their respective slots. `all-silos` remains unmapped pending creation and cross-listing setup in Hostaway.
+
 ## Latest staging status — 12 November 2026
 
 The user reports that the Design Importer 0.2.3 import succeeded after using the recovery update. Treat the staging import as user-confirmed complete; older deployment notes below are historical. Assembly of the imported templates into review pages, global header/footer conditions, and frontend staging review remain outstanding. Booking 0.1.0 remains a diagnostics-only build; live checkout and synchronisation are not enabled by importing templates.
