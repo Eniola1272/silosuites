@@ -1,5 +1,12 @@
 # Silo Suites implementation status
 
+## Booking Plugin 0.2.1 released — 14 November 2026
+
+Booking plugin version `0.2.1` packaged into `releases/silosuites-booking-0.2.1.zip`. It includes:
+- Fix for missing `class-availability-service.php` file packaging that caused the fatal error on activation.
+- Phase 4 live availability and quote services: Hostaway calendar adapter, server-side America/Denver date evaluation, composite group blocking for All Four Silos, transient-backed 5-minute calendar caching, and quote calculations with tax and cleaning line items.
+- Public REST endpoints: `GET /wp-json/silosuites/v1/availability` and `GET /wp-json/silosuites/v1/quote`.
+
 ## Remote staging connection confirmed — 14 November 2026
 
 The user configured `SILOSUITES_HOSTAWAY_ACCOUNT_ID` and `SILOSUITES_HOSTAWAY_CLIENT_SECRET` in `wp-config.php` on the Hostinger staging server (`darkseagreen-butterfly-103736.hostingersite.com`). 

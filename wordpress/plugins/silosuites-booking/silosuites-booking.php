@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Silo Suites Booking
  * Description: Server-side Hostaway live availability search, property mapping and quote calculation.
- * Version: 0.2.0
+ * Version: 0.2.1
  * Requires at least: 6.8
  * Requires PHP: 7.4
  * Author: Homlay
@@ -11,7 +11,7 @@
  */
 namespace SiloSuites\Booking;
 defined( 'ABSPATH' ) || exit;
-const VERSION = '0.2.0';
+const VERSION = '0.2.1';
 
 require_once __DIR__ . '/includes/class-hostaway-client.php';
 require_once __DIR__ . '/includes/class-availability-service.php';

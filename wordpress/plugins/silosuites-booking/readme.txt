@@ -2,7 +2,7 @@
 Contributors: homlay
 Requires at least: 6.8
 Requires PHP: 7.4
-Stable tag: 0.2.0
+Stable tag: 0.2.1
 License: GPLv2 or later
 
 Server-side Hostaway live availability search, property mapping and quote calculation.
@@ -20,6 +20,10 @@ This plugin is independent of Silo Suites Design Importer. It does not replace t
 Deactivate to stop using these diagnostics. No scheduled jobs are registered. A future data-removal workflow must explicitly address server token caches and retained mapping/snapshots; deactivation preserves settings.
 
 == Changelog ==
+= 0.2.1 =
+* Bugfix: Ensure class-availability-service.php is packaged with the plugin to prevent fatal missing-file errors on activation.
+* Phase 4 live availability and quote services: Hostaway calendar endpoint adapter, server-side America/Denver date validation, minimum-stay and capacity rules, multi-silo composite availability for All Four Silos, transient-backed calendar caching, quote generation with tax and fee line items, and public REST endpoints (/wp-json/silosuites/v1/availability and /wp-json/silosuites/v1/quote).
+
 = 0.2.0 =
 Phase 4 live availability and quote services: Hostaway calendar endpoint adapter, server-side America/Denver date validation, minimum-stay and capacity rules, multi-silo composite availability for All Four Silos, transient-backed calendar caching, quote generation with tax and fee line items, and public REST endpoints (/wp-json/silosuites/v1/availability and /wp-json/silosuites/v1/quote).
 
