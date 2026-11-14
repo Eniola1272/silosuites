@@ -1,0 +1,3896 @@
+{
+  "content": [
+    {
+      "id": "f58982cc",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "_title": "00 — Scoped design system",
+        "content_width": "full",
+        "width": {
+          "unit": "%",
+          "size": 100,
+          "sizes": []
+        },
+        "flex_direction": "column",
+        "flex_gap": {
+          "unit": "px",
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "css_classes": "ss-design ss-zero"
+      },
+      "elements": [
+        {
+          "id": "4891c22a",
+          "elType": "widget",
+          "widgetType": "html",
+          "isInner": false,
+          "settings": {
+            "_title": "00 — Design styles — keep this widget",
+            "_margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "html": "<style>\n/* Scoped presentation helpers. Text, media, spacing, type and colour controls remain native. */\n:where(.ss-design) { --ss-ink:#181a16; --ss-olive:#7e8e76; --ss-cream:#f8f5eb; --ss-tan:#d6c3ae; color:var(--ss-ink); font-family:Arial,Helvetica,sans-serif; }\n:where(.ss-design) * { box-sizing:border-box; }\n:where(.ss-design) a { text-decoration:none; }\n:where(.ss-design) p:last-child { margin-bottom:0; }\n:where(.ss-design) .elementor-heading-title { text-transform:none; }\n:where(.ss-design) em { font-weight:400; }\n:where(.ss-design) :focus-visible { outline:2px solid currentColor; outline-offset:5px; }\n.ss-design.ss-wrap { max-width:min(1320px,calc(100% - 10vw)); margin-inline:auto; }\n.ss-design.ss-zero { min-height:0; height:0; overflow:visible; padding:0; margin:0; }\n.ss-design .ss-link .elementor-button { padding:10px 0; border-bottom:1px solid currentColor; }\n.ss-design .ss-button .elementor-button { min-height:50px; display:inline-flex; align-items:center; justify-content:space-between; gap:28px; }\n.ss-design .ss-has-arrow .elementor-button-content-wrapper { width:100%; }\n.ss-design .ss-has-arrow .elementor-button-text { display:flex; align-items:center; justify-content:space-between; gap:28px; text-align:left; }\n.ss-design .ss-has-arrow .elementor-button-text::after { content:'↗'; font-size:21px; line-height:1; }\n.ss-design .ss-card-image img { display:block; width:100%; height:330px; object-fit:cover; transition:transform .35s ease; }\n.ss-design .ss-card-image { overflow:hidden; }\n.ss-design .ss-card-image:hover img { transform:scale(1.025); }\n.ss-design .ss-hero { isolation:isolate; }\n.ss-design .ss-logo img { width:92px; height:80px; object-fit:contain; }\n.ss-design .ss-story-image img { width:100%; height:auto; aspect-ratio:1; object-fit:cover; border:8px solid #f8f5eb; }\n.ss-design .ss-soak-image img { width:100%; height:auto; aspect-ratio:1.93; object-fit:cover; }\n.ss-design .ss-soak-card { z-index:2; }\n.ss-design .ss-guide-image img { width:100%; height:auto; aspect-ratio:1.7; object-fit:cover; }\n.ss-design .ss-eyebrow .elementor-heading-title { line-height:1.7; }\n.ss-design .ss-style-widget { width:100%; margin:0; }\n\n/* Booking search bar */\n.ss-search { display:grid; grid-template-columns:1fr 1fr .85fr 1.15fr; background:#ffffff; padding:16px; border:1px solid #e5e4da; box-shadow:0 12px 40px #0000000b; font-family:Arial,Helvetica,sans-serif; align-items:center; }\n.ss-search-date, .ss-search-guests { display:grid; text-align:left; gap:6px; padding:6px 24px; position:relative; min-width:0; border-right:1px solid #d8d8cc; min-height:58px; align-content:center; background:transparent; border-top:0; border-bottom:0; border-left:0; cursor:pointer; }\n.ss-search-date:hover { background:#f8f5eb; }\n.ss-eyebrow { font-size:10px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#595d54; }\n.ss-date-val { font-size:17px; color:#181a16; font-weight:500; white-space:nowrap; }\n.ss-field-arrow { position:absolute; right:20px; bottom:12px; font-size:18px; color:#595d54; pointer-events:none; }\n.ss-search-guests { border-right:0; cursor:default; }\n.ss-search-guests select { font:17px Arial,Helvetica,sans-serif; width:100%; color:#181a16; background:transparent; border:0; border-radius:0; padding:2px 0; min-height:28px; cursor:pointer; font-weight:500; }\n.ss-search-submit { background:#181a16; color:#ffffff; border:0; border-radius:4px; font:700 13px Arial,Helvetica,sans-serif; min-height:64px; padding:15px 24px; display:inline-flex; align-items:center; justify-content:space-between; gap:16px; cursor:pointer; transition:background .2s; }\n.ss-search-submit:hover { background:#7e8e76; color:#000000; }\n.ss-search-submit span { font-size:20px; }\n.ss-search-error { font:14px/1.6 Arial,Helvetica,sans-serif; color:#82382a; margin-top:12px; }\n.ss-search-note { font:11px/1.5 Arial,Helvetica,sans-serif; color:#595d54; margin:14px 0 0; }\n.ss-search-note a { text-decoration:underline; color:inherit; }\n\n/* Custom Date Picker Modal */\n.ss-date-dialog { border:0; padding:0; color:#181a16; width:min(780px,calc(100% - 48px)); max-height:calc(100dvh - 48px); background:#ffffff; box-shadow:0 24px 80px rgba(0,0,0,.25); font-family:Arial,Helvetica,sans-serif; z-index:99999; }\n.ss-date-dialog::backdrop { background:rgba(23,26,22,.65); backdrop-filter:blur(3px); }\n.ss-dialog-header { padding:28px 32px 20px; display:flex; justify-content:space-between; align-items:center; gap:20px; }\n.ss-dialog-header h2 { font:32px Georgia,serif; margin:0; }\n.ss-dialog-header .ss-eyebrow { margin-bottom:6px; }\n.ss-close-btn { width:44px; height:44px; display:flex; align-items:center; justify-content:center; font-size:27px; border:1px solid #d8d8cc; background:transparent; cursor:pointer; border-radius:50%; }\n.ss-close-btn:hover { background:#f8f5eb; }\n.ss-date-summary { margin-inline:32px; padding:14px 0; display:grid; grid-template-columns:1fr 1fr; gap:20px; border-bottom:1px solid #d8d8cc; }\n.ss-date-summary button { text-align:left; padding:10px 14px; border:1px solid transparent; border-bottom:2px solid transparent; background:transparent; cursor:pointer; }\n.ss-date-summary button.active { background:#f8f5eb; border-color:#d6c3ae; border-bottom-color:#181a16; }\n.ss-date-summary [data-ss-draft-label] { display:block; margin-top:4px; font-size:16px; font-weight:600; color:#181a16; }\n.ss-cal-nav { display:flex; align-items:center; justify-content:space-between; margin:18px 32px 0; }\n.ss-cal-nav button { width:44px; height:44px; font-size:22px; border:1px solid #d8d8cc; background:transparent; cursor:pointer; border-radius:4px; }\n.ss-cal-nav button:hover:not(:disabled) { background:#f8f5eb; }\n.ss-cal-nav button:disabled { opacity:.3; cursor:not-allowed; }\n.ss-cal-nav p { font-size:12px; color:#595d54; margin:0; font-weight:600; text-transform:uppercase; letter-spacing:.08em; }\n.ss-cal-months { display:grid; grid-template-columns:1fr 1fr; gap:32px; padding:12px 32px 26px; }\n.ss-cal-month h3 { font:18px Georgia,serif; text-align:center; margin:0 0 16px; }\n.ss-weekdays, .ss-day-grid { display:grid; grid-template-columns:repeat(7,1fr); }\n.ss-weekdays span { text-align:center; font-size:10px; color:#595d54; padding-block:8px; font-weight:600; }\n.ss-cal-day { width:100%; min-height:44px; font-size:13px; padding:6px 0; position:relative; border:0; background:transparent; cursor:pointer; font-family:inherit; }\n.ss-cal-day:disabled { color:#a1a397; text-decoration:line-through; cursor:not-allowed; }\n.ss-cal-day:not(:disabled):hover { background:#f8f5eb; box-shadow:inset 0 0 0 1px #7e8e76; }\n.ss-cal-day.in-range { background:#f8f5eb; }\n.ss-cal-day.selected { background:#181a16; color:#ffffff; }\n.ss-cal-day.today::after { content:''; position:absolute; bottom:6px; left:calc(50% - 2px); border-radius:50%; width:4px; height:4px; background:currentColor; }\n.ss-cal-footer { border-top:1px solid #d8d8cc; padding:20px 32px; display:flex; align-items:center; justify-content:space-between; gap:20px; background:#f8f5eb; }\n.ss-cal-footer p { font-size:13px; max-width:320px; margin:0; color:#595d54; }\n.ss-apply-btn { background:#181a16; color:#ffffff; border:0; border-radius:4px; padding:12px 24px; font:700 12px Arial,Helvetica,sans-serif; cursor:pointer; display:inline-flex; align-items:center; gap:12px; }\n.ss-apply-btn:hover:not(:disabled) { background:#7e8e76; color:#000000; }\n.ss-apply-btn:disabled { opacity:.4; cursor:not-allowed; }\n\n/* Mobile Menu */\n.ss-mobile-menu { position:relative; font:13px Arial,Helvetica,sans-serif; }\n.ss-mobile-menu summary { min-height:44px; display:flex; align-items:center; cursor:pointer; list-style:none; }\n.ss-mobile-menu summary::-webkit-details-marker { display:none; }\n.ss-mobile-menu nav { position:absolute; right:0; top:52px; z-index:90; min-width:240px; padding:18px 24px; background:#f8f5eb; box-shadow:0 8px 25px #0002; }\n.ss-mobile-menu nav a { display:block; font:23px/1.3 Georgia,serif; color:#181a16; padding:14px 0; border-bottom:1px solid #d6c3ae; }\n\n@media(max-width:1024px) {\n  .ss-design.ss-wrap { max-width:calc(100% - 64px); }\n  .ss-design .ss-card-image img { height:270px; }\n  .ss-search-date, .ss-search-guests { padding-inline:16px; }\n}\n@media(max-width:767px) {\n  .ss-design.ss-wrap { max-width:calc(100% - 48px); }\n  .ss-design .ss-logo img { width:74px; height:68px; }\n  .ss-design .ss-card-image img { height:auto; aspect-ratio:1.16; }\n  .ss-design .ss-soak-image img { aspect-ratio:1.25; }\n  .ss-design .ss-story-image { max-width:390px; }\n  .ss-search { grid-template-columns:1fr; padding:12px; gap:8px; }\n  .ss-search-date, .ss-search-guests { border-right:0; border-bottom:1px solid #d8d8cc; padding:14px 18px; min-height:64px; }\n  .ss-search-submit { width:100%; justify-content:center; }\n  .ss-date-dialog { width:100%; max-width:none; height:100dvh; max-height:100dvh; margin:0; }\n  .ss-dialog-header { padding:20px 24px 14px; }\n  .ss-dialog-header h2 { font-size:26px; }\n  .ss-date-summary { margin-inline:20px; }\n  .ss-cal-nav { margin-inline:20px; }\n  .ss-cal-months { grid-template-columns:1fr; padding-inline:20px; }\n  .ss-cal-month:nth-child(2) { display:none; }\n  .ss-cal-footer { padding:18px 20px; position:sticky; bottom:0; }\n}\n@media(prefers-reduced-motion:reduce) { .ss-design * { transition:none!important; animation:none!important; scroll-behavior:auto!important; } }\n\n</style>",
+            "_css_classes": "ss-style-widget"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "83b2d373",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "_title": "01 — Editorial hero",
+        "content_width": "full",
+        "width": {
+          "unit": "%",
+          "size": 100,
+          "sizes": []
+        },
+        "flex_direction": "column",
+        "flex_gap": {
+          "unit": "px",
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "60",
+          "right": "0",
+          "bottom": "100",
+          "left": "0",
+          "isLinked": false
+        },
+        "css_classes": "ss-design ss-hero ss-section",
+        "min_height": {
+          "unit": "px",
+          "size": 670,
+          "sizes": []
+        },
+        "min_height_mobile": {
+          "unit": "px",
+          "size": 550,
+          "sizes": []
+        },
+        "flex_justify_content": "center",
+        "padding_mobile": {
+          "unit": "px",
+          "top": "90",
+          "right": "0",
+          "bottom": "100",
+          "left": "0",
+          "isLinked": false
+        },
+        "background_background": "classic",
+        "background_image": {
+          "url": "https://darkseagreen-butterfly-103736.hostingersite.com/wp-content/uploads/2025/09/The-Silo-Suites-50-1-scaled.jpg",
+          "id": 1559,
+          "alt": "",
+          "source": "library",
+          "size": ""
+        },
+        "background_position": "center center",
+        "background_position_mobile": "center center",
+        "background_size": "cover",
+        "background_overlay_background": "gradient",
+        "background_overlay_color": "#000000A0",
+        "background_overlay_color_b": "#00000020",
+        "background_overlay_gradient_angle": {
+          "unit": "deg",
+          "size": 90,
+          "sizes": []
+        },
+        "background_overlay_opacity": {
+          "unit": "px",
+          "size": 1,
+          "sizes": []
+        }
+      },
+      "elements": [
+        {
+          "id": "cc71bdcd",
+          "elType": "container",
+          "isInner": false,
+          "settings": {
+            "_title": "01 — Hero content",
+            "content_width": "full",
+            "width": {
+              "unit": "%",
+              "size": 100,
+              "sizes": []
+            },
+            "flex_direction": "column",
+            "flex_gap": {
+              "unit": "px",
+              "column": "0",
+              "row": "0",
+              "isLinked": true,
+              "size": 0
+            },
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "css_classes": "ss-design ss-wrap"
+          },
+          "elements": [
+            {
+              "id": "53bb18a7",
+              "elType": "widget",
+              "widgetType": "heading",
+              "isInner": false,
+              "settings": {
+                "_title": "01 — Location",
+                "_margin": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "18",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "title": "A boutique stay in La Verkin, Utah",
+                "header_size": "p",
+                "typography_typography": "custom",
+                "typography_font_family": "Arial",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 10,
+                  "sizes": []
+                },
+                "typography_font_size_mobile": {
+                  "unit": "px",
+                  "size": 10,
+                  "sizes": []
+                },
+                "typography_font_weight": "600",
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.7,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": 1.5,
+                  "sizes": []
+                },
+                "title_color": "#FFFFFF",
+                "_css_classes": "ss-eyebrow",
+                "typography_text_transform": "uppercase"
+              },
+              "elements": []
+            },
+            {
+              "id": "110f6031",
+              "elType": "widget",
+              "widgetType": "heading",
+              "isInner": false,
+              "settings": {
+                "_title": "01 — Main headline",
+                "_margin": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "title": "A little history.<br><em>A lot of comfort.</em>",
+                "header_size": "h1",
+                "typography_typography": "custom",
+                "typography_font_family": "Georgia",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 80,
+                  "sizes": []
+                },
+                "typography_font_size_mobile": {
+                  "unit": "px",
+                  "size": 43,
+                  "sizes": []
+                },
+                "typography_font_weight": "400",
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.12,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": -1,
+                  "sizes": []
+                },
+                "title_color": "#FFFFFF",
+                "_css_classes": ""
+              },
+              "elements": []
+            },
+            {
+              "id": "946067a0",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "isInner": false,
+              "settings": {
+                "_title": "01 — Welcome copy",
+                "_margin": {
+                  "unit": "px",
+                  "top": "24",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "editor": "<p>Thoughtfully reimagined farm stays.<br>A quieter way to experience Southern Utah.</p>",
+                "text_color": "#FFFFFF",
+                "typography_typography": "custom",
+                "typography_font_family": "Arial",
+                "typography_font_weight": "400",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 16,
+                  "sizes": []
+                },
+                "typography_font_size_mobile": {
+                  "unit": "px",
+                  "size": 16,
+                  "sizes": []
+                },
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.8,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "f680bc7f",
+              "elType": "widget",
+              "widgetType": "button",
+              "isInner": false,
+              "settings": {
+                "_title": "01 — Hero link",
+                "_margin": {
+                  "unit": "px",
+                  "top": "24",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "text": "Explore the suites",
+                "link": {
+                  "url": "#ss-find-stay",
+                  "is_external": "",
+                  "nofollow": "",
+                  "custom_attributes": ""
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Arial",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 12,
+                  "sizes": []
+                },
+                "typography_font_weight": "400",
+                "button_text_color": "#FFFFFF",
+                "background_color": "#FFFFFF00",
+                "hover_color": "#FFFFFF",
+                "button_background_hover_color": "#FFFFFF00",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "text_padding": {
+                  "unit": "px",
+                  "top": "10",
+                  "right": "0",
+                  "bottom": "10",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "_css_classes": "ss-link",
+                "_element_width": "auto"
+              },
+              "elements": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e47c3767",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "_title": "02 — Date-first search",
+        "content_width": "full",
+        "width": {
+          "unit": "%",
+          "size": 100,
+          "sizes": []
+        },
+        "flex_direction": "column",
+        "flex_gap": {
+          "unit": "px",
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "css_classes": "ss-design ss-wrap",
+        "margin": {
+          "unit": "px",
+          "top": "-52",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "margin_mobile": {
+          "unit": "px",
+          "top": "-35",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": false
+        },
+        "z_index": 3,
+        "_element_id": "ss-find-stay"
+      },
+      "elements": [
+        {
+          "id": "88adb6b9",
+          "elType": "widget",
+          "widgetType": "html",
+          "isInner": false,
+          "settings": {
+            "_title": "02 — Booking search — preview only",
+            "_margin": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "html": "<div class=\"ss-design ss-search-block\">\n  <form class=\"ss-search\" data-ss-design-search action=\"/our-silo-suites/\" method=\"get\" novalidate>\n    <button class=\"ss-search-date\" type=\"button\" data-ss-date-open=\"in\" aria-label=\"Choose check-in date\">\n      <span class=\"ss-eyebrow\">Check in</span>\n      <span class=\"ss-date-val\" data-ss-date-label=\"in\">Choose a date</span>\n      <span class=\"ss-field-arrow\" aria-hidden=\"true\">⌄</span>\n    </button>\n    <button class=\"ss-search-date\" type=\"button\" data-ss-date-open=\"out\" aria-label=\"Choose check-out date\">\n      <span class=\"ss-eyebrow\">Check out</span>\n      <span class=\"ss-date-val\" data-ss-date-label=\"out\">Choose a date</span>\n      <span class=\"ss-field-arrow\" aria-hidden=\"true\">⌄</span>\n    </button>\n    <label class=\"ss-search-guests\">\n      <span class=\"ss-eyebrow\">Who's coming?</span>\n      <select name=\"guests\" aria-label=\"Number of guests\">\n        <option value=\"1\">1 guest</option>\n        <option value=\"2\" selected>2 guests</option>\n        <option value=\"3\">3 guests</option>\n        <option value=\"4\">4 guests</option>\n        <option value=\"5\">5 guests</option>\n        <option value=\"6\">6 guests</option>\n        <option value=\"7\">7 guests</option>\n        <option value=\"8\">8 guests</option>\n        <option value=\"9\">9 guests</option>\n        <option value=\"10\">10 guests</option>\n        <option value=\"11\">11 guests</option>\n        <option value=\"12\">12 guests</option>\n        <option value=\"13\">13 guests</option>\n        <option value=\"14\">14 guests</option>\n        <option value=\"15\">15 guests</option>\n        <option value=\"16\">16 guests</option>\n        <option value=\"17\">17 guests</option>\n        <option value=\"18\">18 guests</option>\n      </select>\n    </label>\n    <input type=\"hidden\" name=\"check_in\" data-ss-input=\"in\">\n    <input type=\"hidden\" name=\"check_out\" data-ss-input=\"out\">\n    <button class=\"ss-search-submit\" type=\"submit\">Check availability <span aria-hidden=\"true\">↗</span></button>\n  </form>\n  <p class=\"ss-search-error\" data-ss-search-error role=\"status\" aria-live=\"polite\"></p>\n  <p class=\"ss-search-note\">Dates first. Your own little corner. &nbsp; <a href=\"/our-silo-suites/\">Or explore all suites ↗</a></p>\n\n  <dialog class=\"ss-date-dialog\" id=\"ss-date-dialog\" aria-labelledby=\"ss-date-title\">\n    <div class=\"ss-dialog-header\">\n      <div>\n        <p class=\"ss-eyebrow\">Make a little time for yourself</p>\n        <h2 id=\"ss-date-title\">When will you stay?</h2>\n      </div>\n      <button type=\"button\" class=\"ss-close-btn\" data-ss-date-close aria-label=\"Close date picker\">×</button>\n    </div>\n    <div class=\"ss-date-summary\">\n      <button type=\"button\" data-ss-select-date=\"in\" class=\"active\">\n        <span class=\"ss-eyebrow\">Check in</span>\n        <span data-ss-draft-label=\"in\">Choose a date</span>\n      </button>\n      <button type=\"button\" data-ss-select-date=\"out\">\n        <span class=\"ss-eyebrow\">Check out</span>\n        <span data-ss-draft-label=\"out\">Choose a date</span>\n      </button>\n    </div>\n    <div class=\"ss-cal-nav\">\n      <button type=\"button\" data-ss-month=\"-1\" aria-label=\"Previous month\">←</button>\n      <p id=\"ss-cal-instruction\" role=\"status\">Choose your check-in date</p>\n      <button type=\"button\" data-ss-month=\"1\" aria-label=\"Next month\">→</button>\n    </div>\n    <div class=\"ss-cal-months\"></div>\n    <div class=\"ss-cal-footer\">\n      <p id=\"ss-date-feedback\" role=\"status\">Choose your arrival date to begin.</p>\n      <button type=\"button\" class=\"ss-apply-btn\" id=\"ss-apply-dates\" disabled>Use these dates <span aria-hidden=\"true\">↗</span></button>\n    </div>\n  </dialog>\n</div>\n\n<script>\n(function(){\n  function init(){\n    document.querySelectorAll('[data-ss-design-search]').forEach(function(form){\n      if(form.dataset.ssBound)return;form.dataset.ssBound='yes';\n\n      var block=form.closest('.ss-search-block')||form.parentElement;\n      var dialog=block.querySelector('#ss-date-dialog');\n      if(!dialog)return;\n\n      // Ensure dialog is placed at document.body level so stacking/transforms in Elementor don't clip it\n      if(dialog.parentElement!==document.body){\n        document.body.appendChild(dialog);\n      }\n\n      var inputIn=form.querySelector('[data-ss-input=\"in\"]');\n      var inputOut=form.querySelector('[data-ss-input=\"out\"]');\n      var labelIn=form.querySelector('[data-ss-date-label=\"in\"]');\n      var labelOut=form.querySelector('[data-ss-date-label=\"out\"]');\n      var errorEl=block.querySelector('[data-ss-search-error]');\n\n      var draftIn='',draftOut='',picking='in';\n\n      // Timezone: America/Denver\n      function getToday(){\n        try{\n          var parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/Denver',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());\n          function p(t){for(var i=0;i<parts.length;i++){if(parts[i].type===t)return parts[i].value}return ''}\n          return p('year')+'-'+p('month')+'-'+p('day');\n        }catch(e){\n          var d=new Date();\n          return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');\n        }\n      }\n\n      var today=getToday();\n      var shownDate=new Date();\n\n      function formatDisplay(iso){\n        if(!iso)return 'Choose a date';\n        var p=iso.split('-');\n        var d=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]));\n        return new Intl.DateTimeFormat('en-US',{weekday:'short',month:'short',day:'numeric',timeZone:'UTC'}).format(d);\n      }\n\n      function addDays(iso,n){\n        var p=iso.split('-');\n        var d=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]+n));\n        return d.toISOString().slice(0,10);\n      }\n\n      function nightCount(a,b){\n        var da=new Date(a),db=new Date(b);\n        return Math.round((db-da)/(1000*60*60*24));\n      }\n\n      function renderMonth(y,m){\n        var first=new Date(Date.UTC(y,m,1));\n        var count=new Date(Date.UTC(y,m+1,0)).getUTCDate();\n        var offset=first.getUTCDay();\n        var title=new Intl.DateTimeFormat('en-US',{month:'long',year:'numeric',timeZone:'UTC'}).format(first);\n        var html='<section class=\"ss-cal-month\" aria-label=\"'+title+'\"><h3>'+title+'</h3>';\n        html+='<div class=\"ss-weekdays\" aria-hidden=\"true\"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>';\n        html+='<div class=\"ss-day-grid\">';\n        for(var i=0;i<offset;i++){html+='<span aria-hidden=\"true\"></span>';}\n        for(var d=1;d<=count;d++){\n          var iso=y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');\n          var disabled=(iso<today||iso>addDays(today,365));\n          var selected=(iso===draftIn||iso===draftOut);\n          var inRange=(draftIn&&draftOut&&iso>draftIn&&iso<draftOut);\n          var isToday=(iso===today);\n          var cls='ss-cal-day'+(selected?' selected':'')+(inRange?' in-range':'')+(isToday?' today':'');\n          html+='<button type=\"button\" class=\"'+cls+'\" data-ss-day=\"'+iso+'\"'+(disabled?' disabled':'')+'>'+d+'</button>';\n        }\n        html+='</div></section>';\n        return html;\n      }\n\n      function renderCalendar(){\n        var y=shownDate.getUTCFullYear(),m=shownDate.getUTCMonth();\n        var m1=renderMonth(y,m);\n        var nextDate=new Date(Date.UTC(y,m+1,1));\n        var m2=renderMonth(nextDate.getUTCFullYear(),nextDate.getUTCMonth());\n        dialog.querySelector('.ss-cal-months').innerHTML=m1+m2;\n\n        dialog.querySelector('[data-ss-draft-label=\"in\"]').textContent=formatDisplay(draftIn);\n        dialog.querySelector('[data-ss-draft-label=\"out\"]').textContent=formatDisplay(draftOut);\n\n        var selIn=dialog.querySelector('[data-ss-select-date=\"in\"]');\n        var selOut=dialog.querySelector('[data-ss-select-date=\"out\"]');\n        if(selIn)selIn.classList.toggle('active',picking==='in');\n        if(selOut)selOut.classList.toggle('active',picking==='out');\n\n        var instr=dialog.querySelector('#ss-cal-instruction');\n        if(instr)instr.textContent='Choose your '+(picking==='in'?'check-in':'check-out')+' date';\n\n        var feedback=dialog.querySelector('#ss-date-feedback');\n        var applyBtn=dialog.querySelector('#ss-apply-dates');\n\n        if(!draftIn){\n          if(feedback)feedback.textContent='Choose your arrival date to begin.';\n          if(applyBtn)applyBtn.disabled=true;\n        }else if(!draftOut){\n          if(feedback)feedback.textContent='Now choose your departure date.';\n          if(applyBtn)applyBtn.disabled=true;\n        }else if(draftOut<=draftIn){\n          if(feedback)feedback.textContent='Departure must be after arrival.';\n          if(applyBtn)applyBtn.disabled=true;\n        }else{\n          var n=nightCount(draftIn,draftOut);\n          if(feedback)feedback.textContent=n+' '+(n===1?'night':'nights')+'. A little time for yourself.';\n          if(applyBtn)applyBtn.disabled=false;\n        }\n      }\n\n      function openModal(which){\n        picking=(which==='out'&&draftIn)?'out':'in';\n        var ref=picking==='out'&&draftOut?draftOut:draftIn||today;\n        var p=ref.split('-');\n        shownDate=new Date(Date.UTC(+p[0],+p[1]-1,1));\n        renderCalendar();\n        if(typeof dialog.showModal==='function'){\n          dialog.showModal();\n        }else{\n          dialog.setAttribute('open','');\n        }\n      }\n\n      function closeModal(){\n        if(typeof dialog.close==='function'){\n          dialog.close();\n        }else{\n          dialog.removeAttribute('open');\n        }\n      }\n\n      form.querySelectorAll('[data-ss-date-open]').forEach(function(btn){\n        btn.addEventListener('click',function(e){\n          e.preventDefault();\n          openModal(btn.dataset.ssDateOpen);\n        });\n      });\n\n      dialog.querySelectorAll('[data-ss-date-close]').forEach(function(btn){\n        btn.addEventListener('click',function(){closeModal();});\n      });\n\n      dialog.addEventListener('click',function(e){\n        if(e.target===dialog)closeModal();\n      });\n\n      dialog.querySelectorAll('[data-ss-select-date]').forEach(function(btn){\n        btn.addEventListener('click',function(){\n          picking=btn.dataset.ssSelectDate==='out'&&draftIn?'out':'in';\n          renderCalendar();\n        });\n      });\n\n      dialog.querySelectorAll('[data-ss-month]').forEach(function(btn){\n        btn.addEventListener('click',function(){\n          var delta=+btn.dataset.ssMonth;\n          shownDate=new Date(Date.UTC(shownDate.getUTCFullYear(),shownDate.getUTCMonth()+delta,1));\n          renderCalendar();\n        });\n      });\n\n      dialog.querySelector('.ss-cal-months').addEventListener('click',function(e){\n        var dayBtn=e.target.closest('[data-ss-day]');\n        if(!dayBtn||dayBtn.disabled)return;\n        var val=dayBtn.dataset.ssDay;\n        if(picking==='in'||!draftIn||val<=draftIn){\n          draftIn=val;\n          draftOut='';\n          picking='out';\n        }else{\n          draftOut=val;\n        }\n        renderCalendar();\n      });\n\n      dialog.querySelector('#ss-apply-dates').addEventListener('click',function(){\n        if(!draftIn||!draftOut||draftOut<=draftIn)return;\n        inputIn.value=draftIn;\n        inputOut.value=draftOut;\n        labelIn.textContent=formatDisplay(draftIn);\n        labelOut.textContent=formatDisplay(draftOut);\n        if(errorEl)errorEl.textContent='';\n        closeModal();\n      });\n\n      form.addEventListener('submit',function(e){\n        if(!inputIn.value||!inputOut.value){\n          e.preventDefault();\n          if(errorEl)errorEl.textContent='Please select your check-in and check-out dates.';\n          openModal('in');\n        }\n      });\n    });\n  }\n\n  if(document.readyState==='loading'){\n    document.addEventListener('DOMContentLoaded',init);\n  }else{\n    init();\n  }\n  if(window.jQuery){\n    window.jQuery(window).on('elementor/frontend/init',function(){\n      if(window.elementorFrontend){\n        window.elementorFrontend.hooks.addAction('frontend/element_ready/html.default',init);\n      }\n    });\n  }\n})();\n</script>\n"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "c5e55801",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "_title": "03 — Introduction",
+        "content_width": "full",
+        "width": {
+          "unit": "%",
+          "size": 100,
+          "sizes": []
+        },
+        "flex_direction": "column",
+        "flex_gap": {
+          "unit": "px",
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "100",
+          "right": "0",
+          "bottom": "100",
+          "left": "0",
+          "isLinked": false
+        },
+        "css_classes": "ss-design ss-section",
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding_mobile": {
+          "unit": "px",
+          "top": "65",
+          "right": "0",
+          "bottom": "65",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "8024ccc0",
+          "elType": "container",
+          "isInner": false,
+          "settings": {
+            "_title": "03 — Intro layout",
+            "content_width": "full",
+            "width": {
+              "unit": "%",
+              "size": 100,
+              "sizes": []
+            },
+            "flex_direction": "row",
+            "flex_gap": {
+              "unit": "px",
+              "column": "60",
+              "row": "60",
+              "isLinked": true,
+              "size": 60
+            },
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "css_classes": "ss-design ss-wrap",
+            "flex_direction_mobile": "column",
+            "flex_gap_mobile": {
+              "unit": "px",
+              "column": "26",
+              "row": "26",
+              "isLinked": true,
+              "size": 26
+            }
+          },
+          "elements": [
+            {
+              "id": "491fa617",
+              "elType": "container",
+              "isInner": false,
+              "settings": {
+                "_title": "03 — Intro label",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 38,
+                  "sizes": []
+                },
+                "flex_direction": "column",
+                "flex_gap": {
+                  "unit": "px",
+                  "column": "0",
+                  "row": "0",
+                  "isLinked": true,
+                  "size": 0
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "css_classes": "ss-design ",
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100,
+                  "sizes": []
+                }
+              },
+              "elements": [
+                {
+                  "id": "cc538f32",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "03 — Intro eyebrow",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "18",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "title": "Rooted in the past.<br>Ready for your next chapter.",
+                    "header_size": "p",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Arial",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 10,
+                      "sizes": []
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 10,
+                      "sizes": []
+                    },
+                    "typography_font_weight": "600",
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.7,
+                      "sizes": []
+                    },
+                    "typography_letter_spacing": {
+                      "unit": "px",
+                      "size": 1.5,
+                      "sizes": []
+                    },
+                    "title_color": "#595D54",
+                    "_css_classes": "ss-eyebrow",
+                    "typography_text_transform": "uppercase"
+                  },
+                  "elements": []
+                }
+              ]
+            },
+            {
+              "id": "b56af526",
+              "elType": "container",
+              "isInner": false,
+              "settings": {
+                "_title": "03 — Intro copy",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 62,
+                  "sizes": []
+                },
+                "flex_direction": "column",
+                "flex_gap": {
+                  "unit": "px",
+                  "column": "0",
+                  "row": "0",
+                  "isLinked": true,
+                  "size": 0
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "css_classes": "ss-design ",
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100,
+                  "sizes": []
+                }
+              },
+              "elements": [
+                {
+                  "id": "afef4710",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "03 — Intro heading",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "title": "A farm story, made<br>for a <em>slower stay.</em>",
+                    "header_size": "h2",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Georgia",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 58,
+                      "sizes": []
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 39,
+                      "sizes": []
+                    },
+                    "typography_font_weight": "400",
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.12,
+                      "sizes": []
+                    },
+                    "typography_letter_spacing": {
+                      "unit": "px",
+                      "size": -1,
+                      "sizes": []
+                    },
+                    "title_color": "#181A16",
+                    "_css_classes": ""
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "b2c46d77",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "03 — Intro paragraph",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "26",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "editor": "<p>Settle into a thoughtfully designed suite on the historic Church Dairy Farm. Here, original character meets everyday comfort, with the landscapes of Southern Utah waiting just beyond your door.</p>",
+                    "text_color": "#595D54",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Arial",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 16,
+                      "sizes": []
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 16,
+                      "sizes": []
+                    },
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.8,
+                      "sizes": []
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "06a00329",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "03 — Story link",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "18",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "text": "Get to know Silo Suites",
+                    "link": {
+                      "url": "#our-story",
+                      "is_external": "",
+                      "nofollow": "",
+                      "custom_attributes": ""
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Arial",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 12,
+                      "sizes": []
+                    },
+                    "typography_font_weight": "400",
+                    "button_text_color": "#181A16",
+                    "background_color": "#FFFFFF00",
+                    "hover_color": "#181A16",
+                    "button_background_hover_color": "#FFFFFF00",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "text_padding": {
+                      "unit": "px",
+                      "top": "10",
+                      "right": "0",
+                      "bottom": "10",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "_css_classes": "ss-link ss-has-arrow",
+                    "_element_width": "auto"
+                  },
+                  "elements": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "92d0ce8d",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "_title": "04 — Featured stays",
+        "content_width": "full",
+        "width": {
+          "unit": "%",
+          "size": 100,
+          "sizes": []
+        },
+        "flex_direction": "column",
+        "flex_gap": {
+          "unit": "px",
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "100",
+          "right": "0",
+          "bottom": "100",
+          "left": "0",
+          "isLinked": false
+        },
+        "css_classes": "ss-design ss-section",
+        "background_background": "classic",
+        "background_color": "#F8F5EB",
+        "padding_mobile": {
+          "unit": "px",
+          "top": "65",
+          "right": "0",
+          "bottom": "65",
+          "left": "0",
+          "isLinked": false
+        },
+        "_element_id": "suites"
+      },
+      "elements": [
+        {
+          "id": "f1656cdd",
+          "elType": "container",
+          "isInner": false,
+          "settings": {
+            "_title": "04 — Suites inner",
+            "content_width": "full",
+            "width": {
+              "unit": "%",
+              "size": 100,
+              "sizes": []
+            },
+            "flex_direction": "column",
+            "flex_gap": {
+              "unit": "px",
+              "column": "0",
+              "row": "0",
+              "isLinked": true,
+              "size": 0
+            },
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "css_classes": "ss-design ss-wrap"
+          },
+          "elements": [
+            {
+              "id": "e980793b",
+              "elType": "container",
+              "isInner": false,
+              "settings": {
+                "_title": "04 — Suites title row",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 100,
+                  "sizes": []
+                },
+                "flex_direction": "row",
+                "flex_gap": {
+                  "unit": "px",
+                  "column": "30",
+                  "row": "30",
+                  "isLinked": true,
+                  "size": 30
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "css_classes": "ss-design ",
+                "flex_direction_mobile": "column",
+                "flex_align_items": "flex-end",
+                "flex_align_items_mobile": "flex-start"
+              },
+              "elements": [
+                {
+                  "id": "91d4afe8",
+                  "elType": "container",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "04 — Suites heading group",
+                    "content_width": "full",
+                    "width": {
+                      "unit": "%",
+                      "size": 75,
+                      "sizes": []
+                    },
+                    "flex_direction": "column",
+                    "flex_gap": {
+                      "unit": "px",
+                      "column": "0",
+                      "row": "0",
+                      "isLinked": true,
+                      "size": 0
+                    },
+                    "padding": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "css_classes": "ss-design ",
+                    "width_mobile": {
+                      "unit": "%",
+                      "size": 100,
+                      "sizes": []
+                    }
+                  },
+                  "elements": [
+                    {
+                      "id": "5a74b34e",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "04 — The stays label",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "18",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "title": "The stays",
+                        "header_size": "p",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Arial",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "600",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.7,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "px",
+                          "size": 1.5,
+                          "sizes": []
+                        },
+                        "title_color": "#595D54",
+                        "_css_classes": "ss-eyebrow",
+                        "typography_text_transform": "uppercase"
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "db973d9a",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "04 — Suites heading",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "title": "A space to call <em>your own.</em>",
+                        "header_size": "h2",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Georgia",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 47,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "px",
+                          "size": 37,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "400",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.12,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "px",
+                          "size": -1,
+                          "sizes": []
+                        },
+                        "title_color": "#181A16",
+                        "_css_classes": ""
+                      },
+                      "elements": []
+                    }
+                  ]
+                },
+                {
+                  "id": "bc2a3e6a",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "04 — All suites link",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "text": "Explore all suites",
+                    "link": {
+                      "url": "/our-silo-suites/",
+                      "is_external": "",
+                      "nofollow": "",
+                      "custom_attributes": ""
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Arial",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 12,
+                      "sizes": []
+                    },
+                    "typography_font_weight": "400",
+                    "button_text_color": "#181A16",
+                    "background_color": "#FFFFFF00",
+                    "hover_color": "#181A16",
+                    "button_background_hover_color": "#FFFFFF00",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "text_padding": {
+                      "unit": "px",
+                      "top": "10",
+                      "right": "0",
+                      "bottom": "10",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "_css_classes": "ss-link ss-has-arrow",
+                    "_element_width": "auto"
+                  },
+                  "elements": []
+                }
+              ]
+            },
+            {
+              "id": "77265fd7",
+              "elType": "container",
+              "isInner": false,
+              "settings": {
+                "_title": "04 — Featured suites grid",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 100,
+                  "sizes": []
+                },
+                "flex_direction": "row",
+                "flex_gap": {
+                  "unit": "px",
+                  "column": "28",
+                  "row": "28",
+                  "isLinked": true,
+                  "size": 28
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "css_classes": "ss-design ",
+                "flex_direction_mobile": "column",
+                "_margin": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "margin": {
+                  "unit": "px",
+                  "top": "36",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                }
+              },
+              "elements": [
+                {
+                  "id": "0132abf6",
+                  "elType": "container",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "04 — Silo 1 card",
+                    "content_width": "full",
+                    "width": {
+                      "unit": "%",
+                      "size": 33.333,
+                      "sizes": []
+                    },
+                    "flex_direction": "column",
+                    "flex_gap": {
+                      "unit": "px",
+                      "column": "0",
+                      "row": "0",
+                      "isLinked": true,
+                      "size": 0
+                    },
+                    "padding": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "css_classes": "ss-design ss-card",
+                    "width_mobile": {
+                      "unit": "%",
+                      "size": 100,
+                      "sizes": []
+                    }
+                  },
+                  "elements": [
+                    {
+                      "id": "b5a548fa",
+                      "elType": "widget",
+                      "widgetType": "image",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "04 — Silo 1 card image",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "image": {
+                          "url": "https://darkseagreen-butterfly-103736.hostingersite.com/wp-content/uploads/2025/02/53758-143824-um3cH03nukuwkRaLUvJlEky5-um7PE22b-hi3oubfqI-6sss43783bd3a183.jpg",
+                          "id": 890,
+                          "alt": "Silo Suite 1",
+                          "source": "library",
+                          "size": ""
+                        },
+                        "image_size": "full",
+                        "align": "left",
+                        "_css_classes": "ss-card-image",
+                        "link_to": "custom",
+                        "link": {
+                          "url": "/silo-suite-1/"
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "172f92ac",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "04 — Silo 1 card caption",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "22",
+                          "right": "0",
+                          "bottom": "8",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "title": "The original character",
+                        "header_size": "p",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Arial",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "600",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.7,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "px",
+                          "size": 1.5,
+                          "sizes": []
+                        },
+                        "title_color": "#595D54",
+                        "_css_classes": "ss-eyebrow",
+                        "typography_text_transform": "uppercase"
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "afcb65d4",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "04 — Silo 1 card title",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "title": "Silo Suite 1",
+                        "header_size": "h3",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Georgia",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 30,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "px",
+                          "size": 30,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "400",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.12,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "px",
+                          "size": -1,
+                          "sizes": []
+                        },
+                        "title_color": "#181A16",
+                        "_css_classes": "",
+                        "link": {
+                          "url": "/silo-suite-1/"
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "d1e7ade3",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "04 — Silo 1 card facts",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "12",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "editor": "<p>Up to 4 guests &nbsp; / &nbsp; 1 bath</p>",
+                        "text_color": "#595D54",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Arial",
+                        "typography_font_weight": "400",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 13,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "px",
+                          "size": 13,
+                          "sizes": []
+                        },
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.8,
+                          "sizes": []
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "d876a9f0",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "04 — Silo 1 card link",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "6",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "text": "Explore this stay",
+                        "link": {
+                          "url": "/silo-suite-1/",
+                          "is_external": "",
+                          "nofollow": "",
+                          "custom_attributes": ""
+                        },
+                        "typography_typography": "custom",
+                        "typography_font_family": "Arial",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 12,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "400",
+                        "button_text_color": "#181A16",
+                        "background_color": "#FFFFFF00",
+                        "hover_color": "#181A16",
+                        "button_background_hover_color": "#FFFFFF00",
+                        "border_radius": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "text_padding": {
+                          "unit": "px",
+                          "top": "10",
+                          "right": "0",
+                          "bottom": "10",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "_css_classes": "ss-link ss-has-arrow",
+                        "_element_width": "auto",
+                        "align": "justify"
+                      },
+                      "elements": []
+                    }
+                  ]
+                },
+                {
+                  "id": "64a5a981",
+                  "elType": "container",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "04 — Silo 3 card",
+                    "content_width": "full",
+                    "width": {
+                      "unit": "%",
+                      "size": 33.333,
+                      "sizes": []
+                    },
+                    "flex_direction": "column",
+                    "flex_gap": {
+                      "unit": "px",
+                      "column": "0",
+                      "row": "0",
+                      "isLinked": true,
+                      "size": 0
+                    },
+                    "padding": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "css_classes": "ss-design ss-card",
+                    "width_mobile": {
+                      "unit": "%",
+                      "size": 100,
+                      "sizes": []
+                    }
+                  },
+                  "elements": [
+                    {
+                      "id": "5d99855b",
+                      "elType": "widget",
+                      "widgetType": "image",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "04 — Silo 3 card image",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "image": {
+                          "url": "https://darkseagreen-butterfly-103736.hostingersite.com/wp-content/uploads/2025/09/The-Silo-Suites-28.jpg",
+                          "id": 1582,
+                          "alt": "Silo Suite 3",
+                          "source": "library",
+                          "size": ""
+                        },
+                        "image_size": "full",
+                        "align": "left",
+                        "_css_classes": "ss-card-image",
+                        "link_to": "custom",
+                        "link": {
+                          "url": "/silo-suite-3/"
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "a45e95d4",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "04 — Silo 3 card caption",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "22",
+                          "right": "0",
+                          "bottom": "8",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "title": "Thoughtfully considered",
+                        "header_size": "p",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Arial",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "600",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.7,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "px",
+                          "size": 1.5,
+                          "sizes": []
+                        },
+                        "title_color": "#595D54",
+                        "_css_classes": "ss-eyebrow",
+                        "typography_text_transform": "uppercase"
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "7804651e",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "04 — Silo 3 card title",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "title": "Silo Suite 3",
+                        "header_size": "h3",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Georgia",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 30,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "px",
+                          "size": 30,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "400",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.12,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "px",
+                          "size": -1,
+                          "sizes": []
+                        },
+                        "title_color": "#181A16",
+                        "_css_classes": "",
+                        "link": {
+                          "url": "/silo-suite-3/"
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "579ccfff",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "04 — Silo 3 card facts",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "12",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "editor": "<p>Up to 5 guests &nbsp; / &nbsp; 1 bath</p>",
+                        "text_color": "#595D54",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Arial",
+                        "typography_font_weight": "400",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 13,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "px",
+                          "size": 13,
+                          "sizes": []
+                        },
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.8,
+                          "sizes": []
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "5e175997",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "04 — Silo 3 card link",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "6",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "text": "Explore this stay",
+                        "link": {
+                          "url": "/silo-suite-3/",
+                          "is_external": "",
+                          "nofollow": "",
+                          "custom_attributes": ""
+                        },
+                        "typography_typography": "custom",
+                        "typography_font_family": "Arial",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 12,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "400",
+                        "button_text_color": "#181A16",
+                        "background_color": "#FFFFFF00",
+                        "hover_color": "#181A16",
+                        "button_background_hover_color": "#FFFFFF00",
+                        "border_radius": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "text_padding": {
+                          "unit": "px",
+                          "top": "10",
+                          "right": "0",
+                          "bottom": "10",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "_css_classes": "ss-link ss-has-arrow",
+                        "_element_width": "auto",
+                        "align": "justify"
+                      },
+                      "elements": []
+                    }
+                  ]
+                },
+                {
+                  "id": "3c3106a3",
+                  "elType": "container",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "04 — Dairy card",
+                    "content_width": "full",
+                    "width": {
+                      "unit": "%",
+                      "size": 33.333,
+                      "sizes": []
+                    },
+                    "flex_direction": "column",
+                    "flex_gap": {
+                      "unit": "px",
+                      "column": "0",
+                      "row": "0",
+                      "isLinked": true,
+                      "size": 0
+                    },
+                    "padding": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "css_classes": "ss-design ss-card",
+                    "width_mobile": {
+                      "unit": "%",
+                      "size": 100,
+                      "sizes": []
+                    }
+                  },
+                  "elements": [
+                    {
+                      "id": "f516ee6a",
+                      "elType": "widget",
+                      "widgetType": "image",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "04 — Dairy card image",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "image": {
+                          "url": "https://darkseagreen-butterfly-103736.hostingersite.com/wp-content/uploads/2026/04/studio-apartmentsdwww.jpg",
+                          "id": 3467,
+                          "alt": "The Dairy Suite",
+                          "source": "library",
+                          "size": ""
+                        },
+                        "image_size": "full",
+                        "align": "left",
+                        "_css_classes": "ss-card-image",
+                        "link_to": "custom",
+                        "link": {
+                          "url": "/the-dairy-suite/"
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "23eb63f7",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "04 — Dairy card caption",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "22",
+                          "right": "0",
+                          "bottom": "8",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "title": "A new chapter on the farm",
+                        "header_size": "p",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Arial",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "600",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.7,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "px",
+                          "size": 1.5,
+                          "sizes": []
+                        },
+                        "title_color": "#595D54",
+                        "_css_classes": "ss-eyebrow",
+                        "typography_text_transform": "uppercase"
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "bfec963b",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "04 — Dairy card title",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "title": "The Dairy Suite",
+                        "header_size": "h3",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Georgia",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 30,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "px",
+                          "size": 30,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "400",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.12,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "px",
+                          "size": -1,
+                          "sizes": []
+                        },
+                        "title_color": "#181A16",
+                        "_css_classes": "",
+                        "link": {
+                          "url": "/the-dairy-suite/"
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "4645b5d9",
+                      "elType": "widget",
+                      "widgetType": "text-editor",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "04 — Dairy card facts",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "12",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "editor": "<p>Up to 4 guests &nbsp; / &nbsp; 1 bath</p>",
+                        "text_color": "#595D54",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Arial",
+                        "typography_font_weight": "400",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 13,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "px",
+                          "size": 13,
+                          "sizes": []
+                        },
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.8,
+                          "sizes": []
+                        }
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "97cab80d",
+                      "elType": "widget",
+                      "widgetType": "button",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "04 — Dairy card link",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "6",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "text": "Explore this stay",
+                        "link": {
+                          "url": "/the-dairy-suite/",
+                          "is_external": "",
+                          "nofollow": "",
+                          "custom_attributes": ""
+                        },
+                        "typography_typography": "custom",
+                        "typography_font_family": "Arial",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 12,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "400",
+                        "button_text_color": "#181A16",
+                        "background_color": "#FFFFFF00",
+                        "hover_color": "#181A16",
+                        "button_background_hover_color": "#FFFFFF00",
+                        "border_radius": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "text_padding": {
+                          "unit": "px",
+                          "top": "10",
+                          "right": "0",
+                          "bottom": "10",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "_css_classes": "ss-link ss-has-arrow",
+                        "_element_width": "auto",
+                        "align": "justify"
+                      },
+                      "elements": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "7c4bb8af",
+              "elType": "container",
+              "isInner": false,
+              "settings": {
+                "_title": "04 — Group stay invitation",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 100,
+                  "sizes": []
+                },
+                "flex_direction": "row",
+                "flex_gap": {
+                  "unit": "px",
+                  "column": "30",
+                  "row": "30",
+                  "isLinked": true,
+                  "size": 30
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "26",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "css_classes": "ss-design ",
+                "flex_direction_mobile": "column",
+                "margin": {
+                  "unit": "px",
+                  "top": "45",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "border_border": "solid",
+                "border_width": {
+                  "unit": "px",
+                  "top": "1",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "border_color": "#C9CBBF",
+                "flex_justify_content": "space-between",
+                "flex_align_items": "center",
+                "flex_align_items_mobile": "flex-start"
+              },
+              "elements": [
+                {
+                  "id": "e3c3b155",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "04 — Group label",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "18",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "title": "Better together",
+                    "header_size": "p",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Arial",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 10,
+                      "sizes": []
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 10,
+                      "sizes": []
+                    },
+                    "typography_font_weight": "600",
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.7,
+                      "sizes": []
+                    },
+                    "typography_letter_spacing": {
+                      "unit": "px",
+                      "size": 1.5,
+                      "sizes": []
+                    },
+                    "title_color": "#595D54",
+                    "_css_classes": "ss-eyebrow",
+                    "typography_text_transform": "uppercase"
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "55896712",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "04 — Group paragraph",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "editor": "<p>Coming with your favourite people? Make all four silos yours.</p>",
+                    "text_color": "#595D54",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Arial",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 14,
+                      "sizes": []
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 16,
+                      "sizes": []
+                    },
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.8,
+                      "sizes": []
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "3206f225",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "04 — Group link",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "text": "Explore group stays",
+                    "link": {
+                      "url": "/entire-silo-suites/",
+                      "is_external": "",
+                      "nofollow": "",
+                      "custom_attributes": ""
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Arial",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 12,
+                      "sizes": []
+                    },
+                    "typography_font_weight": "400",
+                    "button_text_color": "#181A16",
+                    "background_color": "#FFFFFF00",
+                    "hover_color": "#181A16",
+                    "button_background_hover_color": "#FFFFFF00",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "text_padding": {
+                      "unit": "px",
+                      "top": "10",
+                      "right": "0",
+                      "bottom": "10",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "_css_classes": "ss-link ss-has-arrow",
+                    "_element_width": "auto"
+                  },
+                  "elements": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "352a5644",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "_title": "05 — Farm story",
+        "content_width": "full",
+        "width": {
+          "unit": "%",
+          "size": 100,
+          "sizes": []
+        },
+        "flex_direction": "column",
+        "flex_gap": {
+          "unit": "px",
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "88",
+          "right": "0",
+          "bottom": "88",
+          "left": "0",
+          "isLinked": false
+        },
+        "css_classes": "ss-design ss-section",
+        "background_background": "classic",
+        "background_color": "#7E8E76",
+        "padding_mobile": {
+          "unit": "px",
+          "top": "65",
+          "right": "0",
+          "bottom": "65",
+          "left": "0",
+          "isLinked": false
+        },
+        "_element_id": "our-story"
+      },
+      "elements": [
+        {
+          "id": "477e1a9e",
+          "elType": "container",
+          "isInner": false,
+          "settings": {
+            "_title": "05 — Story layout",
+            "content_width": "full",
+            "width": {
+              "unit": "%",
+              "size": 100,
+              "sizes": []
+            },
+            "flex_direction": "row",
+            "flex_gap": {
+              "unit": "px",
+              "column": "100",
+              "row": "100",
+              "isLinked": true,
+              "size": 100
+            },
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "css_classes": "ss-design ss-wrap",
+            "flex_direction_mobile": "column",
+            "flex_gap_mobile": {
+              "unit": "px",
+              "column": "36",
+              "row": "36",
+              "isLinked": true,
+              "size": 36
+            },
+            "flex_align_items": "center"
+          },
+          "elements": [
+            {
+              "id": "13be1c9f",
+              "elType": "container",
+              "isInner": false,
+              "settings": {
+                "_title": "05 — Story photograph group",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 42,
+                  "sizes": []
+                },
+                "flex_direction": "column",
+                "flex_gap": {
+                  "unit": "px",
+                  "column": "0",
+                  "row": "0",
+                  "isLinked": true,
+                  "size": 0
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "css_classes": "ss-design ",
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100,
+                  "sizes": []
+                }
+              },
+              "elements": [
+                {
+                  "id": "6ffd5180",
+                  "elType": "widget",
+                  "widgetType": "image",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "05 — Family photo",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "image": {
+                      "url": "https://darkseagreen-butterfly-103736.hostingersite.com/wp-content/uploads/2025/11/our_story.jpeg",
+                      "id": 1709,
+                      "alt": "The family behind Silo Suites, photographed outdoors at the farm",
+                      "source": "library",
+                      "size": ""
+                    },
+                    "image_size": "full",
+                    "align": "left",
+                    "_css_classes": "ss-story-image"
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "9e531706",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "05 — Family photo caption",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "18",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "title": "A family farm. A new chapter.",
+                    "header_size": "p",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Arial",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 10,
+                      "sizes": []
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 10,
+                      "sizes": []
+                    },
+                    "typography_font_weight": "600",
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.7,
+                      "sizes": []
+                    },
+                    "typography_letter_spacing": {
+                      "unit": "px",
+                      "size": 1.5,
+                      "sizes": []
+                    },
+                    "title_color": "#181A16",
+                    "_css_classes": "ss-eyebrow",
+                    "typography_text_transform": "uppercase"
+                  },
+                  "elements": []
+                }
+              ]
+            },
+            {
+              "id": "5397529b",
+              "elType": "container",
+              "isInner": false,
+              "settings": {
+                "_title": "05 — Story copy",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 58,
+                  "sizes": []
+                },
+                "flex_direction": "column",
+                "flex_gap": {
+                  "unit": "px",
+                  "column": "0",
+                  "row": "0",
+                  "isLinked": true,
+                  "size": 0
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "css_classes": "ss-design ",
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100,
+                  "sizes": []
+                }
+              },
+              "elements": [
+                {
+                  "id": "23912314",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "05 — Story eyebrow",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "18",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "title": "The historic Church Dairy Farm",
+                    "header_size": "p",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Arial",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 10,
+                      "sizes": []
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 10,
+                      "sizes": []
+                    },
+                    "typography_font_weight": "600",
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.7,
+                      "sizes": []
+                    },
+                    "typography_letter_spacing": {
+                      "unit": "px",
+                      "size": 1.5,
+                      "sizes": []
+                    },
+                    "title_color": "#181A16",
+                    "_css_classes": "ss-eyebrow",
+                    "typography_text_transform": "uppercase"
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "9a627f10",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "05 — Story heading",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "title": "Some places have<br>a story. <em>This one<br>welcomes you in.</em>",
+                    "header_size": "h2",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Georgia",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 53,
+                      "sizes": []
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 37,
+                      "sizes": []
+                    },
+                    "typography_font_weight": "400",
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.12,
+                      "sizes": []
+                    },
+                    "typography_letter_spacing": {
+                      "unit": "px",
+                      "size": -1,
+                      "sizes": []
+                    },
+                    "title_color": "#181A16",
+                    "_css_classes": ""
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "026122a0",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "05 — Story paragraphs",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "24",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "editor": "<p>Once a working dairy farm, this land has been part of the Church family's story for generations. Today, its next chapter is a collection of distinctive stays, shaped by the same sense of place.</p><p>Honest materials. Thoughtful details. A warm welcome to our corner of Utah.</p>",
+                    "text_color": "#000000",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Arial",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 16,
+                      "sizes": []
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 16,
+                      "sizes": []
+                    },
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.8,
+                      "sizes": []
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "40fac434",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "05 — Story CTA",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "18",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "text": "Come stay a while",
+                    "link": {
+                      "url": "/our-silo-suites/",
+                      "is_external": "",
+                      "nofollow": "",
+                      "custom_attributes": ""
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Arial",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 12,
+                      "sizes": []
+                    },
+                    "typography_font_weight": "400",
+                    "button_text_color": "#181A16",
+                    "background_color": "#FFFFFF00",
+                    "hover_color": "#181A16",
+                    "button_background_hover_color": "#FFFFFF00",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "text_padding": {
+                      "unit": "px",
+                      "top": "10",
+                      "right": "0",
+                      "bottom": "10",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "_css_classes": "ss-link ss-has-arrow",
+                    "_element_width": "auto"
+                  },
+                  "elements": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d95cbcba",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "_title": "06 — Stay and Soak",
+        "content_width": "full",
+        "width": {
+          "unit": "%",
+          "size": 100,
+          "sizes": []
+        },
+        "flex_direction": "column",
+        "flex_gap": {
+          "unit": "px",
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "100",
+          "right": "0",
+          "bottom": "65",
+          "left": "0",
+          "isLinked": false
+        },
+        "css_classes": "ss-design ss-section",
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding_mobile": {
+          "unit": "px",
+          "top": "65",
+          "right": "0",
+          "bottom": "60",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "725eacee",
+          "elType": "container",
+          "isInner": false,
+          "settings": {
+            "_title": "06 — Soak composition",
+            "content_width": "full",
+            "width": {
+              "unit": "%",
+              "size": 100,
+              "sizes": []
+            },
+            "flex_direction": "column",
+            "flex_gap": {
+              "unit": "px",
+              "column": "0",
+              "row": "0",
+              "isLinked": true,
+              "size": 0
+            },
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "css_classes": "ss-design ss-wrap"
+          },
+          "elements": [
+            {
+              "id": "08c7f905",
+              "elType": "widget",
+              "widgetType": "image",
+              "isInner": false,
+              "settings": {
+                "_title": "06 — Original Hot Springs image",
+                "_margin": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "image": {
+                  "url": "https://darkseagreen-butterfly-103736.hostingersite.com/wp-content/uploads/2026/02/DSC04406-2w.jpg",
+                  "id": 3221,
+                  "alt": "Mineral pools at Zion Canyon Hot Springs, beneath Southern Utah cliffs",
+                  "source": "library",
+                  "size": ""
+                },
+                "image_size": "full",
+                "align": "left",
+                "_css_classes": "ss-soak-image",
+                "_element_width": "initial",
+                "_element_custom_width": {
+                  "unit": "%",
+                  "size": 88,
+                  "sizes": []
+                },
+                "_element_custom_width_mobile": {
+                  "unit": "%",
+                  "size": 100,
+                  "sizes": []
+                }
+              },
+              "elements": []
+            },
+            {
+              "id": "0a2a940f",
+              "elType": "container",
+              "isInner": false,
+              "settings": {
+                "_title": "06 — Stay and Soak card",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 50,
+                  "sizes": []
+                },
+                "flex_direction": "column",
+                "flex_gap": {
+                  "unit": "px",
+                  "column": "0",
+                  "row": "0",
+                  "isLinked": true,
+                  "size": 0
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "50",
+                  "right": "50",
+                  "bottom": "50",
+                  "left": "50",
+                  "isLinked": false
+                },
+                "css_classes": "ss-design ss-soak-card",
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 94,
+                  "sizes": []
+                },
+                "_flex_align_self": "flex-end",
+                "background_background": "classic",
+                "background_color": "#F8F5EB",
+                "padding_mobile": {
+                  "unit": "px",
+                  "top": "32",
+                  "right": "27",
+                  "bottom": "32",
+                  "left": "27",
+                  "isLinked": false
+                },
+                "margin": {
+                  "unit": "px",
+                  "top": "-185",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "margin_mobile": {
+                  "unit": "px",
+                  "top": "-45",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                }
+              },
+              "elements": [
+                {
+                  "id": "8114f991",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "06 — Soak label",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "18",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "title": "Stay & Soak",
+                    "header_size": "p",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Arial",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 10,
+                      "sizes": []
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 10,
+                      "sizes": []
+                    },
+                    "typography_font_weight": "600",
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.7,
+                      "sizes": []
+                    },
+                    "typography_letter_spacing": {
+                      "unit": "px",
+                      "size": 1.5,
+                      "sizes": []
+                    },
+                    "title_color": "#595D54",
+                    "_css_classes": "ss-eyebrow",
+                    "typography_text_transform": "uppercase"
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "c8f955e9",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "06 — Soak headline",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "title": "A little adventure.<br><em>A long, warm soak.</em>",
+                    "header_size": "h2",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Georgia",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 44,
+                      "sizes": []
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 33,
+                      "sizes": []
+                    },
+                    "typography_font_weight": "400",
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.12,
+                      "sizes": []
+                    },
+                    "typography_letter_spacing": {
+                      "unit": "px",
+                      "size": -1,
+                      "sizes": []
+                    },
+                    "title_color": "#181A16",
+                    "_css_classes": ""
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "9e4c3a09",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "06 — Soak copy",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "22",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "editor": "<p>Stay at Silo Suites. Soak at Zion Canyon Hot Springs. Make time for both sides of a Southern Utah getaway.</p>",
+                    "text_color": "#595D54",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Arial",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 16,
+                      "sizes": []
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 16,
+                      "sizes": []
+                    },
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.8,
+                      "sizes": []
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "99c8bac2",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "06 — Soak link",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "18",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "text": "Discover Stay & Soak",
+                    "link": {
+                      "url": "/hot-springs/",
+                      "is_external": "",
+                      "nofollow": "",
+                      "custom_attributes": ""
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Arial",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 12,
+                      "sizes": []
+                    },
+                    "typography_font_weight": "400",
+                    "button_text_color": "#181A16",
+                    "background_color": "#FFFFFF00",
+                    "hover_color": "#181A16",
+                    "button_background_hover_color": "#FFFFFF00",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "text_padding": {
+                      "unit": "px",
+                      "top": "10",
+                      "right": "0",
+                      "bottom": "10",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "_css_classes": "ss-link ss-has-arrow",
+                    "_element_width": "auto"
+                  },
+                  "elements": []
+                }
+              ]
+            },
+            {
+              "id": "bf72f998",
+              "elType": "widget",
+              "widgetType": "heading",
+              "isInner": false,
+              "settings": {
+                "_title": "06 — Hot Springs caption",
+                "_margin": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "18",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "title": "Zion Canyon Hot Springs / A regional experience",
+                "header_size": "p",
+                "typography_typography": "custom",
+                "typography_font_family": "Arial",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 10,
+                  "sizes": []
+                },
+                "typography_font_size_mobile": {
+                  "unit": "px",
+                  "size": 10,
+                  "sizes": []
+                },
+                "typography_font_weight": "600",
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.7,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": 1.5,
+                  "sizes": []
+                },
+                "title_color": "#595D54",
+                "_css_classes": "ss-eyebrow",
+                "typography_text_transform": "uppercase"
+              },
+              "elements": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3c041668",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "_title": "07 — Local guide",
+        "content_width": "full",
+        "width": {
+          "unit": "%",
+          "size": 100,
+          "sizes": []
+        },
+        "flex_direction": "column",
+        "flex_gap": {
+          "unit": "px",
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "45",
+          "right": "0",
+          "bottom": "100",
+          "left": "0",
+          "isLinked": false
+        },
+        "css_classes": "ss-design ss-section",
+        "background_background": "classic",
+        "background_color": "#FFFFFF",
+        "padding_mobile": {
+          "unit": "px",
+          "top": "65",
+          "right": "0",
+          "bottom": "65",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "d729bed6",
+          "elType": "container",
+          "isInner": false,
+          "settings": {
+            "_title": "07 — Guide layout",
+            "content_width": "full",
+            "width": {
+              "unit": "%",
+              "size": 100,
+              "sizes": []
+            },
+            "flex_direction": "row",
+            "flex_gap": {
+              "unit": "px",
+              "column": "90",
+              "row": "90",
+              "isLinked": true,
+              "size": 90
+            },
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "css_classes": "ss-design ss-wrap",
+            "flex_direction_mobile": "column",
+            "flex_gap_mobile": {
+              "unit": "px",
+              "column": "35",
+              "row": "35",
+              "isLinked": true,
+              "size": 35
+            }
+          },
+          "elements": [
+            {
+              "id": "58a852c7",
+              "elType": "container",
+              "isInner": false,
+              "settings": {
+                "_title": "07 — Guide introduction",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 47,
+                  "sizes": []
+                },
+                "flex_direction": "column",
+                "flex_gap": {
+                  "unit": "px",
+                  "column": "0",
+                  "row": "0",
+                  "isLinked": true,
+                  "size": 0
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "css_classes": "ss-design ",
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100,
+                  "sizes": []
+                }
+              },
+              "elements": [
+                {
+                  "id": "0ad128aa",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "07 — Guide eyebrow",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "18",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "title": "A few local favourites",
+                    "header_size": "p",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Arial",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 10,
+                      "sizes": []
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 10,
+                      "sizes": []
+                    },
+                    "typography_font_weight": "600",
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.7,
+                      "sizes": []
+                    },
+                    "typography_letter_spacing": {
+                      "unit": "px",
+                      "size": 1.5,
+                      "sizes": []
+                    },
+                    "title_color": "#595D54",
+                    "_css_classes": "ss-eyebrow",
+                    "typography_text_transform": "uppercase"
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "ced55237",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "07 — Guide title",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "title": "Out here, there's<br>room to <em>wander.</em>",
+                    "header_size": "h2",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Georgia",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 50,
+                      "sizes": []
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 40,
+                      "sizes": []
+                    },
+                    "typography_font_weight": "400",
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.12,
+                      "sizes": []
+                    },
+                    "typography_letter_spacing": {
+                      "unit": "px",
+                      "size": -1,
+                      "sizes": []
+                    },
+                    "title_color": "#181A16",
+                    "_css_classes": ""
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "b2ff4e0f",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "07 — Guide copy",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "24",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "editor": "<p>Big landscapes, small-town stops, and a good cup of coffee. A few places we think you'll love, close to your home for the weekend.</p>",
+                    "text_color": "#595D54",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Arial",
+                    "typography_font_weight": "400",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 16,
+                      "sizes": []
+                    },
+                    "typography_font_size_mobile": {
+                      "unit": "px",
+                      "size": 16,
+                      "sizes": []
+                    },
+                    "typography_line_height": {
+                      "unit": "em",
+                      "size": 1.8,
+                      "sizes": []
+                    }
+                  },
+                  "elements": []
+                },
+                {
+                  "id": "bfe78b61",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "07 — Guide CTA",
+                    "_margin": {
+                      "unit": "px",
+                      "top": "18",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "text": "Open the local guide",
+                    "link": {
+                      "url": "/local-guide/",
+                      "is_external": "",
+                      "nofollow": "",
+                      "custom_attributes": ""
+                    },
+                    "typography_typography": "custom",
+                    "typography_font_family": "Arial",
+                    "typography_font_size": {
+                      "unit": "px",
+                      "size": 12,
+                      "sizes": []
+                    },
+                    "typography_font_weight": "400",
+                    "button_text_color": "#181A16",
+                    "background_color": "#FFFFFF00",
+                    "hover_color": "#181A16",
+                    "button_background_hover_color": "#FFFFFF00",
+                    "border_radius": {
+                      "unit": "px",
+                      "top": "0",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "text_padding": {
+                      "unit": "px",
+                      "top": "10",
+                      "right": "0",
+                      "bottom": "10",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "_css_classes": "ss-link ss-has-arrow",
+                    "_element_width": "auto"
+                  },
+                  "elements": []
+                }
+              ]
+            },
+            {
+              "id": "d742205a",
+              "elType": "container",
+              "isInner": false,
+              "settings": {
+                "_title": "07 — Guide destinations",
+                "content_width": "full",
+                "width": {
+                  "unit": "%",
+                  "size": 53,
+                  "sizes": []
+                },
+                "flex_direction": "column",
+                "flex_gap": {
+                  "unit": "px",
+                  "column": "0",
+                  "row": "0",
+                  "isLinked": true,
+                  "size": 0
+                },
+                "padding": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "css_classes": "ss-design ",
+                "width_mobile": {
+                  "unit": "%",
+                  "size": 100,
+                  "sizes": []
+                }
+              },
+              "elements": [
+                {
+                  "id": "c1ea66e2",
+                  "elType": "container",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "07 — Guide row 1",
+                    "content_width": "full",
+                    "width": {
+                      "unit": "%",
+                      "size": 100,
+                      "sizes": []
+                    },
+                    "flex_direction": "column",
+                    "flex_gap": {
+                      "unit": "px",
+                      "column": "0",
+                      "row": "0",
+                      "isLinked": true,
+                      "size": 0
+                    },
+                    "padding": {
+                      "unit": "px",
+                      "top": "24",
+                      "right": "0",
+                      "bottom": "24",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "css_classes": "ss-design ",
+                    "border_border": "solid",
+                    "border_width": {
+                      "unit": "px",
+                      "top": "1",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "border_color": "#D8D8CC"
+                  },
+                  "elements": [
+                    {
+                      "id": "df2ff7b8",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "07 — Guide label 1",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "18",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "title": "01 / For the adventure",
+                        "header_size": "p",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Arial",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "600",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.7,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "px",
+                          "size": 1.5,
+                          "sizes": []
+                        },
+                        "title_color": "#595D54",
+                        "_css_classes": "ss-eyebrow",
+                        "typography_text_transform": "uppercase"
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "f625b561",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "07 — Guide destination 1",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "title": "Zion National Park &nbsp; ↗",
+                        "header_size": "h3",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Georgia",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 29,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "px",
+                          "size": 27,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "400",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.12,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "px",
+                          "size": -1,
+                          "sizes": []
+                        },
+                        "title_color": "#181A16",
+                        "_css_classes": "",
+                        "link": {
+                          "url": "/local-guide/#zion"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ]
+                },
+                {
+                  "id": "06754d3d",
+                  "elType": "container",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "07 — Guide row 2",
+                    "content_width": "full",
+                    "width": {
+                      "unit": "%",
+                      "size": 100,
+                      "sizes": []
+                    },
+                    "flex_direction": "column",
+                    "flex_gap": {
+                      "unit": "px",
+                      "column": "0",
+                      "row": "0",
+                      "isLinked": true,
+                      "size": 0
+                    },
+                    "padding": {
+                      "unit": "px",
+                      "top": "24",
+                      "right": "0",
+                      "bottom": "24",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "css_classes": "ss-design ",
+                    "border_border": "solid",
+                    "border_width": {
+                      "unit": "px",
+                      "top": "1",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "border_color": "#D8D8CC"
+                  },
+                  "elements": [
+                    {
+                      "id": "8d7d4fd9",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "07 — Guide label 2",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "18",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "title": "02 / For a change of pace",
+                        "header_size": "p",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Arial",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "600",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.7,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "px",
+                          "size": 1.5,
+                          "sizes": []
+                        },
+                        "title_color": "#595D54",
+                        "_css_classes": "ss-eyebrow",
+                        "typography_text_transform": "uppercase"
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "1f3fa92d",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "07 — Guide destination 2",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "title": "Sand Hollow &nbsp; ↗",
+                        "header_size": "h3",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Georgia",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 29,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "px",
+                          "size": 27,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "400",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.12,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "px",
+                          "size": -1,
+                          "sizes": []
+                        },
+                        "title_color": "#181A16",
+                        "_css_classes": "",
+                        "link": {
+                          "url": "/local-guide/#sand-hollow"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ]
+                },
+                {
+                  "id": "1b8b7ca8",
+                  "elType": "container",
+                  "isInner": false,
+                  "settings": {
+                    "_title": "07 — Guide row 3",
+                    "content_width": "full",
+                    "width": {
+                      "unit": "%",
+                      "size": 100,
+                      "sizes": []
+                    },
+                    "flex_direction": "column",
+                    "flex_gap": {
+                      "unit": "px",
+                      "column": "0",
+                      "row": "0",
+                      "isLinked": true,
+                      "size": 0
+                    },
+                    "padding": {
+                      "unit": "px",
+                      "top": "24",
+                      "right": "0",
+                      "bottom": "24",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "css_classes": "ss-design ",
+                    "border_border": "solid",
+                    "border_width": {
+                      "unit": "px",
+                      "top": "1",
+                      "right": "0",
+                      "bottom": "0",
+                      "left": "0",
+                      "isLinked": false
+                    },
+                    "border_color": "#D8D8CC"
+                  },
+                  "elements": [
+                    {
+                      "id": "a1765981",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "07 — Guide label 3",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "18",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "title": "03 / For the little moments",
+                        "header_size": "p",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Arial",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "px",
+                          "size": 10,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "600",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.7,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "px",
+                          "size": 1.5,
+                          "sizes": []
+                        },
+                        "title_color": "#595D54",
+                        "_css_classes": "ss-eyebrow",
+                        "typography_text_transform": "uppercase"
+                      },
+                      "elements": []
+                    },
+                    {
+                      "id": "3b5cf9be",
+                      "elType": "widget",
+                      "widgetType": "heading",
+                      "isInner": false,
+                      "settings": {
+                        "_title": "07 — Guide destination 3",
+                        "_margin": {
+                          "unit": "px",
+                          "top": "0",
+                          "right": "0",
+                          "bottom": "0",
+                          "left": "0",
+                          "isLinked": false
+                        },
+                        "title": "A taste of local life &nbsp; ↗",
+                        "header_size": "h3",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Georgia",
+                        "typography_font_size": {
+                          "unit": "px",
+                          "size": 29,
+                          "sizes": []
+                        },
+                        "typography_font_size_mobile": {
+                          "unit": "px",
+                          "size": 27,
+                          "sizes": []
+                        },
+                        "typography_font_weight": "400",
+                        "typography_line_height": {
+                          "unit": "em",
+                          "size": 1.12,
+                          "sizes": []
+                        },
+                        "typography_letter_spacing": {
+                          "unit": "px",
+                          "size": -1,
+                          "sizes": []
+                        },
+                        "title_color": "#181A16",
+                        "_css_classes": "",
+                        "link": {
+                          "url": "/local-guide/#food"
+                        }
+                      },
+                      "elements": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4e66dcee",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "_title": "08 — Closing invitation",
+        "content_width": "full",
+        "width": {
+          "unit": "%",
+          "size": 100,
+          "sizes": []
+        },
+        "flex_direction": "column",
+        "flex_gap": {
+          "unit": "px",
+          "column": "0",
+          "row": "0",
+          "isLinked": true,
+          "size": 0
+        },
+        "padding": {
+          "unit": "px",
+          "top": "75",
+          "right": "0",
+          "bottom": "82",
+          "left": "0",
+          "isLinked": false
+        },
+        "css_classes": "ss-design ss-section",
+        "background_background": "classic",
+        "background_color": "#F8F5EB",
+        "padding_mobile": {
+          "unit": "px",
+          "top": "65",
+          "right": "0",
+          "bottom": "65",
+          "left": "0",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "7f8dce90",
+          "elType": "container",
+          "isInner": false,
+          "settings": {
+            "_title": "08 — Closing content",
+            "content_width": "full",
+            "width": {
+              "unit": "%",
+              "size": 100,
+              "sizes": []
+            },
+            "flex_direction": "column",
+            "flex_gap": {
+              "unit": "px",
+              "column": "0",
+              "row": "0",
+              "isLinked": true,
+              "size": 0
+            },
+            "padding": {
+              "unit": "px",
+              "top": "0",
+              "right": "0",
+              "bottom": "0",
+              "left": "0",
+              "isLinked": false
+            },
+            "css_classes": "ss-design ss-wrap",
+            "flex_align_items": "center"
+          },
+          "elements": [
+            {
+              "id": "f2cb8eb2",
+              "elType": "widget",
+              "widgetType": "heading",
+              "isInner": false,
+              "settings": {
+                "_title": "08 — Closing label",
+                "_margin": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "18",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "title": "Heritage. Comfort. Near Zion.",
+                "header_size": "p",
+                "typography_typography": "custom",
+                "typography_font_family": "Arial",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 10,
+                  "sizes": []
+                },
+                "typography_font_size_mobile": {
+                  "unit": "px",
+                  "size": 10,
+                  "sizes": []
+                },
+                "typography_font_weight": "600",
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.7,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": 1.5,
+                  "sizes": []
+                },
+                "title_color": "#595D54",
+                "_css_classes": "ss-eyebrow",
+                "typography_text_transform": "uppercase"
+              },
+              "elements": []
+            },
+            {
+              "id": "6f699e97",
+              "elType": "widget",
+              "widgetType": "heading",
+              "isInner": false,
+              "settings": {
+                "_title": "08 — Closing title",
+                "_margin": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "title": "Make room for<br><em>a little history.</em>",
+                "header_size": "h2",
+                "typography_typography": "custom",
+                "typography_font_family": "Georgia",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 72,
+                  "sizes": []
+                },
+                "typography_font_size_mobile": {
+                  "unit": "px",
+                  "size": 50,
+                  "sizes": []
+                },
+                "typography_font_weight": "400",
+                "typography_line_height": {
+                  "unit": "em",
+                  "size": 1.12,
+                  "sizes": []
+                },
+                "typography_letter_spacing": {
+                  "unit": "px",
+                  "size": -1,
+                  "sizes": []
+                },
+                "title_color": "#181A16",
+                "_css_classes": "",
+                "align": "center"
+              },
+              "elements": []
+            },
+            {
+              "id": "7c0918ef",
+              "elType": "widget",
+              "widgetType": "button",
+              "isInner": false,
+              "settings": {
+                "_title": "08 — Closing CTA",
+                "_margin": {
+                  "unit": "px",
+                  "top": "30",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "text": "Find your stay",
+                "link": {
+                  "url": "#ss-find-stay",
+                  "is_external": "",
+                  "nofollow": "",
+                  "custom_attributes": ""
+                },
+                "typography_typography": "custom",
+                "typography_font_family": "Arial",
+                "typography_font_size": {
+                  "unit": "px",
+                  "size": 12,
+                  "sizes": []
+                },
+                "typography_font_weight": "400",
+                "button_text_color": "#FFFFFF",
+                "background_color": "#181A16",
+                "hover_color": "#FFFFFF",
+                "button_background_hover_color": "#3E4538",
+                "border_radius": {
+                  "unit": "px",
+                  "top": "0",
+                  "right": "0",
+                  "bottom": "0",
+                  "left": "0",
+                  "isLinked": false
+                },
+                "text_padding": {
+                  "unit": "px",
+                  "top": "16",
+                  "right": "26",
+                  "bottom": "16",
+                  "left": "26",
+                  "isLinked": false
+                },
+                "_css_classes": "ss-button ss-has-arrow",
+                "_element_width": "auto",
+                "align": "center"
+              },
+              "elements": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "page_settings": {
+    "hide_title": "yes",
+    "template": "elementor_header_footer"
+  },
+  "version": "0.4",
+  "title": "Silo Suites — Home content v0.2.4",
+  "type": "page"
+}

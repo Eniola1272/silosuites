@@ -39,7 +39,7 @@ def template_check(path):
         assert not headings and widgets.count('heading') >= 1
         assert any('sp-popup-source' in n['settings'].get('css_classes','') for n in data['content'])
     else:
-        assert not headings and widgets.count('image')==1
+        assert not headings and widgets.count('image') in (1, 2)
         assert any(any(marker in n['settings'].get('css_classes','').split() for marker in ('ss-site-header','ss-site-footer')) for n in data['content'])
     raw=path.read_text()
     assert not any(value in raw for value in ('client_secret','access_token','elfsightcdn','file://'))

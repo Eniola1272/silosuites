@@ -46,7 +46,7 @@
               "left": "0",
               "isLinked": false
             },
-            "html": "<style>\n/* Scoped presentation helpers. Text, media, spacing, type and colour controls remain native. */\n:where(.ss-design) { --ss-ink:#181a16; --ss-olive:#7e8e76; --ss-cream:#f8f5eb; --ss-tan:#d6c3ae; color:var(--ss-ink); font-family:Arial,Helvetica,sans-serif; }\n:where(.ss-design) * { box-sizing:border-box; }\n:where(.ss-design) a { text-decoration:none; }\n:where(.ss-design) p:last-child { margin-bottom:0; }\n:where(.ss-design) .elementor-heading-title { text-transform:none; }\n:where(.ss-design) em { font-weight:400; }\n:where(.ss-design) :focus-visible { outline:2px solid currentColor; outline-offset:5px; }\n.ss-design.ss-wrap { max-width:min(1320px,calc(100% - 10vw)); margin-inline:auto; }\n.ss-design.ss-zero { min-height:0; height:0; overflow:visible; padding:0; margin:0; }\n.ss-design .ss-link .elementor-button { padding:10px 0; border-bottom:1px solid currentColor; }\n.ss-design .ss-button .elementor-button { min-height:50px; display:inline-flex; align-items:center; justify-content:space-between; gap:28px; }\n.ss-design .ss-has-arrow .elementor-button-content-wrapper { width:100%; }\n.ss-design .ss-has-arrow .elementor-button-text { display:flex; align-items:center; justify-content:space-between; gap:28px; text-align:left; }\n.ss-design .ss-has-arrow .elementor-button-text::after { content:'↗'; font-size:21px; line-height:1; }\n.ss-design .ss-card-image img { display:block; width:100%; height:330px; object-fit:cover; transition:transform .35s ease; }\n.ss-design .ss-card-image { overflow:hidden; }\n.ss-design .ss-card-image:hover img { transform:scale(1.025); }\n.ss-design .ss-hero { isolation:isolate; }\n.ss-design .ss-logo img { width:92px; height:80px; object-fit:contain; }\n.ss-design .ss-story-image img { width:100%; height:auto; aspect-ratio:1; object-fit:cover; border:8px solid #f8f5eb; }\n.ss-design .ss-soak-image img { width:100%; height:auto; aspect-ratio:1.93; object-fit:cover; }\n.ss-design .ss-soak-card { z-index:2; }\n.ss-design .ss-guide-image img { width:100%; height:auto; aspect-ratio:1.7; object-fit:cover; }\n.ss-design .ss-eyebrow .elementor-heading-title { line-height:1.7; }\n.ss-design .ss-style-widget { width:100%; margin:0; }\n.ss-search { display:grid; grid-template-columns:1fr 1fr .85fr 1.15fr; background:white; padding:20px; border:1px solid #e5e4da; box-shadow:0 12px 40px #0000000b; font-family:Arial,Helvetica,sans-serif; }\n.ss-search label { display:flex; flex-direction:column; justify-content:center; gap:8px; padding:3px 24px; border-right:1px solid #d8d8cc; min-width:0; }\n.ss-search label span { font-size:9px; font-weight:600; letter-spacing:.15em; text-transform:uppercase; }\n.ss-search input,.ss-search select { font:16px Arial,Helvetica,sans-serif; width:100%; color:#181a16; background:transparent; border:0; border-radius:0; padding:4px 0; min-height:32px; min-width:0; }\n.ss-search label:nth-child(3) { border:0; }\n.ss-search button { background:#7e8e76; color:#000; border:0; border-radius:0; font:12px Arial,Helvetica,sans-serif; min-height:62px; padding:15px 24px; display:flex; align-items:center; justify-content:space-between; gap:15px; cursor:pointer; }\n.ss-search button span { font-size:23px; }\n.ss-search button:hover { background:#9ba78f; }\n.ss-search-error { font:14px/1.6 Arial,Helvetica,sans-serif; color:#82382a; margin-top:12px; }\n.ss-search-note { font:11px/1.5 Arial,Helvetica,sans-serif; color:#595d54; margin:12px 0 0; }\n.ss-search-note a { text-decoration:underline; color:inherit; }\n.ss-mobile-menu { position:relative; font:13px Arial,Helvetica,sans-serif; }\n.ss-mobile-menu summary { min-height:44px; display:flex; align-items:center; cursor:pointer; list-style:none; }\n.ss-mobile-menu summary::-webkit-details-marker { display:none; }\n.ss-mobile-menu nav { position:absolute; right:0; top:52px; z-index:90; min-width:240px; padding:18px 24px; background:#f8f5eb; box-shadow:0 8px 25px #0002; }\n.ss-mobile-menu nav a { display:block; font:23px/1.3 Georgia,serif; color:#181a16; padding:14px 0; border-bottom:1px solid #d6c3ae; }\n@media(max-width:1024px) {\n  .ss-design.ss-wrap { max-width:calc(100% - 64px); }\n  .ss-design .ss-card-image img { height:270px; }\n  .ss-search label { padding-inline:16px; }\n}\n@media(max-width:767px) {\n  .ss-design.ss-wrap { max-width:calc(100% - 48px); }\n  .ss-design .ss-logo img { width:74px; height:68px; }\n  .ss-design .ss-card-image img { height:auto; aspect-ratio:1.16; }\n  .ss-design .ss-soak-image img { aspect-ratio:1.25; }\n  .ss-design .ss-story-image { max-width:390px; }\n  .ss-search { grid-template-columns:1fr 1fr; padding:10px; }\n  .ss-search label { padding:14px; min-height:80px; }\n  .ss-search label:nth-child(2) { border:0; }\n  .ss-search label:nth-child(3) { border-top:1px solid #d8d8cc; }\n  .ss-search button { margin:8px 0 0 8px; padding-inline:15px; }\n  .ss-search input,.ss-search select { font-size:16px; }\n}\n@media(prefers-reduced-motion:reduce) { .ss-design * { transition:none!important; animation:none!important; scroll-behavior:auto!important; } }\n\n</style>",
+            "html": "<style>\n/* Scoped presentation helpers. Text, media, spacing, type and colour controls remain native. */\n:where(.ss-design) { --ss-ink:#181a16; --ss-olive:#7e8e76; --ss-cream:#f8f5eb; --ss-tan:#d6c3ae; color:var(--ss-ink); font-family:Arial,Helvetica,sans-serif; }\n:where(.ss-design) * { box-sizing:border-box; }\n:where(.ss-design) a { text-decoration:none; }\n:where(.ss-design) p:last-child { margin-bottom:0; }\n:where(.ss-design) .elementor-heading-title { text-transform:none; }\n:where(.ss-design) em { font-weight:400; }\n:where(.ss-design) :focus-visible { outline:2px solid currentColor; outline-offset:5px; }\n.ss-design.ss-wrap { max-width:min(1320px,calc(100% - 10vw)); margin-inline:auto; }\n.ss-design.ss-zero { min-height:0; height:0; overflow:visible; padding:0; margin:0; }\n.ss-design .ss-link .elementor-button { padding:10px 0; border-bottom:1px solid currentColor; }\n.ss-design .ss-button .elementor-button { min-height:50px; display:inline-flex; align-items:center; justify-content:space-between; gap:28px; }\n.ss-design .ss-has-arrow .elementor-button-content-wrapper { width:100%; }\n.ss-design .ss-has-arrow .elementor-button-text { display:flex; align-items:center; justify-content:space-between; gap:28px; text-align:left; }\n.ss-design .ss-has-arrow .elementor-button-text::after { content:'↗'; font-size:21px; line-height:1; }\n.ss-design .ss-card-image img { display:block; width:100%; height:330px; object-fit:cover; transition:transform .35s ease; }\n.ss-design .ss-card-image { overflow:hidden; }\n.ss-design .ss-card-image:hover img { transform:scale(1.025); }\n.ss-design .ss-hero { isolation:isolate; }\n.ss-design .ss-logo img { width:92px; height:80px; object-fit:contain; }\n.ss-design .ss-story-image img { width:100%; height:auto; aspect-ratio:1; object-fit:cover; border:8px solid #f8f5eb; }\n.ss-design .ss-soak-image img { width:100%; height:auto; aspect-ratio:1.93; object-fit:cover; }\n.ss-design .ss-soak-card { z-index:2; }\n.ss-design .ss-guide-image img { width:100%; height:auto; aspect-ratio:1.7; object-fit:cover; }\n.ss-design .ss-eyebrow .elementor-heading-title { line-height:1.7; }\n.ss-design .ss-style-widget { width:100%; margin:0; }\n\n/* Booking search bar */\n.ss-search { display:grid; grid-template-columns:1fr 1fr .85fr 1.15fr; background:#ffffff; padding:16px; border:1px solid #e5e4da; box-shadow:0 12px 40px #0000000b; font-family:Arial,Helvetica,sans-serif; align-items:center; }\n.ss-search-date, .ss-search-guests { display:grid; text-align:left; gap:6px; padding:6px 24px; position:relative; min-width:0; border-right:1px solid #d8d8cc; min-height:58px; align-content:center; background:transparent; border-top:0; border-bottom:0; border-left:0; cursor:pointer; }\n.ss-search-date:hover { background:#f8f5eb; }\n.ss-eyebrow { font-size:10px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:#595d54; }\n.ss-date-val { font-size:17px; color:#181a16; font-weight:500; white-space:nowrap; }\n.ss-field-arrow { position:absolute; right:20px; bottom:12px; font-size:18px; color:#595d54; pointer-events:none; }\n.ss-search-guests { border-right:0; cursor:default; }\n.ss-search-guests select { font:17px Arial,Helvetica,sans-serif; width:100%; color:#181a16; background:transparent; border:0; border-radius:0; padding:2px 0; min-height:28px; cursor:pointer; font-weight:500; }\n.ss-search-submit { background:#181a16; color:#ffffff; border:0; border-radius:4px; font:700 13px Arial,Helvetica,sans-serif; min-height:64px; padding:15px 24px; display:inline-flex; align-items:center; justify-content:space-between; gap:16px; cursor:pointer; transition:background .2s; }\n.ss-search-submit:hover { background:#7e8e76; color:#000000; }\n.ss-search-submit span { font-size:20px; }\n.ss-search-error { font:14px/1.6 Arial,Helvetica,sans-serif; color:#82382a; margin-top:12px; }\n.ss-search-note { font:11px/1.5 Arial,Helvetica,sans-serif; color:#595d54; margin:14px 0 0; }\n.ss-search-note a { text-decoration:underline; color:inherit; }\n\n/* Custom Date Picker Modal */\n.ss-date-dialog { border:0; padding:0; color:#181a16; width:min(780px,calc(100% - 48px)); max-height:calc(100dvh - 48px); background:#ffffff; box-shadow:0 24px 80px rgba(0,0,0,.25); font-family:Arial,Helvetica,sans-serif; z-index:99999; }\n.ss-date-dialog::backdrop { background:rgba(23,26,22,.65); backdrop-filter:blur(3px); }\n.ss-dialog-header { padding:28px 32px 20px; display:flex; justify-content:space-between; align-items:center; gap:20px; }\n.ss-dialog-header h2 { font:32px Georgia,serif; margin:0; }\n.ss-dialog-header .ss-eyebrow { margin-bottom:6px; }\n.ss-close-btn { width:44px; height:44px; display:flex; align-items:center; justify-content:center; font-size:27px; border:1px solid #d8d8cc; background:transparent; cursor:pointer; border-radius:50%; }\n.ss-close-btn:hover { background:#f8f5eb; }\n.ss-date-summary { margin-inline:32px; padding:14px 0; display:grid; grid-template-columns:1fr 1fr; gap:20px; border-bottom:1px solid #d8d8cc; }\n.ss-date-summary button { text-align:left; padding:10px 14px; border:1px solid transparent; border-bottom:2px solid transparent; background:transparent; cursor:pointer; }\n.ss-date-summary button.active { background:#f8f5eb; border-color:#d6c3ae; border-bottom-color:#181a16; }\n.ss-date-summary [data-ss-draft-label] { display:block; margin-top:4px; font-size:16px; font-weight:600; color:#181a16; }\n.ss-cal-nav { display:flex; align-items:center; justify-content:space-between; margin:18px 32px 0; }\n.ss-cal-nav button { width:44px; height:44px; font-size:22px; border:1px solid #d8d8cc; background:transparent; cursor:pointer; border-radius:4px; }\n.ss-cal-nav button:hover:not(:disabled) { background:#f8f5eb; }\n.ss-cal-nav button:disabled { opacity:.3; cursor:not-allowed; }\n.ss-cal-nav p { font-size:12px; color:#595d54; margin:0; font-weight:600; text-transform:uppercase; letter-spacing:.08em; }\n.ss-cal-months { display:grid; grid-template-columns:1fr 1fr; gap:32px; padding:12px 32px 26px; }\n.ss-cal-month h3 { font:18px Georgia,serif; text-align:center; margin:0 0 16px; }\n.ss-weekdays, .ss-day-grid { display:grid; grid-template-columns:repeat(7,1fr); }\n.ss-weekdays span { text-align:center; font-size:10px; color:#595d54; padding-block:8px; font-weight:600; }\n.ss-cal-day { width:100%; min-height:44px; font-size:13px; padding:6px 0; position:relative; border:0; background:transparent; cursor:pointer; font-family:inherit; }\n.ss-cal-day:disabled { color:#a1a397; text-decoration:line-through; cursor:not-allowed; }\n.ss-cal-day:not(:disabled):hover { background:#f8f5eb; box-shadow:inset 0 0 0 1px #7e8e76; }\n.ss-cal-day.in-range { background:#f8f5eb; }\n.ss-cal-day.selected { background:#181a16; color:#ffffff; }\n.ss-cal-day.today::after { content:''; position:absolute; bottom:6px; left:calc(50% - 2px); border-radius:50%; width:4px; height:4px; background:currentColor; }\n.ss-cal-footer { border-top:1px solid #d8d8cc; padding:20px 32px; display:flex; align-items:center; justify-content:space-between; gap:20px; background:#f8f5eb; }\n.ss-cal-footer p { font-size:13px; max-width:320px; margin:0; color:#595d54; }\n.ss-apply-btn { background:#181a16; color:#ffffff; border:0; border-radius:4px; padding:12px 24px; font:700 12px Arial,Helvetica,sans-serif; cursor:pointer; display:inline-flex; align-items:center; gap:12px; }\n.ss-apply-btn:hover:not(:disabled) { background:#7e8e76; color:#000000; }\n.ss-apply-btn:disabled { opacity:.4; cursor:not-allowed; }\n\n/* Mobile Menu */\n.ss-mobile-menu { position:relative; font:13px Arial,Helvetica,sans-serif; }\n.ss-mobile-menu summary { min-height:44px; display:flex; align-items:center; cursor:pointer; list-style:none; }\n.ss-mobile-menu summary::-webkit-details-marker { display:none; }\n.ss-mobile-menu nav { position:absolute; right:0; top:52px; z-index:90; min-width:240px; padding:18px 24px; background:#f8f5eb; box-shadow:0 8px 25px #0002; }\n.ss-mobile-menu nav a { display:block; font:23px/1.3 Georgia,serif; color:#181a16; padding:14px 0; border-bottom:1px solid #d6c3ae; }\n\n@media(max-width:1024px) {\n  .ss-design.ss-wrap { max-width:calc(100% - 64px); }\n  .ss-design .ss-card-image img { height:270px; }\n  .ss-search-date, .ss-search-guests { padding-inline:16px; }\n}\n@media(max-width:767px) {\n  .ss-design.ss-wrap { max-width:calc(100% - 48px); }\n  .ss-design .ss-logo img { width:74px; height:68px; }\n  .ss-design .ss-card-image img { height:auto; aspect-ratio:1.16; }\n  .ss-design .ss-soak-image img { aspect-ratio:1.25; }\n  .ss-design .ss-story-image { max-width:390px; }\n  .ss-search { grid-template-columns:1fr; padding:12px; gap:8px; }\n  .ss-search-date, .ss-search-guests { border-right:0; border-bottom:1px solid #d8d8cc; padding:14px 18px; min-height:64px; }\n  .ss-search-submit { width:100%; justify-content:center; }\n  .ss-date-dialog { width:100%; max-width:none; height:100dvh; max-height:100dvh; margin:0; }\n  .ss-dialog-header { padding:20px 24px 14px; }\n  .ss-dialog-header h2 { font-size:26px; }\n  .ss-date-summary { margin-inline:20px; }\n  .ss-cal-nav { margin-inline:20px; }\n  .ss-cal-months { grid-template-columns:1fr; padding-inline:20px; }\n  .ss-cal-month:nth-child(2) { display:none; }\n  .ss-cal-footer { padding:18px 20px; position:sticky; bottom:0; }\n}\n@media(prefers-reduced-motion:reduce) { .ss-design * { transition:none!important; animation:none!important; scroll-behavior:auto!important; } }\n\n</style>",
             "_css_classes": "ss-style-widget"
           },
           "elements": []
@@ -791,9 +791,9 @@
                   "left": "0",
                   "isLinked": false
                 },
-                "text": "Find your place",
+                "text": "Explore the suites",
                 "link": {
-                  "url": "/our-silo-suites/",
+                  "url": "#ss-find-stay",
                   "is_external": "",
                   "nofollow": "",
                   "custom_attributes": ""
@@ -826,7 +826,7 @@
                   "left": "0",
                   "isLinked": false
                 },
-                "_css_classes": "ss-link ss-has-arrow",
+                "_css_classes": "ss-link",
                 "_element_width": "auto"
               },
               "elements": []
@@ -899,7 +899,7 @@
               "left": "0",
               "isLinked": false
             },
-            "html": "<div class=\"ss-design ss-search-block\">\n  <form class=\"ss-search\" data-ss-design-search novalidate>\n    <label><span>Check in</span><input type=\"date\" name=\"check_in\" required aria-label=\"Check-in date\"></label>\n    <label><span>Check out</span><input type=\"date\" name=\"check_out\" required aria-label=\"Check-out date\"></label>\n    <label><span>Who's coming?</span><select name=\"guests\" aria-label=\"Number of guests\"><option value=\"1\">1 guest</option><option value=\"2\" selected>2 guests</option><option value=\"3\">3 guests</option><option value=\"4\">4 guests</option><option value=\"5\">5 guests</option><option value=\"6\">6 guests</option><option value=\"7\">7 guests</option><option value=\"8\">8 guests</option><option value=\"9\">9 guests</option><option value=\"10\">10 guests</option><option value=\"11\">11 guests</option><option value=\"12\">12 guests</option><option value=\"13\">13 guests</option><option value=\"14\">14 guests</option><option value=\"15\">15 guests</option><option value=\"16\">16 guests</option><option value=\"17\">17 guests</option><option value=\"18\">18 guests</option></select></label>\n    <button type=\"submit\">Find a stay <span aria-hidden=\"true\">↗</span></button>\n  </form>\n  <p class=\"ss-search-error\" role=\"status\" aria-live=\"polite\"></p>\n  <p class=\"ss-search-note\">Dates first. Your own little corner. &nbsp; <a href=\"/our-silo-suites/\">Or explore all suites ↗</a></p>\n</div>\n<script>\n(function(){\n  function init(){\n    document.querySelectorAll('[data-ss-design-search]').forEach(function(form){\n      if(form.dataset.ssBound)return;form.dataset.ssBound='yes';\n      var start=form.elements.check_in,end=form.elements.check_out;\n      var parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/Denver',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());\n      function part(type){return parts.find(function(p){return p.type===type}).value}\n      start.min=part('year')+'-'+part('month')+'-'+part('day');end.min=start.min;\n      start.addEventListener('change',function(){end.min=start.value||start.min;if(end.value&&end.value<=start.value)end.value=''});\n      form.addEventListener('submit',function(event){\n        event.preventDefault();\n        var status=form.parentElement.querySelector('.ss-search-error');\n        if(!form.checkValidity()){form.reportValidity();return}\n        if(start.value<start.min||end.value<=start.value){status.textContent='Choose a check-out date after your check-in date.';return}\n        status.textContent='Your dates are selected. Live availability search is not connected in this design template yet. Use “explore all suites” to browse.';\n      });\n    });\n  }\n  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();\n  if(window.jQuery)window.jQuery(window).on('elementor/frontend/init',function(){if(window.elementorFrontend)window.elementorFrontend.hooks.addAction('frontend/element_ready/html.default',init)});\n})();\n</script>\n"
+            "html": "<div class=\"ss-design ss-search-block\">\n  <form class=\"ss-search\" data-ss-design-search action=\"/our-silo-suites/\" method=\"get\" novalidate>\n    <button class=\"ss-search-date\" type=\"button\" data-ss-date-open=\"in\" aria-label=\"Choose check-in date\">\n      <span class=\"ss-eyebrow\">Check in</span>\n      <span class=\"ss-date-val\" data-ss-date-label=\"in\">Choose a date</span>\n      <span class=\"ss-field-arrow\" aria-hidden=\"true\">⌄</span>\n    </button>\n    <button class=\"ss-search-date\" type=\"button\" data-ss-date-open=\"out\" aria-label=\"Choose check-out date\">\n      <span class=\"ss-eyebrow\">Check out</span>\n      <span class=\"ss-date-val\" data-ss-date-label=\"out\">Choose a date</span>\n      <span class=\"ss-field-arrow\" aria-hidden=\"true\">⌄</span>\n    </button>\n    <label class=\"ss-search-guests\">\n      <span class=\"ss-eyebrow\">Who's coming?</span>\n      <select name=\"guests\" aria-label=\"Number of guests\">\n        <option value=\"1\">1 guest</option>\n        <option value=\"2\" selected>2 guests</option>\n        <option value=\"3\">3 guests</option>\n        <option value=\"4\">4 guests</option>\n        <option value=\"5\">5 guests</option>\n        <option value=\"6\">6 guests</option>\n        <option value=\"7\">7 guests</option>\n        <option value=\"8\">8 guests</option>\n        <option value=\"9\">9 guests</option>\n        <option value=\"10\">10 guests</option>\n        <option value=\"11\">11 guests</option>\n        <option value=\"12\">12 guests</option>\n        <option value=\"13\">13 guests</option>\n        <option value=\"14\">14 guests</option>\n        <option value=\"15\">15 guests</option>\n        <option value=\"16\">16 guests</option>\n        <option value=\"17\">17 guests</option>\n        <option value=\"18\">18 guests</option>\n      </select>\n    </label>\n    <input type=\"hidden\" name=\"check_in\" data-ss-input=\"in\">\n    <input type=\"hidden\" name=\"check_out\" data-ss-input=\"out\">\n    <button class=\"ss-search-submit\" type=\"submit\">Check availability <span aria-hidden=\"true\">↗</span></button>\n  </form>\n  <p class=\"ss-search-error\" data-ss-search-error role=\"status\" aria-live=\"polite\"></p>\n  <p class=\"ss-search-note\">Dates first. Your own little corner. &nbsp; <a href=\"/our-silo-suites/\">Or explore all suites ↗</a></p>\n\n  <dialog class=\"ss-date-dialog\" id=\"ss-date-dialog\" aria-labelledby=\"ss-date-title\">\n    <div class=\"ss-dialog-header\">\n      <div>\n        <p class=\"ss-eyebrow\">Make a little time for yourself</p>\n        <h2 id=\"ss-date-title\">When will you stay?</h2>\n      </div>\n      <button type=\"button\" class=\"ss-close-btn\" data-ss-date-close aria-label=\"Close date picker\">×</button>\n    </div>\n    <div class=\"ss-date-summary\">\n      <button type=\"button\" data-ss-select-date=\"in\" class=\"active\">\n        <span class=\"ss-eyebrow\">Check in</span>\n        <span data-ss-draft-label=\"in\">Choose a date</span>\n      </button>\n      <button type=\"button\" data-ss-select-date=\"out\">\n        <span class=\"ss-eyebrow\">Check out</span>\n        <span data-ss-draft-label=\"out\">Choose a date</span>\n      </button>\n    </div>\n    <div class=\"ss-cal-nav\">\n      <button type=\"button\" data-ss-month=\"-1\" aria-label=\"Previous month\">←</button>\n      <p id=\"ss-cal-instruction\" role=\"status\">Choose your check-in date</p>\n      <button type=\"button\" data-ss-month=\"1\" aria-label=\"Next month\">→</button>\n    </div>\n    <div class=\"ss-cal-months\"></div>\n    <div class=\"ss-cal-footer\">\n      <p id=\"ss-date-feedback\" role=\"status\">Choose your arrival date to begin.</p>\n      <button type=\"button\" class=\"ss-apply-btn\" id=\"ss-apply-dates\" disabled>Use these dates <span aria-hidden=\"true\">↗</span></button>\n    </div>\n  </dialog>\n</div>\n\n<script>\n(function(){\n  function init(){\n    document.querySelectorAll('[data-ss-design-search]').forEach(function(form){\n      if(form.dataset.ssBound)return;form.dataset.ssBound='yes';\n\n      var block=form.closest('.ss-search-block')||form.parentElement;\n      var dialog=block.querySelector('#ss-date-dialog');\n      if(!dialog)return;\n\n      // Ensure dialog is placed at document.body level so stacking/transforms in Elementor don't clip it\n      if(dialog.parentElement!==document.body){\n        document.body.appendChild(dialog);\n      }\n\n      var inputIn=form.querySelector('[data-ss-input=\"in\"]');\n      var inputOut=form.querySelector('[data-ss-input=\"out\"]');\n      var labelIn=form.querySelector('[data-ss-date-label=\"in\"]');\n      var labelOut=form.querySelector('[data-ss-date-label=\"out\"]');\n      var errorEl=block.querySelector('[data-ss-search-error]');\n\n      var draftIn='',draftOut='',picking='in';\n\n      // Timezone: America/Denver\n      function getToday(){\n        try{\n          var parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/Denver',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());\n          function p(t){for(var i=0;i<parts.length;i++){if(parts[i].type===t)return parts[i].value}return ''}\n          return p('year')+'-'+p('month')+'-'+p('day');\n        }catch(e){\n          var d=new Date();\n          return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');\n        }\n      }\n\n      var today=getToday();\n      var shownDate=new Date();\n\n      function formatDisplay(iso){\n        if(!iso)return 'Choose a date';\n        var p=iso.split('-');\n        var d=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]));\n        return new Intl.DateTimeFormat('en-US',{weekday:'short',month:'short',day:'numeric',timeZone:'UTC'}).format(d);\n      }\n\n      function addDays(iso,n){\n        var p=iso.split('-');\n        var d=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]+n));\n        return d.toISOString().slice(0,10);\n      }\n\n      function nightCount(a,b){\n        var da=new Date(a),db=new Date(b);\n        return Math.round((db-da)/(1000*60*60*24));\n      }\n\n      function renderMonth(y,m){\n        var first=new Date(Date.UTC(y,m,1));\n        var count=new Date(Date.UTC(y,m+1,0)).getUTCDate();\n        var offset=first.getUTCDay();\n        var title=new Intl.DateTimeFormat('en-US',{month:'long',year:'numeric',timeZone:'UTC'}).format(first);\n        var html='<section class=\"ss-cal-month\" aria-label=\"'+title+'\"><h3>'+title+'</h3>';\n        html+='<div class=\"ss-weekdays\" aria-hidden=\"true\"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>';\n        html+='<div class=\"ss-day-grid\">';\n        for(var i=0;i<offset;i++){html+='<span aria-hidden=\"true\"></span>';}\n        for(var d=1;d<=count;d++){\n          var iso=y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');\n          var disabled=(iso<today||iso>addDays(today,365));\n          var selected=(iso===draftIn||iso===draftOut);\n          var inRange=(draftIn&&draftOut&&iso>draftIn&&iso<draftOut);\n          var isToday=(iso===today);\n          var cls='ss-cal-day'+(selected?' selected':'')+(inRange?' in-range':'')+(isToday?' today':'');\n          html+='<button type=\"button\" class=\"'+cls+'\" data-ss-day=\"'+iso+'\"'+(disabled?' disabled':'')+'>'+d+'</button>';\n        }\n        html+='</div></section>';\n        return html;\n      }\n\n      function renderCalendar(){\n        var y=shownDate.getUTCFullYear(),m=shownDate.getUTCMonth();\n        var m1=renderMonth(y,m);\n        var nextDate=new Date(Date.UTC(y,m+1,1));\n        var m2=renderMonth(nextDate.getUTCFullYear(),nextDate.getUTCMonth());\n        dialog.querySelector('.ss-cal-months').innerHTML=m1+m2;\n\n        dialog.querySelector('[data-ss-draft-label=\"in\"]').textContent=formatDisplay(draftIn);\n        dialog.querySelector('[data-ss-draft-label=\"out\"]').textContent=formatDisplay(draftOut);\n\n        var selIn=dialog.querySelector('[data-ss-select-date=\"in\"]');\n        var selOut=dialog.querySelector('[data-ss-select-date=\"out\"]');\n        if(selIn)selIn.classList.toggle('active',picking==='in');\n        if(selOut)selOut.classList.toggle('active',picking==='out');\n\n        var instr=dialog.querySelector('#ss-cal-instruction');\n        if(instr)instr.textContent='Choose your '+(picking==='in'?'check-in':'check-out')+' date';\n\n        var feedback=dialog.querySelector('#ss-date-feedback');\n        var applyBtn=dialog.querySelector('#ss-apply-dates');\n\n        if(!draftIn){\n          if(feedback)feedback.textContent='Choose your arrival date to begin.';\n          if(applyBtn)applyBtn.disabled=true;\n        }else if(!draftOut){\n          if(feedback)feedback.textContent='Now choose your departure date.';\n          if(applyBtn)applyBtn.disabled=true;\n        }else if(draftOut<=draftIn){\n          if(feedback)feedback.textContent='Departure must be after arrival.';\n          if(applyBtn)applyBtn.disabled=true;\n        }else{\n          var n=nightCount(draftIn,draftOut);\n          if(feedback)feedback.textContent=n+' '+(n===1?'night':'nights')+'. A little time for yourself.';\n          if(applyBtn)applyBtn.disabled=false;\n        }\n      }\n\n      function openModal(which){\n        picking=(which==='out'&&draftIn)?'out':'in';\n        var ref=picking==='out'&&draftOut?draftOut:draftIn||today;\n        var p=ref.split('-');\n        shownDate=new Date(Date.UTC(+p[0],+p[1]-1,1));\n        renderCalendar();\n        if(typeof dialog.showModal==='function'){\n          dialog.showModal();\n        }else{\n          dialog.setAttribute('open','');\n        }\n      }\n\n      function closeModal(){\n        if(typeof dialog.close==='function'){\n          dialog.close();\n        }else{\n          dialog.removeAttribute('open');\n        }\n      }\n\n      form.querySelectorAll('[data-ss-date-open]').forEach(function(btn){\n        btn.addEventListener('click',function(e){\n          e.preventDefault();\n          openModal(btn.dataset.ssDateOpen);\n        });\n      });\n\n      dialog.querySelectorAll('[data-ss-date-close]').forEach(function(btn){\n        btn.addEventListener('click',function(){closeModal();});\n      });\n\n      dialog.addEventListener('click',function(e){\n        if(e.target===dialog)closeModal();\n      });\n\n      dialog.querySelectorAll('[data-ss-select-date]').forEach(function(btn){\n        btn.addEventListener('click',function(){\n          picking=btn.dataset.ssSelectDate==='out'&&draftIn?'out':'in';\n          renderCalendar();\n        });\n      });\n\n      dialog.querySelectorAll('[data-ss-month]').forEach(function(btn){\n        btn.addEventListener('click',function(){\n          var delta=+btn.dataset.ssMonth;\n          shownDate=new Date(Date.UTC(shownDate.getUTCFullYear(),shownDate.getUTCMonth()+delta,1));\n          renderCalendar();\n        });\n      });\n\n      dialog.querySelector('.ss-cal-months').addEventListener('click',function(e){\n        var dayBtn=e.target.closest('[data-ss-day]');\n        if(!dayBtn||dayBtn.disabled)return;\n        var val=dayBtn.dataset.ssDay;\n        if(picking==='in'||!draftIn||val<=draftIn){\n          draftIn=val;\n          draftOut='';\n          picking='out';\n        }else{\n          draftOut=val;\n        }\n        renderCalendar();\n      });\n\n      dialog.querySelector('#ss-apply-dates').addEventListener('click',function(){\n        if(!draftIn||!draftOut||draftOut<=draftIn)return;\n        inputIn.value=draftIn;\n        inputOut.value=draftOut;\n        labelIn.textContent=formatDisplay(draftIn);\n        labelOut.textContent=formatDisplay(draftOut);\n        if(errorEl)errorEl.textContent='';\n        closeModal();\n      });\n\n      form.addEventListener('submit',function(e){\n        if(!inputIn.value||!inputOut.value){\n          e.preventDefault();\n          if(errorEl)errorEl.textContent='Please select your check-in and check-out dates.';\n          openModal('in');\n        }\n      });\n    });\n  }\n\n  if(document.readyState==='loading'){\n    document.addEventListener('DOMContentLoaded',init);\n  }else{\n    init();\n  }\n  if(window.jQuery){\n    window.jQuery(window).on('elementor/frontend/init',function(){\n      if(window.elementorFrontend){\n        window.elementorFrontend.hooks.addAction('frontend/element_ready/html.default',init);\n      }\n    });\n  }\n})();\n</script>\n"
           },
           "elements": []
         }
@@ -4547,51 +4547,6 @@
                         "_element_width": "auto"
                       },
                       "elements": []
-                    },
-                    {
-                      "id": "33c2ecff",
-                      "elType": "widget",
-                      "widgetType": "heading",
-                      "isInner": false,
-                      "settings": {
-                        "_title": "Footer — Brand line",
-                        "_margin": {
-                          "unit": "px",
-                          "top": "0",
-                          "right": "0",
-                          "bottom": "0",
-                          "left": "0",
-                          "isLinked": false
-                        },
-                        "title": "A little history.<br><em>A lot of comfort.</em>",
-                        "header_size": "p",
-                        "typography_typography": "custom",
-                        "typography_font_family": "Georgia",
-                        "typography_font_size": {
-                          "unit": "px",
-                          "size": 21,
-                          "sizes": []
-                        },
-                        "typography_font_size_mobile": {
-                          "unit": "px",
-                          "size": 21,
-                          "sizes": []
-                        },
-                        "typography_font_weight": "400",
-                        "typography_line_height": {
-                          "unit": "em",
-                          "size": 1.12,
-                          "sizes": []
-                        },
-                        "typography_letter_spacing": {
-                          "unit": "px",
-                          "size": -1,
-                          "sizes": []
-                        },
-                        "title_color": "#181A16",
-                        "_css_classes": ""
-                      },
-                      "elements": []
                     }
                   ]
                 },
@@ -5248,6 +5203,7 @@
                 "css_classes": "ss-design ",
                 "flex_direction_mobile": "column",
                 "flex_justify_content": "space-between",
+                "flex_align_items": "center",
                 "margin": {
                   "unit": "px",
                   "top": "35",
@@ -5290,7 +5246,7 @@
                     "typography_font_weight": "400",
                     "typography_font_size": {
                       "unit": "px",
-                      "size": 10,
+                      "size": 11,
                       "sizes": []
                     },
                     "typography_font_size_mobile": {
@@ -5307,12 +5263,12 @@
                   "elements": []
                 },
                 {
-                  "id": "d4302359",
+                  "id": "2d479bb1",
                   "elType": "widget",
-                  "widgetType": "text-editor",
+                  "widgetType": "image",
                   "isInner": false,
                   "settings": {
-                    "_title": "Footer — Signature",
+                    "_title": "Footer — Homlay logo",
                     "_margin": {
                       "unit": "px",
                       "top": "0",
@@ -5321,80 +5277,20 @@
                       "left": "0",
                       "isLinked": false
                     },
-                    "editor": "<p>Heritage / Comfort / Near Zion</p>",
-                    "text_color": "#595D54",
-                    "typography_typography": "custom",
-                    "typography_font_family": "Arial",
-                    "typography_font_weight": "400",
-                    "typography_font_size": {
-                      "unit": "px",
-                      "size": 10,
-                      "sizes": []
+                    "image": {
+                      "url": "/wp-content/uploads/silosuites-design/homlay-logo-black.png",
+                      "id": 9990002,
+                      "alt": "Designed by Homlay",
+                      "source": "library",
+                      "size": ""
                     },
-                    "typography_font_size_mobile": {
-                      "unit": "px",
-                      "size": 16,
-                      "sizes": []
-                    },
-                    "typography_line_height": {
-                      "unit": "em",
-                      "size": 1.8,
-                      "sizes": []
-                    }
-                  },
-                  "elements": []
-                },
-                {
-                  "id": "445c65df",
-                  "elType": "widget",
-                  "widgetType": "button",
-                  "isInner": false,
-                  "settings": {
-                    "_title": "Footer — Homlay credit",
-                    "_margin": {
-                      "unit": "px",
-                      "top": "0",
-                      "right": "0",
-                      "bottom": "0",
-                      "left": "0",
-                      "isLinked": false
-                    },
-                    "text": "Website by Homlay",
+                    "image_size": "full",
+                    "align": "left",
+                    "_css_classes": "ss-homlay-logo",
+                    "link_to": "custom",
                     "link": {
-                      "url": "https://homlay.com/",
-                      "is_external": "",
-                      "nofollow": "",
-                      "custom_attributes": ""
+                      "url": "https://homlay.com/"
                     },
-                    "typography_typography": "custom",
-                    "typography_font_family": "Arial",
-                    "typography_font_size": {
-                      "unit": "px",
-                      "size": 12,
-                      "sizes": []
-                    },
-                    "typography_font_weight": "400",
-                    "button_text_color": "#181A16",
-                    "background_color": "#FFFFFF00",
-                    "hover_color": "#181A16",
-                    "button_background_hover_color": "#FFFFFF00",
-                    "border_radius": {
-                      "unit": "px",
-                      "top": "0",
-                      "right": "0",
-                      "bottom": "0",
-                      "left": "0",
-                      "isLinked": false
-                    },
-                    "text_padding": {
-                      "unit": "px",
-                      "top": "10",
-                      "right": "0",
-                      "bottom": "10",
-                      "left": "0",
-                      "isLinked": false
-                    },
-                    "_css_classes": " ss-has-arrow",
                     "_element_width": "auto"
                   },
                   "elements": []
@@ -5411,6 +5307,6 @@
     "template": "elementor_canvas"
   },
   "version": "0.4",
-  "title": "Silo Suites — Complete homepage v0.2.3",
+  "title": "Silo Suites — Complete homepage v0.2.4",
   "type": "page"
 }

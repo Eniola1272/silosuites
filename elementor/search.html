@@ -1,33 +1,287 @@
 <div class="ss-design ss-search-block">
-  <form class="ss-search" data-ss-design-search novalidate>
-    <label><span>Check in</span><input type="date" name="check_in" required aria-label="Check-in date"></label>
-    <label><span>Check out</span><input type="date" name="check_out" required aria-label="Check-out date"></label>
-    <label><span>Who's coming?</span><select name="guests" aria-label="Number of guests"><option value="1">1 guest</option><option value="2" selected>2 guests</option><option value="3">3 guests</option><option value="4">4 guests</option><option value="5">5 guests</option><option value="6">6 guests</option><option value="7">7 guests</option><option value="8">8 guests</option><option value="9">9 guests</option><option value="10">10 guests</option><option value="11">11 guests</option><option value="12">12 guests</option><option value="13">13 guests</option><option value="14">14 guests</option><option value="15">15 guests</option><option value="16">16 guests</option><option value="17">17 guests</option><option value="18">18 guests</option></select></label>
-    <button type="submit">Find a stay <span aria-hidden="true">↗</span></button>
+  <form class="ss-search" data-ss-design-search action="/our-silo-suites/" method="get" novalidate>
+    <button class="ss-search-date" type="button" data-ss-date-open="in" aria-label="Choose check-in date">
+      <span class="ss-eyebrow">Check in</span>
+      <span class="ss-date-val" data-ss-date-label="in">Choose a date</span>
+      <span class="ss-field-arrow" aria-hidden="true">⌄</span>
+    </button>
+    <button class="ss-search-date" type="button" data-ss-date-open="out" aria-label="Choose check-out date">
+      <span class="ss-eyebrow">Check out</span>
+      <span class="ss-date-val" data-ss-date-label="out">Choose a date</span>
+      <span class="ss-field-arrow" aria-hidden="true">⌄</span>
+    </button>
+    <label class="ss-search-guests">
+      <span class="ss-eyebrow">Who's coming?</span>
+      <select name="guests" aria-label="Number of guests">
+        <option value="1">1 guest</option>
+        <option value="2" selected>2 guests</option>
+        <option value="3">3 guests</option>
+        <option value="4">4 guests</option>
+        <option value="5">5 guests</option>
+        <option value="6">6 guests</option>
+        <option value="7">7 guests</option>
+        <option value="8">8 guests</option>
+        <option value="9">9 guests</option>
+        <option value="10">10 guests</option>
+        <option value="11">11 guests</option>
+        <option value="12">12 guests</option>
+        <option value="13">13 guests</option>
+        <option value="14">14 guests</option>
+        <option value="15">15 guests</option>
+        <option value="16">16 guests</option>
+        <option value="17">17 guests</option>
+        <option value="18">18 guests</option>
+      </select>
+    </label>
+    <input type="hidden" name="check_in" data-ss-input="in">
+    <input type="hidden" name="check_out" data-ss-input="out">
+    <button class="ss-search-submit" type="submit">Check availability <span aria-hidden="true">↗</span></button>
   </form>
-  <p class="ss-search-error" role="status" aria-live="polite"></p>
+  <p class="ss-search-error" data-ss-search-error role="status" aria-live="polite"></p>
   <p class="ss-search-note">Dates first. Your own little corner. &nbsp; <a href="/our-silo-suites/">Or explore all suites ↗</a></p>
+
+  <dialog class="ss-date-dialog" id="ss-date-dialog" aria-labelledby="ss-date-title">
+    <div class="ss-dialog-header">
+      <div>
+        <p class="ss-eyebrow">Make a little time for yourself</p>
+        <h2 id="ss-date-title">When will you stay?</h2>
+      </div>
+      <button type="button" class="ss-close-btn" data-ss-date-close aria-label="Close date picker">×</button>
+    </div>
+    <div class="ss-date-summary">
+      <button type="button" data-ss-select-date="in" class="active">
+        <span class="ss-eyebrow">Check in</span>
+        <span data-ss-draft-label="in">Choose a date</span>
+      </button>
+      <button type="button" data-ss-select-date="out">
+        <span class="ss-eyebrow">Check out</span>
+        <span data-ss-draft-label="out">Choose a date</span>
+      </button>
+    </div>
+    <div class="ss-cal-nav">
+      <button type="button" data-ss-month="-1" aria-label="Previous month">←</button>
+      <p id="ss-cal-instruction" role="status">Choose your check-in date</p>
+      <button type="button" data-ss-month="1" aria-label="Next month">→</button>
+    </div>
+    <div class="ss-cal-months"></div>
+    <div class="ss-cal-footer">
+      <p id="ss-date-feedback" role="status">Choose your arrival date to begin.</p>
+      <button type="button" class="ss-apply-btn" id="ss-apply-dates" disabled>Use these dates <span aria-hidden="true">↗</span></button>
+    </div>
+  </dialog>
 </div>
+
 <script>
 (function(){
   function init(){
     document.querySelectorAll('[data-ss-design-search]').forEach(function(form){
       if(form.dataset.ssBound)return;form.dataset.ssBound='yes';
-      var start=form.elements.check_in,end=form.elements.check_out;
-      var parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/Denver',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
-      function part(type){return parts.find(function(p){return p.type===type}).value}
-      start.min=part('year')+'-'+part('month')+'-'+part('day');end.min=start.min;
-      start.addEventListener('change',function(){end.min=start.value||start.min;if(end.value&&end.value<=start.value)end.value=''});
-      form.addEventListener('submit',function(event){
-        event.preventDefault();
-        var status=form.parentElement.querySelector('.ss-search-error');
-        if(!form.checkValidity()){form.reportValidity();return}
-        if(start.value<start.min||end.value<=start.value){status.textContent='Choose a check-out date after your check-in date.';return}
-        status.textContent='Your dates are selected. Live availability search is not connected in this design template yet. Use “explore all suites” to browse.';
+
+      var block=form.closest('.ss-search-block')||form.parentElement;
+      var dialog=block.querySelector('#ss-date-dialog');
+      if(!dialog)return;
+
+      // Ensure dialog is placed at document.body level so stacking/transforms in Elementor don't clip it
+      if(dialog.parentElement!==document.body){
+        document.body.appendChild(dialog);
+      }
+
+      var inputIn=form.querySelector('[data-ss-input="in"]');
+      var inputOut=form.querySelector('[data-ss-input="out"]');
+      var labelIn=form.querySelector('[data-ss-date-label="in"]');
+      var labelOut=form.querySelector('[data-ss-date-label="out"]');
+      var errorEl=block.querySelector('[data-ss-search-error]');
+
+      var draftIn='',draftOut='',picking='in';
+
+      // Timezone: America/Denver
+      function getToday(){
+        try{
+          var parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/Denver',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
+          function p(t){for(var i=0;i<parts.length;i++){if(parts[i].type===t)return parts[i].value}return ''}
+          return p('year')+'-'+p('month')+'-'+p('day');
+        }catch(e){
+          var d=new Date();
+          return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+        }
+      }
+
+      var today=getToday();
+      var shownDate=new Date();
+
+      function formatDisplay(iso){
+        if(!iso)return 'Choose a date';
+        var p=iso.split('-');
+        var d=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]));
+        return new Intl.DateTimeFormat('en-US',{weekday:'short',month:'short',day:'numeric',timeZone:'UTC'}).format(d);
+      }
+
+      function addDays(iso,n){
+        var p=iso.split('-');
+        var d=new Date(Date.UTC(+p[0],+p[1]-1,+p[2]+n));
+        return d.toISOString().slice(0,10);
+      }
+
+      function nightCount(a,b){
+        var da=new Date(a),db=new Date(b);
+        return Math.round((db-da)/(1000*60*60*24));
+      }
+
+      function renderMonth(y,m){
+        var first=new Date(Date.UTC(y,m,1));
+        var count=new Date(Date.UTC(y,m+1,0)).getUTCDate();
+        var offset=first.getUTCDay();
+        var title=new Intl.DateTimeFormat('en-US',{month:'long',year:'numeric',timeZone:'UTC'}).format(first);
+        var html='<section class="ss-cal-month" aria-label="'+title+'"><h3>'+title+'</h3>';
+        html+='<div class="ss-weekdays" aria-hidden="true"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>';
+        html+='<div class="ss-day-grid">';
+        for(var i=0;i<offset;i++){html+='<span aria-hidden="true"></span>';}
+        for(var d=1;d<=count;d++){
+          var iso=y+'-'+String(m+1).padStart(2,'0')+'-'+String(d).padStart(2,'0');
+          var disabled=(iso<today||iso>addDays(today,365));
+          var selected=(iso===draftIn||iso===draftOut);
+          var inRange=(draftIn&&draftOut&&iso>draftIn&&iso<draftOut);
+          var isToday=(iso===today);
+          var cls='ss-cal-day'+(selected?' selected':'')+(inRange?' in-range':'')+(isToday?' today':'');
+          html+='<button type="button" class="'+cls+'" data-ss-day="'+iso+'"'+(disabled?' disabled':'')+'>'+d+'</button>';
+        }
+        html+='</div></section>';
+        return html;
+      }
+
+      function renderCalendar(){
+        var y=shownDate.getUTCFullYear(),m=shownDate.getUTCMonth();
+        var m1=renderMonth(y,m);
+        var nextDate=new Date(Date.UTC(y,m+1,1));
+        var m2=renderMonth(nextDate.getUTCFullYear(),nextDate.getUTCMonth());
+        dialog.querySelector('.ss-cal-months').innerHTML=m1+m2;
+
+        dialog.querySelector('[data-ss-draft-label="in"]').textContent=formatDisplay(draftIn);
+        dialog.querySelector('[data-ss-draft-label="out"]').textContent=formatDisplay(draftOut);
+
+        var selIn=dialog.querySelector('[data-ss-select-date="in"]');
+        var selOut=dialog.querySelector('[data-ss-select-date="out"]');
+        if(selIn)selIn.classList.toggle('active',picking==='in');
+        if(selOut)selOut.classList.toggle('active',picking==='out');
+
+        var instr=dialog.querySelector('#ss-cal-instruction');
+        if(instr)instr.textContent='Choose your '+(picking==='in'?'check-in':'check-out')+' date';
+
+        var feedback=dialog.querySelector('#ss-date-feedback');
+        var applyBtn=dialog.querySelector('#ss-apply-dates');
+
+        if(!draftIn){
+          if(feedback)feedback.textContent='Choose your arrival date to begin.';
+          if(applyBtn)applyBtn.disabled=true;
+        }else if(!draftOut){
+          if(feedback)feedback.textContent='Now choose your departure date.';
+          if(applyBtn)applyBtn.disabled=true;
+        }else if(draftOut<=draftIn){
+          if(feedback)feedback.textContent='Departure must be after arrival.';
+          if(applyBtn)applyBtn.disabled=true;
+        }else{
+          var n=nightCount(draftIn,draftOut);
+          if(feedback)feedback.textContent=n+' '+(n===1?'night':'nights')+'. A little time for yourself.';
+          if(applyBtn)applyBtn.disabled=false;
+        }
+      }
+
+      function openModal(which){
+        picking=(which==='out'&&draftIn)?'out':'in';
+        var ref=picking==='out'&&draftOut?draftOut:draftIn||today;
+        var p=ref.split('-');
+        shownDate=new Date(Date.UTC(+p[0],+p[1]-1,1));
+        renderCalendar();
+        if(typeof dialog.showModal==='function'){
+          dialog.showModal();
+        }else{
+          dialog.setAttribute('open','');
+        }
+      }
+
+      function closeModal(){
+        if(typeof dialog.close==='function'){
+          dialog.close();
+        }else{
+          dialog.removeAttribute('open');
+        }
+      }
+
+      form.querySelectorAll('[data-ss-date-open]').forEach(function(btn){
+        btn.addEventListener('click',function(e){
+          e.preventDefault();
+          openModal(btn.dataset.ssDateOpen);
+        });
+      });
+
+      dialog.querySelectorAll('[data-ss-date-close]').forEach(function(btn){
+        btn.addEventListener('click',function(){closeModal();});
+      });
+
+      dialog.addEventListener('click',function(e){
+        if(e.target===dialog)closeModal();
+      });
+
+      dialog.querySelectorAll('[data-ss-select-date]').forEach(function(btn){
+        btn.addEventListener('click',function(){
+          picking=btn.dataset.ssSelectDate==='out'&&draftIn?'out':'in';
+          renderCalendar();
+        });
+      });
+
+      dialog.querySelectorAll('[data-ss-month]').forEach(function(btn){
+        btn.addEventListener('click',function(){
+          var delta=+btn.dataset.ssMonth;
+          shownDate=new Date(Date.UTC(shownDate.getUTCFullYear(),shownDate.getUTCMonth()+delta,1));
+          renderCalendar();
+        });
+      });
+
+      dialog.querySelector('.ss-cal-months').addEventListener('click',function(e){
+        var dayBtn=e.target.closest('[data-ss-day]');
+        if(!dayBtn||dayBtn.disabled)return;
+        var val=dayBtn.dataset.ssDay;
+        if(picking==='in'||!draftIn||val<=draftIn){
+          draftIn=val;
+          draftOut='';
+          picking='out';
+        }else{
+          draftOut=val;
+        }
+        renderCalendar();
+      });
+
+      dialog.querySelector('#ss-apply-dates').addEventListener('click',function(){
+        if(!draftIn||!draftOut||draftOut<=draftIn)return;
+        inputIn.value=draftIn;
+        inputOut.value=draftOut;
+        labelIn.textContent=formatDisplay(draftIn);
+        labelOut.textContent=formatDisplay(draftOut);
+        if(errorEl)errorEl.textContent='';
+        closeModal();
+      });
+
+      form.addEventListener('submit',function(e){
+        if(!inputIn.value||!inputOut.value){
+          e.preventDefault();
+          if(errorEl)errorEl.textContent='Please select your check-in and check-out dates.';
+          openModal('in');
+        }
       });
     });
   }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
-  if(window.jQuery)window.jQuery(window).on('elementor/frontend/init',function(){if(window.elementorFrontend)window.elementorFrontend.hooks.addAction('frontend/element_ready/html.default',init)});
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',init);
+  }else{
+    init();
+  }
+  if(window.jQuery){
+    window.jQuery(window).on('elementor/frontend/init',function(){
+      if(window.elementorFrontend){
+        window.elementorFrontend.hooks.addAction('frontend/element_ready/html.default',init);
+      }
+    });
+  }
 })();
 </script>

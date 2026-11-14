@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Silo Suites Design Importer
  * Description: Imports the supplied Silo Suites media and editable Elementor homepage and property templates. Does not change the live homepage or connect to Hostaway.
- * Version: 0.2.3
+ * Version: 0.2.4
  * Requires at least: 6.8
  * Requires PHP: 7.4
  * Author: Homlay
@@ -13,7 +13,7 @@
 namespace SiloSuites\DesignImporter;
 
 defined( 'ABSPATH' ) || exit;
-const VERSION = '0.2.3';
+const VERSION = '0.2.4';
 
 add_action( 'admin_menu', function () {
     add_management_page( 'Silo Suites Design', 'Silo Suites Design', 'manage_options', 'silosuites-design', __NAMESPACE__ . '\\admin_page' );
