@@ -12,7 +12,7 @@ $mock=function($pre,$args,$url)use(&$scenario,&$calls,&$auth_count,&$list_count,
  if($url==='https://api.hostaway.com/v1/accessTokens'){
   ++$auth_count;ssb_test($args['method']==='POST','Only auth can use POST');return $json(['access_token'=>$fixture_token,'expires_in'=>3600]);
  }
- if(strpos($url,'https://api.hostaway.com/v1/listings?limit=100&offset=')===0){
+ if(strpos($url,'https://api.hostaway.com/v1/listings?limit=100&')===0){
   ssb_test($args['method']==='GET','Only allowlisted listing GETs');
   ++$list_count;ssb_test($args['headers']['Authorization']==='Bearer '.$fixture_token,'Server authorization');
   if($scenario==='rate')return $json(['private'=>'must-not-be-rendered'],429);
@@ -24,7 +24,7 @@ $mock=function($pre,$args,$url)use(&$scenario,&$calls,&$auth_count,&$list_count,
    if(strpos($url,'offset=100')!==false)return $json([],503);
    $rows=[];for($i=1;$i<=100;++$i)$rows[]=['id'=>$i,'name'=>'Fixture '.$i];return $json(['status'=>'success','result'=>$rows]);
   }
-  return $json(['status'=>'success','result'=>[['id'=>143823,'name'=>'Fixture Suite 2','personCapacity'=>5,'bedroomsNumber'=>2,'bathroomsNumber'=>1,'bedsNumber'=>3,'currencyCode'=>'USD','doorCode'=>'never-store','guestEmail'=>'never-store','listingImages'=>[['url'=>'never-store']]],['id'=>143824,'name'=>'Fixture Suite 1'],['id'=>143825,'name'=>'Fixture Suite 4'],['id'=>143826,'name'=>'Fixture Suite 3'],['id'=>603415,'name'=>'Fixture Dairy']]]);
+  return $json(['status'=>'success','result'=>[['id'=>143823,'name'=>'Fixture Suite 2','personCapacity'=>5,'minNights'=>1,'maxNights'=>27,'bedroomsNumber'=>2,'bathroomsNumber'=>1,'bedsNumber'=>3,'currencyCode'=>'USD','doorCode'=>'never-store','guestEmail'=>'never-store','listingImages'=>[['url'=>'never-store']]],['id'=>143824,'name'=>'Fixture Suite 1','personCapacity'=>4,'currencyCode'=>'USD','minNights'=>2,'maxNights'=>30],['id'=>143825,'name'=>'Fixture Suite 4','personCapacity'=>4,'currencyCode'=>'USD','minNights'=>2,'maxNights'=>30],['id'=>143826,'name'=>'Fixture Suite 3','personCapacity'=>5,'currencyCode'=>'USD','minNights'=>2,'maxNights'=>30],['id'=>603415,'name'=>'Fixture Dairy','personCapacity'=>4,'currencyCode'=>'USD','minNights'=>2,'maxNights'=>30]]]);
  }
  if(preg_match('#^https://api.hostaway.com/v1/listings/([0-9]+)/calendar\?startDate=([0-9-]+)&endDate=([0-9-]+)$#',$url,$m)){
   ++$cal_count;ssb_test($args['method']==='GET','Calendar must use GET');
@@ -40,9 +40,9 @@ $mock=function($pre,$args,$url)use(&$scenario,&$calls,&$auth_count,&$list_count,
   }
   return $json(['status'=>'success','result'=>$days]);
  }
- if($url==='https://api.hostaway.com/v1/reservations/price'){
+ if(preg_match('#^https://api.hostaway.com/v1/listings/[0-9]+/calendar/priceDetails$#',$url)){
   ssb_test($args['method']==='POST','Price details must use POST');
-  return $json(['status'=>'success','result'=>['totalPrice'=>525.00,'basePrice'=>525.00,'cleaningFee'=>75.00,'taxAmount'=>64.50,'currency'=>'USD']]);
+  return $json(['status'=>'success','result'=>['totalPrice'=>664.50,'components'=>[['type'=>'accommodation','name'=>'baseRate','title'=>'Base rate','total'=>525.0,'isIncludedInTotalPrice'=>1],['type'=>'fee','name'=>'cleaningFee','title'=>'Cleaning fee','total'=>75.0,'isIncludedInTotalPrice'=>1],['type'=>'tax','name'=>'occupancyTax','title'=>'Tax','total'=>64.5,'isIncludedInTotalPrice'=>1]]]]);
  }
  throw new RuntimeException('Unexpected mock request: '.$url);
 };
@@ -93,8 +93,8 @@ try{
  
  // Quote generation
  $quote=$service->generate_quote('silo-1','2027-03-12','2027-03-15',2);
- ssb_test($quote['status']==='success'&&$quote['line_items']['accommodation']===525.0,'Quote accommodation calculated');
- ssb_test(strpos($quote['quote_id'],'ssq_')===0&&!empty($quote['expires_at_utc']),'Quote token and expiry generated');
+ ssb_test($quote['status']==='success'&&$quote['components'][0]['total']===525.0&&$quote['total']===664.5,'Quote accommodation calculated');
+ ssb_test(!empty($quote['expires_at_utc'])&&$quote['holds_inventory']===false&&$quote['checkout_enabled']===false,'Browsing quote cannot reserve or charge');
 
  wp_set_current_user(0);$n=count($calls);
  ssb_test(is_wp_error(\SiloSuites\Booking\refresh_metadata())&&is_wp_error(\SiloSuites\Booking\save_mapping([]))&&count($calls)===$n,'Anonymous operations rejected before HTTP');

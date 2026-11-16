@@ -1,3 +1,7 @@
+# Current integration: Booking 0.3.0
+
+See [Booking 0.3.0 implementation and staging setup](BOOKING-0.3.0.md). The current release implements provider-authoritative quote browsing, live calendars, editable property records, Elementor widgets and on-site checkout review. No real reservation or payment operation is enabled. The earlier 0.1.0 notes below are historical.
+
 # Hostaway integration: development build 0.1.0
 
 ## What exists

@@ -1,3 +1,9 @@
+# Latest booking work — 15 November 2026
+
+Booking plugin 0.3.0 implements the documented Hostaway price calculator, verified provider fee/tax components, fail-closed calendar rules, editable suite records, Elementor/shortcode live browsing components and a WordPress checkout review. An actual non-transactional account probe succeeded for five listing URLs, calendar data and a full itemised quote. See BOOKING-0.3.0.md for the separate synthetic/local evidence.
+
+The user requires checkout entirely inside WordPress and confirms Stripe as the existing processor. Stripe test access, payment-method/auto-payment proof, extras, reservation lifecycle and operational sync tests remain required. Payment/reservation submission is not enabled. All Four Silos is disabled pending actual mapping/relationship verification. No new plugin upload, page publishing, real reservation or payment was performed on staging in this turn.
+
 # Silo Suites implementation status
 
 ## Booking Plugin 0.2.1 released — 14 November 2026
