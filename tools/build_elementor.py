@@ -69,11 +69,11 @@ def heading(label, title, font=48, mobile=37, color=INK, tag='h2', classes='', *
 
 
 def eyebrow(label, title, color=MUTED, **settings):
-    return heading(label, title, font=10, mobile=10, color=color, tag='p', classes='ss-eyebrow', **{'typography_font_family':'Arial','typography_font_weight':'600','typography_text_transform':'uppercase','typography_line_height':size(1.7,'em'),'typography_letter_spacing':size(1.5),'_margin':edges(0,0,18,0),**settings})
+    return heading(label, title, font=12, mobile=11, color=color, tag='p', classes='ss-eyebrow', **{'typography_font_family':'Arial','typography_font_weight':'600','typography_text_transform':'uppercase','typography_line_height':size(1.7,'em'),'typography_letter_spacing':size(1.5),'_margin':edges(0,0,18,0),**settings})
 
 
 def text(label, content, color=MUTED, **settings):
-    return widget(label, 'text-editor', {'editor': content, 'text_color': color, 'typography_typography': 'custom', 'typography_font_family': 'Arial', 'typography_font_weight':'400', 'typography_font_size': size(16), 'typography_font_size_mobile': size(16), 'typography_line_height': size(1.8, 'em'), **settings})
+    return widget(label, 'text-editor', {'editor': content, 'text_color': color, 'typography_typography': 'custom', 'typography_font_family': 'Arial', 'typography_font_weight':'400', 'typography_font_size': size(18), 'typography_font_size_mobile': size(17), 'typography_line_height': size(1.8, 'em'), **settings})
 
 
 def button(label, title, url, kind='link', **settings):
@@ -82,7 +82,7 @@ def button(label, title, url, kind='link', **settings):
     arrow='↗' in title
     if arrow:title=title.replace('&nbsp;','').replace('↗','').strip()
     classes=('ss-button' if filled else 'ss-link' if kind=='link' else '')+(' ss-has-arrow' if arrow else '')
-    return widget(label, 'button', {'text': title, 'link': {'url': url, 'is_external': '', 'nofollow': '', 'custom_attributes': ''}, 'typography_typography': 'custom', 'typography_font_family': 'Arial', 'typography_font_size': size(12), 'typography_font_weight': '400', 'button_text_color': color, 'background_color': OLIVE if kind == 'olive' else INK if kind == 'dark' else '#FFFFFF00', 'hover_color': color, 'button_background_hover_color': '#9BA78F' if kind == 'olive' else '#3E4538' if kind == 'dark' else '#FFFFFF00', 'border_radius': edges(), 'text_padding': edges(16,26,16,26) if filled else edges(10,0,10,0), '_css_classes': classes, '_element_width': 'auto', '_margin': edges(18,0,0,0), **settings})
+    return widget(label, 'button', {'text': title, 'link': {'url': url, 'is_external': '', 'nofollow': '', 'custom_attributes': ''}, 'typography_typography': 'custom', 'typography_font_family': 'Arial', 'typography_font_size': size(16), 'typography_font_weight': '400', 'button_text_color': color, 'background_color': OLIVE if kind == 'olive' else INK if kind == 'dark' else '#FFFFFF00', 'hover_color': color, 'button_background_hover_color': '#9BA78F' if kind == 'olive' else '#3E4538' if kind == 'dark' else '#FFFFFF00', 'border_radius': edges(), 'text_padding': edges(16,26,16,26) if filled else edges(10,0,10,0), '_css_classes': classes, '_element_width': 'auto', '_margin': edges(18,0,0,0), **settings})
 
 
 def media_ref(filename, alt=''):
@@ -151,6 +151,10 @@ mobile_menu='<details class="ss-mobile-menu"><summary>Menu</summary><nav aria-la
 header=container('Header — Local page navigation',[row('Header — Inner',[logo('Header — Original supplied logo'),row('Header — Desktop links',nav,width=size(55,'%'),flex_justify_content='center',flex_gap=gap(32),hide_mobile='hidden-mobile'),row('Header — Actions',[widget('Header — Mobile menu','html',{'html':mobile_menu,'hide_desktop':'hidden-desktop','hide_tablet':'hidden-tablet','_element_width':'auto'}),button('Header — Booking CTA','Book your stay &nbsp; ↗','#ss-find-stay','olive',_margin=edges())],width=size(25,'%'),width_mobile=size(70,'%'),flex_direction_mobile='row',flex_gap=gap(18),flex_justify_content='flex-end',flex_align_items='center')],'ss-wrap',flex_direction_mobile='row',flex_align_items='center',flex_justify_content='space-between',min_height=size(108),min_height_mobile=size(84),flex_gap=gap(20))],background_background='classic',background_color='#FFFFFF',html_tag='header')
 footer=section('Footer — Page footer',[wrap('Footer — Inner',[row('Footer — Columns',[container('Footer — Brand',[logo('Footer — Original logo')],width=size(34,'%'),width_mobile=size(100,'%')),container('Footer — Navigation',[eyebrow('Footer — Explore label','Make yourself at home'),*[button('Footer link '+str(i),title,url,'plain',_margin=edges()) for i,(title,url) in enumerate([('Our suites','/our-silo-suites/'),('Our story','#our-story'),('Stay & Soak','/hot-springs/'),('Local guide','/local-guide/')])]],width=size(25,'%'),width_mobile=size(100,'%')),container('Footer — Location',[eyebrow('Footer — Location label','Find us'),text('Footer — Address','<p>Historic Church Dairy Farm<br>La Verkin, Utah<br>Near Zion National Park</p>',typography_font_size=size(13))],width=size(25,'%'),width_mobile=size(100,'%')),container('Footer — Contact',[eyebrow('Footer — Contact label','A warm welcome awaits'),button('Footer — Phone','435 586 8658','tel:+14355868658','plain',_margin=edges()),button('Footer — Stay link','Find your stay ↗','/our-silo-suites/','plain',_margin=edges())],width=size(25,'%'),width_mobile=size(100,'%'))],flex_gap=gap(40)),row('Footer — Bottom',[text('Footer — Copyright','<p>© Silo Suites. All rights reserved.</p>',typography_font_size=size(11)),image('Footer — Homlay logo',homlay_name,'Designed by Homlay','ss-homlay-logo',link_to='custom',link={'url':'https://homlay.com/'},_element_width='auto')],flex_justify_content='space-between',flex_align_items='center',margin=edges(35,0,0,0),padding=edges(20,0,0,0),border_border='solid',border_width=edges(1,0,0,0),border_color='#D8D8CC')])],padding=edges(60,0,25,0),html_tag='footer')
 
+
+import sys
+import home_review_layout
+home_review_layout.apply(sys.modules[__name__])
 
 def template(title, content, canvas=False):
     return {'content':content,'page_settings':{'hide_title':'yes','template':'elementor_canvas' if canvas else 'elementor_header_footer'},'version':'0.4','title':title,'type':'page'}

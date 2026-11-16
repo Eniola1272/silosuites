@@ -80,3 +80,8 @@ Design Importer 0.2.1 and Booking 0.1.0 are installed and active on the confirme
 ## Ready local update
 
 Importer 0.2.2 is built and tested to process imports in small resumable requests. It has not been installed on staging because Chrome window access became unavailable. The remote installed importer remains 0.2.1, and full template/property-draft verification is still pending. This distinction is independent of the Hostaway credential/configuration and checkout work.
+
+
+## Design synchronisation — 14 November 2026
+
+Design Importer 0.2.6 brings the reviewed exterior hero, six native property cards, source-labelled guest reviews, Natural Tan story, image-led guide, FAQs and revised closing invitation into Elementor. Header/footer and the custom date picker are retained. The HTML gallery button no longer includes a photo count; Elementor already used count-free wording, retained in this delivery. Homepage quick booking is a labelled sample-calendar preview, not a live checkout connection. Existing staging pages need their inserted template content replaced explicitly; an importer update alone cannot change those instances without overwriting editorial work. No remote installation or page replacement was performed in this turn.

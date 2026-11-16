@@ -105,3 +105,11 @@
   .ss-cal-footer { padding:18px 20px; position:sticky; bottom:0; }
 }
 @media(prefers-reduced-motion:reduce) { .ss-design * { transition:none!important; animation:none!important; scroll-behavior:auto!important; } }
+/* Reviewed homepage 0.2.5 */
+.ss-design .ss-view-suite .elementor-button { width:100%; text-align:left; padding:12px 18px; }
+.ss-design .ss-view-suite .elementor-button-text { text-align:left; }
+.ss-design .ss-story-image img { border:0; aspect-ratio:1.12; }
+.ss-design .ss-intro-detail img { width:100%; aspect-ratio:1.25; object-fit:cover; }
+.ss-design .ss-card .elementor-widget-button { width:100%; }
+.ss-faq-source summary { cursor:pointer; padding-block:18px; font:23px/1.4 Georgia,serif; }
+.ss-faq-source details { border-bottom:1px solid #d8d8cc; }

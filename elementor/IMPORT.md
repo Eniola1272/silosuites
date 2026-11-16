@@ -1,12 +1,16 @@
+Current release: **0.2.6**. This includes the reviewed exterior-hero homepage, six native stay cards, guest reviews, Natural Tan story section, image-led guide, FAQs, custom date picker, updated footer, and property gallery button without a photo count. The per-property calendar is explicitly a sample preview; live checkout is not enabled by this design installer.
+
+**Updating an existing staging page:** Installing/importing this release adds new versioned saved templates. It does not modify content already inserted into a page. Duplicate/back up the page first. Open the review copy in Elementor, remove the old template's top-level content, then insert the matching **v0.2.6** saved template from My Templates. Avoid appending a complete template below the old one: that duplicates sections and runtime IDs. Carry over any client edits deliberately. Replace header/footer content separately in their Theme Builder parts if using global parts. The importer does not change their display conditions.
+
 ## If automatic import reports “Failed to fetch”
 
-Update the existing importer with `releases/silosuites-design-importer-0.2.3.zip` using Plugins → Add Plugin → Upload Plugin → Replace current with uploaded. Then reload Tools → Silo Suites Design and confirm Version 0.2.3.
+Update the existing importer with `releases/silosuites-design-importer-0.2.6.zip` using Plugins → Add Plugin → Upload Plugin → Replace current with uploaded. Then reload Tools → Silo Suites Design and confirm Version 0.2.6.
 
 Click **Continue one step**. The page reloads after importing one image or template. Repeat while the notice says **Step saved**; stop when it says **Imported successfully. All ten saved templates are ready.** A fresh import may require up to 31 clicks; existing media are reused. This button works without fetch or JavaScript. Existing pages, earlier templates, and client edits remain preserved.
 
 If a standard submission also fails, record the exact error/HTTP status on the resulting page. That supplies information to distinguish login expiry, server errors, or a hosting/security block; the original “Failed to fetch” alone does not establish the cause. Do not delete templates or repeatedly submit while a request is still running.
 
-Current delivery: **0.2.3**, adding property pages and editable popup content. Follow [PROPERTY-IMPORT.md](PROPERTY-IMPORT.md) for the property workflow. Install `silosuites-design-importer-0.2.3.zip`; it imports ten saved templates and 21 media originals. The homepage-only 0.1.1 instructions below remain available for that earlier package.
+Current delivery: **0.2.6**, adding property pages and editable popup content. Follow [PROPERTY-IMPORT.md](PROPERTY-IMPORT.md) for the property workflow. Install `silosuites-design-importer-0.2.6.zip`; it imports ten saved templates and 21 media originals. The homepage-only 0.1.1 instructions below remain available for that earlier package.
 
 # Import the Silo Suites homepage
 

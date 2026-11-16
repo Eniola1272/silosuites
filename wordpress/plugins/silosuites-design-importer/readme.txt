@@ -2,7 +2,7 @@
 Contributors: homlay
 Requires at least: 6.8
 Requires PHP: 7.4
-Stable tag: 0.2.4
+Stable tag: 0.2.6
 License: GPLv2 or later
 
 Installs supplied media, editable homepage and property pages, popup-content sections, and header/footer sections.
@@ -20,6 +20,9 @@ This creates templates and Media Library images only. Existing pages and the hom
 The plugin may be deactivated after import. Repeating an import reuses this version's saved templates and images; it does not overwrite client edits.
 
 == Changelog ==
+= 0.2.6 =
+Synchronise reviewed homepage with native editable six-stay cards, exterior hero, guest reviews, tan family story, image-led guide and FAQs. Preserve custom calendar and footer. Gallery button has no photo count.
+
 = 0.2.4 =
 Replaced browser default date inputs in search bar with the custom interactive date-picker dialog (including Utah timezone validation, day range selection and direct query navigation), updated footer with pure black Homlay logo artwork, and updated hero action styling.
 

@@ -38,7 +38,7 @@ $original = $complete->get_elements_data();
 $inspect( $original );
 ssqa_assert( 1 === $heading_count, 'Exactly one native H1 is required.' );
 ssqa_assert( $counts['heading'] > 20 && $counts['image'] >= 7, 'Editorial content must remain native Elementor widgets.' );
-ssqa_assert( 3 === $counts['html'], 'Only styles, search, and mobile-menu widgets may use HTML.' );
+ssqa_assert( 4 === $counts['html'], 'Only styles, search, mobile menu and the homepage preview runtime may use HTML.' );
 
 $complete_counts = $counts;
 $changed = $original;

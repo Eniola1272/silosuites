@@ -58,3 +58,9 @@ Verification: `tests/elementor-batch-import.php` proves one-template steps, dura
 ## Importer 0.2.3 network recovery
 
 Local WordPress/Elementor verification passed: PHP syntax, one-template batches, one-media batches, pending-media completion, preserved edits and old history, deduplication, locking, permission checks, and the real nonce-protected browser endpoint. The browser test aborted an automatic request, recovered via a standard POST and redirect, completed automatic retry, and verified the same standard submission with JavaScript disabled. Every path showed ten saved templates. Navigation waits prevent assertions against stale pages. Staging still needs the user to install this update and confirm completion; generic fetch failure alone does not identify its hosting cause.
+
+## Reviewed homepage delivery 0.2.6 — 14 November 2026
+
+Real local WordPress 7.0.1 / Elementor 4.4.0 import passed for all ten templates, with local media resolution, a single H1, native heading editing and saved-edit preservation, repeat-import deduplication, standalone header/footer scope and anonymous rejection. The homepage contains 58 native containers, 37 headings, 31 Text Editors, 14 images and 32 buttons; four HTML widgets supply styles, search, mobile navigation and homepage preview behaviour. Editorial review/FAQ/card content remains native.
+
+Rendered browser checks passed for all six cards, straight View suite arrows, a property-specific sample booking dialog, explicit white/cream dialog backgrounds independent of prototype tokens, native FAQ disclosures, the custom date picker, phone overflow and count-free View all photos gallery opening. Earlier 0.2.5 archives are preserved; 0.2.6 includes the final self-contained dialog colour fix. The design popup does not use live Hostaway pricing or create bookings. No staging installation/page replacement was performed.
