@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Silo Suites Booking
  * Description: Server-side Hostaway live availability search, property mapping and quote calculation.
- * Version: 0.3.0
+ * Version: 0.3.2
  * Requires at least: 6.8
  * Requires PHP: 7.4
  * Author: Homlay
@@ -11,7 +11,7 @@
  */
 namespace SiloSuites\Booking;
 defined( 'ABSPATH' ) || exit;
-const VERSION = '0.3.0';
+const VERSION = '0.3.2';
 
 require_once __DIR__ . '/includes/class-hostaway-client.php';
 require_once __DIR__ . '/includes/class-availability-service.php';
@@ -24,7 +24,6 @@ function properties() {
         'silo-3'    => 'Silo Suite 3',
         'silo-4'    => 'Silo Suite 4',
         'dairy'     => 'The Dairy Suite',
-        'all-silos' => 'All Four Silos',
     );
 }
 
@@ -144,7 +143,7 @@ function admin_page() {
     ?>
     <div class="wrap"><h1>Silo Suites Booking <small><?php echo esc_html( VERSION ); ?></small></h1>
     <?php if ( $notice ) : ?><div class="notice notice-info"><p><?php echo esc_html( $notice ); ?></p></div><?php endif; ?>
-    <p><strong>Phase 4 Development Build:</strong> Server-side Hostaway availability search, property mapping, provider-calculated quotes and on-site booking components are available. Payments and reservation creation are NOT enabled. Group checkout requires separate verification.</p>
+    <p><strong>Phase 4 Development Build:</strong> Server-side Hostaway availability search, property mapping, provider-calculated quotes and on-site booking components are available. Payments and reservation creation are NOT enabled. Reserving all four silos is handled by contacting the host.</p>
     <h2>Server configuration</h2><p>Credentials: <strong><?php echo $client->configured() ? 'configured' : 'not configured'; ?></strong>. Values are never displayed here.</p>
     <p>Set <code>SILOSUITES_HOSTAWAY_ACCOUNT_ID</code> and <code>SILOSUITES_HOSTAWAY_CLIENT_SECRET</code> in private server environment variables or wp-config.php. Use the Hostaway Account ID, not an API-key row ID. No credentials are accepted from a browser form.</p>
     <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>"><input type="hidden" name="action" value="ssb_discover"><?php wp_nonce_field( 'ssb_discover' ); ?><p><button class="button button-primary" <?php disabled( ! $client->configured() ); ?>>Check Hostaway connection and listings</button></p></form>

@@ -1,3 +1,7 @@
+# Current direction — 16 November 2026
+
+The client wants the original marketing site preserved. Custom design now focuses on booking/search/checkout, using existing copy, US spelling and consistent upright typography. All Four Silos is inquiry-only and removed from online catalogs, widgets and quote/calendar access in Booking 0.3.2. See CLIENT-REVISION-2026-11-16.md for the first revised HTML property example and booking-only Netlify package. Earlier homepage redesigns are historical and must not replace the original Homepage, Hot Springs or Local Guide. No live/staging page was changed during this revision. Stripe access remains pending; payment and reservation submission remain disabled.
+
 # Latest booking work — 15 November 2026
 
 Booking plugin 0.3.0 implements the documented Hostaway price calculator, verified provider fee/tax components, fail-closed calendar rules, editable suite records, Elementor/shortcode live browsing components and a WordPress checkout review. An actual non-transactional account probe succeeded for five listing URLs, calendar data and a full itemised quote. See BOOKING-0.3.0.md for the separate synthetic/local evidence.

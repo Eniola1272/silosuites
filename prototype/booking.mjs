@@ -1,6 +1,6 @@
 // Design-preview fixtures only. Production availability and totals must come from Hostaway.
 const DAY = 86400000;
-export const MAX_GUESTS = 18;
+export const MAX_GUESTS = 5;
 export const STORAGE_KEY = 'silosuites-preview-search-v1';
 
 export function dateValue(value) {
@@ -42,7 +42,6 @@ export const suites = [
   { id: 'silo-3', name: 'Silo Suite 3', category: 'silo', label: 'Thoughtfully considered', capacity: 5, bedrooms: 2, baths: 1, rate: 18900, image: 'elementor/The-Silo-Suites-28.jpg', secondary: 'elementor/The-Silo-Suites-28-1.jpg', minStay: 2, description: 'Quiet corners and thoughtful details. Unpack, make yourself comfortable, and settle into the slower rhythm of the farm.' },
   { id: 'silo-4', name: 'Silo Suite 4', category: 'silo', label: 'Your own little escape', capacity: 4, bedrooms: 1, baths: 1, rate: 17500, image: 'elementor/The-Silo-Suites-50-1-scaled.jpg', secondary: 'elementor/The-Silo-Suites-41.jpg', minStay: 2, description: 'Farmhouse character, familiar comforts, and a space to make your own. Come back from a day out and feel at home.' },
   { id: 'dairy', name: 'The Dairy Suite', category: 'dairy', label: 'A new chapter on the farm', capacity: 4, bedrooms: 1, baths: 1, rate: 15900, image: 'elementor/studio-apartmentsdwww.jpg', secondary: 'quiet-bedroom.jpg', minStay: 2, description: 'Natural timber, warm light, and an open, welcoming interior. A fresh chapter in the story of this historic dairy farm.' },
-  { id: 'all-silos', name: 'All Four Silos', category: 'group', label: 'Better together', capacity: 18, bedrooms: 6, baths: 4, rate: 70000, image: 'elementor/5c56e762-8c5c-4fe6-abbb-eec232e9355e-1.jpeg', secondary: 'elementor/The-Silo-Suites-50-1-scaled.jpg', minStay: 2, description: 'Four distinctive silos, one shared getaway. Bring your favourite people and enjoy your own spaces on the same historic farm.' },
 ];
 export function sampleBlocks(today = todayInUtah()) {
   const block = (a, b) => [addDays(today, a), addDays(today, b)];

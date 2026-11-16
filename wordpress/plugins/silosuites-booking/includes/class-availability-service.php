@@ -31,7 +31,6 @@ final class Availability_Service {
     public function property($slug) {
         $names=properties(); if (!is_string($slug) || !isset($names[$slug])) return new \WP_Error('ssb_unknown_property','Unknown property.');
         $map=get_option('ssb_property_mapping',[]); $id=$map[$slug]??'';
-        if ($slug==='all-silos' && !get_option('ssb_group_verified',false)) return new \WP_Error('ssb_group_setup','Group booking is not enabled. Contact us to arrange all four silos.');
         if (!is_string($id) || !preg_match('/^[0-9]{1,32}$/D',$id)) return new \WP_Error('ssb_mapping','This property is not connected for online booking.');
         foreach ((get_option('ssb_listing_snapshot',[])['listings']??[]) as $row) {
             if ((string)$row['id']!==$id) continue;

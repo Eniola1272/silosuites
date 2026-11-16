@@ -16,7 +16,7 @@ function public_properties() {
   $post=get_page_by_path($slug,OBJECT,'ss_property');if($post&&$post->post_status!=='publish')continue;
   $metadata=[];foreach($snapshot as $r)if((string)$r['id']===($map[$slug]??'')){$metadata=$r;break;}
   $connected=$service->property($slug);$image=$post?get_the_post_thumbnail_url($post,'large'):false;
-  $url=$slug==='dairy'?'/the-dairy-suite/':($slug==='all-silos'?'/entire-silo-suites/':'/silo-suite-'.substr($slug,-1).'/');
+  $url=$slug==='dairy'?'/the-dairy-suite/':'/silo-suite-'.substr($slug,-1).'/';
   $rows[]=['slug'=>$slug,'name'=>$post?$post->post_title:$name,'description'=>$post?wp_strip_all_tags($post->post_excerpt):'','image'=>$image?:($metadata['images'][0]??''),'capacity'=>$metadata['personCapacity']??null,'bedrooms'=>$metadata['bedroomsNumber']??null,'beds'=>$metadata['bedsNumber']??null,'bathrooms'=>$metadata['bathroomsNumber']??null,'url'=>home_url($url),'connected'=>!is_wp_error($connected),'reason'=>is_wp_error($connected)?$connected->get_error_message():''];
  }
  return $rows;
@@ -27,6 +27,7 @@ function frontend_assets() {
  wp_enqueue_script('silosuites-booking',plugins_url('assets/booking.js',dirname(__DIR__).'/silosuites-booking.php'),[],VERSION,true);
  static $configured=false;if(!$configured){$configured=true;wp_add_inline_script('silosuites-booking','window.SiloSuitesBooking='.wp_json_encode(['api'=>rest_url('silosuites/v1/'),'checkout'=>checkout_url(),'properties'=>public_properties()],JSON_HEX_TAG|JSON_HEX_AMP|JSON_HEX_APOS|JSON_HEX_QUOT).';','before');}
 }
+function group_contact_html() { return '<p class="ssb-group-contact">Interested in reserving all four silos? <a href="tel:+14355868658">Contact us for availability.</a></p>'; }
 function render_component($type,$property='') {
  frontend_assets();
  $props=public_properties();$config=['api'=>esc_url_raw(rest_url('silosuites/v1/')),'checkout'=>checkout_url(),'type'=>$type,'property'=>$property,'properties'=>$props];

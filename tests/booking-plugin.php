@@ -84,7 +84,7 @@ try{
  ssb_test($eval['status']==='success'&&$eval['nights']===3,'Evaluated search');
  ssb_test($eval['properties']['silo-1']['available']===true,'Silo 1 available');
  ssb_test($eval['properties']['silo-3']['available']===false,'Silo 3 blocked');
- ssb_test($eval['properties']['all-silos']['available']===false,'All Four Silos composite blocked when child is blocked');
+ ssb_test(!isset($eval['properties']['all-silos']),'Group excluded from online inventory');
  ssb_test($eval['properties']['dairy']['available']===true,'Dairy remains independent');
  
  // Transient caching check: second call uses cached calendar

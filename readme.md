@@ -1,3 +1,9 @@
+# Current client review — 16 November 2026
+
+Preserve the original marketing site. The current review covers booking pages only: [Silo Suite 2 example](http://127.0.0.1:4173/suite.html?id=silo-2) and [suite search](http://127.0.0.1:4173/stays.html). Build the client Netlify package with `python3 tools/build_booking_review.py`; use `releases/silosuites-booking-review-2026-11-16.zip`. Do not resend the older full-site redesign archive or replace original marketing pages with its templates.
+
+Booking 0.3.2 removes the online All Four Silos option and retains the inquiry invitation only. The HTML example uses existing client copy and original-site font families with upright headings. See [revision scope and verification](docs/CLIENT-REVISION-2026-11-16.md). Stripe access and transactional integration remain pending. Historical progress follows below.
+
 # Silo Suites
 
 Website and direct-booking project for Silo Suites in La Verkin, Utah.

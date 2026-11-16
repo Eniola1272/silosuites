@@ -1,3 +1,7 @@
+# Scope amendment — 16 November 2026
+
+The client's latest direction overrides the full marketing-site redesign and group-booking plans below. Preserve the original Homepage, Hot Springs and Local Guide; improve performance and insert availability search with minimal layout change. Restrict custom designs to booking/search/checkout, with the original client copy and colors. Remove All Four Silos from online bookable options entirely; provide only the exact approved contact invitation. See CLIENT-REVISION-2026-11-16.md. Earlier phase details remain historical context, not permission to deploy the rejected homepage or online group booking.
+
 # Silo Suites implementation plan
 
 Prepared 11 November 2026. This plan covers the local HTML design, WordPress and Elementor implementation, Hostaway connector, testing, packaging, and handover.
