@@ -1,8 +1,16 @@
 # Current client review — 16 November 2026
 
-Preserve the original marketing site. The current review covers booking pages only: [Silo Suite 2 example](http://127.0.0.1:4173/suite.html?id=silo-2) and [suite search](http://127.0.0.1:4173/stays.html). Build the client Netlify package with `python3 tools/build_booking_review.py`; use `releases/silosuites-booking-review-2026-11-16.zip`. Do not resend the older full-site redesign archive or replace original marketing pages with its templates.
+Client-sharing build: run `python3 tools/build_booking_review.py --with-review-snapshot` and use [the Netlify client preview](releases/silosuites-netlify-client-preview-2026-11-19-olive.zip). This build includes anonymous eligible public-review snapshots so ratings and review popups work on static hosting. No API credentials or booking submission are included. See [Netlify upload instructions and verification](docs/NETLIFY-CLIENT-PREVIEW.md).
 
-Booking 0.3.2 removes the online All Four Silos option and retains the inquiry invitation only. The HTML example uses existing client copy and original-site font families with upright headings. See [revision scope and verification](docs/CLIENT-REVISION-2026-11-16.md). Stripe access and transactional integration remain pending. Historical progress follows below.
+Preserve the original marketing site. The current review covers booking pages only: [Silo Suite 2 example](http://127.0.0.1:4173/suite.html?id=silo-2) and [suite search](http://127.0.0.1:4173/stays.html). Build the client Netlify package with `python3 tools/build_booking_review.py`; use `releases/silosuites-booking-review-2026-11-19-olive.zip`. Do not resend the older full-site redesign archive or replace original marketing pages with its templates.
+
+White backgrounds are used for the custom booking pages, panels and popups, matching the client preference confirmed on 18 November. Booking 0.3.3 includes this styling update.
+
+Booking 0.3.7 includes per-property Hostaway reviews, title-rating widgets, full-review popups, SVG date/guest chevrons and a dynamic Explore other properties widget limited to two recommendations. The current olive is #81ad7b and property cards show the client-published Rates from values. Starting rates are editable under Suite content and do not replace selected-date Hostaway quotes. The four-silo inquiry message is removed. The online group option remains disabled. The Open map link is removed while the Leaflet map remains. The HTML example uses existing client copy and original-site font families with upright headings. See [revision scope and verification](docs/CLIENT-REVISION-2026-11-16.md). Stripe access and transactional integration remain pending. Historical progress follows below.
+
+Each local property example now includes Meet your hosts with the original family photo and Our story copy, followed by two other properties and View all properties. Every HTML property page has five property-specific photos in a one-large/four-small gallery, with its eligible review rating beside the title above the photos. Dairy has an honest No reviews yet state. Host editorial content is in HTML review; its native Elementor migration is still pending.
+
+For genuine reviews in the local HTML preview, run `python3 tools/cache_hostaway_reviews.py`, then restart `python3 tools/serve.py`. Reviews are anonymized, filtered and cached privately, outside the served folder. The standard static ZIP does not bundle review data; the explicit `--with-review-snapshot` client build includes a dated anonymous snapshot, never a live API feed; connected WordPress uses `[silosuites_reviews property="silo-2"]` or the widget’s Guest reviews mode. See [review integration](docs/HOSTAWAY-REVIEWS-DISCOVERY.md).
 
 # Silo Suites
 

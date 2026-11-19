@@ -22,7 +22,7 @@ export function initPropertyMap() {
       }).addTo(map);
       let loaded = false;
       tiles.on('tileload', () => { loaded = true; status.textContent = ''; });
-      tiles.on('tileerror', () => { if (!loaded) status.textContent = 'Map tiles could not load. Try opening the area map below.'; });
+      tiles.on('tileerror', () => { if (!loaded) status.textContent = 'Map tiles could not load. Please try again later.'; });
       const icon = L.divIcon({
         className: 'silo-map-icon', iconSize: [88, 88], iconAnchor: [44, 44],
         html: '<span class="silo-map-marker"><span class="silo-map-ring"></span><span class="silo-map-core"><img src="assets/logo.png" alt="" width="64" height="64"></span></span>'
@@ -32,7 +32,7 @@ export function initPropertyMap() {
       new ResizeObserver(() => map.invalidateSize({pan: false})).observe(host);
       host.dataset.mapReady = 'true';
     } catch {
-      host.innerHTML = '<p class="map-fallback">The map is unavailable. Open the area map below.</p>';
+      host.innerHTML = '<p class="map-fallback">The map is unavailable. Please try again later.</p>';
       status.textContent = 'The interactive map could not load.';
     }
   }

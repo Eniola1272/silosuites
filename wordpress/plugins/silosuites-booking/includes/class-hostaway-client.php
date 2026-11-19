@@ -90,6 +90,35 @@ final class Hostaway_Client {
         }
         return new \WP_Error( 'ssb_pagination', 'Listing limit reached. No incomplete metadata snapshot was saved.' );
     }
+    public function review_page($listing_id, $offset = 0, $retry = true) {
+        if (!preg_match('/^[0-9]{1,32}$/D', (string)$listing_id) || !is_int($offset) || $offset < 0 || $offset > 900) return new \WP_Error('ssb_review_request', 'Invalid review request.');
+        $token = $this->token();
+        if (is_wp_error($token)) return $token;
+        $query = http_build_query(['listingMapIds'=>[(string)$listing_id], 'type'=>'guest-to-host', 'statuses'=>['published'], 'limit'=>100, 'offset'=>$offset, 'sortBy'=>'submittedAt', 'sortOrder'=>'desc']);
+        $response = wp_remote_get('https://api.hostaway.com/v1/reviews?'.$query, [
+            'timeout'=>20, 'redirection'=>0, 'sslverify'=>true, 'limit_response_size'=>8388609,
+            'headers'=>['Accept'=>'application/json', 'Authorization'=>'Bearer '.$token],
+        ]);
+        if (!is_wp_error($response) && 401 === wp_remote_retrieve_response_code($response) && $retry) {
+            delete_transient($this->token_key);
+            return $this->review_page($listing_id, $offset, false);
+        }
+        $data = $this->response($response);
+        if (is_wp_error($data)) return $data;
+        $rows = $data['result'] ?? null;
+        if (!is_array($rows) || array_values($rows) !== $rows || count($rows) > 100) return new \WP_Error('ssb_review_schema', 'Reviews could not be validated.');
+        $safe = [];
+        foreach ($rows as $row) {
+            if (!is_array($row) || (string)($row['listingMapId'] ?? '') !== (string)$listing_id || ($row['type'] ?? '') !== 'guest-to-host' || ($row['status'] ?? '') !== 'published') return new \WP_Error('ssb_review_filter', 'Reviews could not be matched to this suite.');
+            $review = Review_Service::normalize($row, $listing_id);
+            if ($review !== null) {
+                $id = (string)($row['id'] ?? '');
+                if (!preg_match('/^[0-9]{1,32}$/D', $id)) return new \WP_Error('ssb_review_id', 'Reviews could not be validated.');
+                $safe[] = ['key'=>hash('sha256', $id), 'review'=>$review];
+            }
+        }
+        return ['reviews'=>$safe, 'raw_count'=>count($rows)];
+    }
     public function calendar( $listing_id, $start_date, $end_date, $retry = true ) {
         if ( ! preg_match( '/^[0-9]{1,32}$/D', (string) $listing_id ) ) {
             return new \WP_Error( 'ssb_invalid_id', 'Invalid listing ID.' );

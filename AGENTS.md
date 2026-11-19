@@ -3,9 +3,13 @@
 ## Current client direction — 16 November 2026
 
 - Preserve the original live Homepage, Hot Springs and Local Guide designs and client wording. Work on their performance and a minimal availability-search insertion, not a marketing-page redesign.
+- Client olive is #81ad7b (19 November), superseding the brand-board olive for current booking designs. Property cards use the client’s published "Rates from" copy; starting rates are editable marketing content and never override a Hostaway quote.
+- Our suites/search canvas, cards and search fields must also stay pure white (client reconfirmed 19 November); retain olive action/selected-filter accents.
+- Background preference confirmed 18 November: white for the custom booking pages, panels and popups; olive remains an accent. Preserve the original marketing pages.
 - Custom design is limited to search/results, individual property booking pages and checkout. Review HTML first; use the supplied DI Home Rentals image for layout reference only. Never copy its property facts, host biography, badges or reviews.
 - Use existing client copy, original photography and the client's palette. Use US spelling (favorite). Do not introduce "distinctive" or new promotional descriptions. Keep headings upright and fonts consistent. Original export typography includes Playfair Display and Figtree.
-- All Four Silos is inquiry-only. It must never appear as a rental card, available result, calendar/quote/checkout property or widget property selector, even if old mapping/group-verification options exist. Use exactly: "Interested in reserving all four silos? Contact us for availability."
+- Property-page layout: five property-specific gallery images (one large, four small), rating beside the title above the gallery, and exactly two other-property recommendations with a "View all properties" link. Reference images supply layout only.
+- All Four Silos is no longer offered. It must never appear as a rental card, available result, calendar/quote/checkout property or widget property selector, even if old mapping/group-verification options exist. As of 18 November, remove the four-silo inquiry message too; do not advertise group reservations.
 - The earlier redesigned homepage and importer homepage deliveries through 0.2.6 are historical concepts. Do not deploy them over the original marketing pages. Use tools/build_booking_review.py for the current client preview; it packages booking pages and links marketing navigation to the unchanged live site.
 - See docs/CLIENT-REVISION-2026-11-16.md for scope, content provenance and evidence.
 

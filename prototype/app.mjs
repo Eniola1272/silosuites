@@ -1,3 +1,5 @@
+import { startingRateLabel } from './client-starting-rates.mjs';
+import './assets/booking-reviews.js';
 import { initQuickBooking } from './quick-booking.mjs';
 import { initPropertyMap } from './property-map.mjs';
 import { propertyPage, propertyPhotos } from './property.mjs';
@@ -80,7 +82,7 @@ function card(suite, withPrice = false) {
   const quote = withPrice ? sampleQuote(suite, state) : null;
   const href = escape(withState(`suite.html?id=${suite.id}`));
   const homeDetails = page === 'home' ? ({'silo-1':{image:suite.image,beds:'1 bedroom · 2 beds',feature:'Curved silo walls, brick and warm timber.'},'silo-2':{image:'property-2/The-Silo-Suites-12-3.jpg',beds:'King, queen & twin beds',feature:'A main-floor king and room in the loft.'},'silo-3':{image:suite.image,beds:'2 bedrooms · 3 beds',feature:'Quiet corners in a converted silo.'},'silo-4':{image:suite.image,beds:'1 bedroom · 2 beds',feature:'Original brick, a timber loft and soft bedding.'},'all-silos':{image:'elementor/The-Silo-Suites-51.jpg',beds:'4 silos · 6 bedrooms',feature:'Your own spaces on the same historic farm.'},dairy:{image:suite.image,beds:'1 bedroom · 2 beds',feature:'An open interior with natural timber beams.'}})[suite.id] : null;
-  return `<article class="suite-card"><a class="suite-image" href="${href}" aria-label="Explore ${suite.name}"><img src="assets/${homeDetails?.image || suite.image}" width="800" height="523" loading="lazy" alt="${escape(suite.name)} — property reference photograph"><span class="image-label">${suite.category === 'group' ? 'For your favourite people' : suite.category === 'dairy' ? 'The Dairy Suite' : 'A converted silo'}</span></a><p class="eyebrow">${page === 'stays' ? 'La Verkin, Utah' : suite.label}</p><h3><a href="${href}">${suite.name}</a></h3><p class="suite-facts"><span>Up to ${suite.capacity} guests</span><span>${suite.baths} ${suite.baths === 1 ? 'bath' : 'baths'}</span></p>${homeDetails ? `<p class="suite-beds">${homeDetails.beds}</p><p class="suite-feature">${homeDetails.feature}</p>` : ''}${page === 'home' ? `<div class="home-card-actions"><button type="button" class="button button-dark" data-quick-book="${suite.id}" aria-label="Check availability for ${escape(suite.name)}">Check availability <span aria-hidden="true">↗</span></button><a class="card-bottom" href="${href}">View suite <span aria-hidden="true">→</span></a></div>` : `<a class="card-bottom" href="${href}"><span>${quote ? `<span class="sample-price">${money(quote.total)} total</span><span class="price-caption">${quote.nights} nights · sample fees & tax included</span>` : 'View suite'}</span><span class="card-arrow" aria-hidden="true">↗</span></a>`}</article>`;
+  return `<article class="suite-card"><a class="suite-image" href="${href}" aria-label="Explore ${suite.name}"><img src="assets/${page==='stays'?propertyPhotos(suite)[0]:homeDetails?.image || suite.image}" width="800" height="523" loading="lazy" alt="${escape(suite.name)} — property reference photograph"><span class="image-label">${suite.category === 'group' ? 'For your favourite people' : suite.category === 'dairy' ? 'The Dairy Suite' : 'A converted silo'}</span></a><p class="eyebrow">${page === 'stays' ? 'La Verkin, Utah' : suite.label}</p><h3><a href="${href}">${suite.name}</a></h3><p class="suite-facts"><span>Up to ${suite.capacity} guests</span><span>${suite.baths} ${suite.baths === 1 ? 'bath' : 'baths'}</span></p>${page==='stays'?`<p class="card-starting-rate">${escape(startingRateLabel(suite.id))}</p>`:''}${homeDetails ? `<p class="suite-beds">${homeDetails.beds}</p><p class="suite-feature">${homeDetails.feature}</p>` : ''}${page === 'home' ? `<div class="home-card-actions"><button type="button" class="button button-dark" data-quick-book="${suite.id}" aria-label="Check availability for ${escape(suite.name)}">Check availability <span aria-hidden="true">↗</span></button><a class="card-bottom" href="${href}">View suite <span aria-hidden="true">→</span></a></div>` : `<a class="card-bottom" href="${href}"><span>${quote ? `<span class="sample-price">${money(quote.total)} total</span><span class="price-caption">${quote.nights} nights · sample fees & tax included</span>` : 'View suite'}</span><span class="card-arrow" aria-hidden="true">↗</span></a>`}</article>`;
 }
 if ($('[data-featured]')) $('[data-featured]').innerHTML = suites.map(s => card(s)).join('');
 
@@ -88,11 +90,11 @@ let chosenSuite = null;
 if (page === 'suite') {
   chosenSuite = suites.find(suite => suite.id === query.get('id'));
   if (!chosenSuite) {
-    $('[data-suite-detail]').innerHTML = query.get('id') === 'all-silos' ? `<section class="page-intro"><h1>Contact us</h1><p>Interested in reserving all four silos? <a href="tel:+14355868658">Contact us for availability.</a></p><a class="text-link" href="stays.html">Our suites →</a></section>` : `<section class="page-intro"><p class="eyebrow">Let's find your place</p><h1>This suite isn't in our collection.</h1><p>Explore the available stays to choose your favourite.</p><a href="stays.html" class="text-link">See all suites ↗</a></section>`;
+    $('[data-suite-detail]').innerHTML = query.get('id') === 'all-silos' ? `<section class="page-intro"><h1>This rental is no longer available.</h1><a class="text-link" href="stays.html">Our suites →</a></section>` : `<section class="page-intro"><p class="eyebrow">Let's find your place</p><h1>This suite isn't in our collection.</h1><p>Explore the available stays to choose your favorite.</p><a href="stays.html" class="text-link">See all suites ↗</a></section>`;
   } else {
     const s = chosenSuite;
     document.title = `${s.name} — Silo Suites`;
-    $('[data-suite-detail]').innerHTML = propertyPage(s, escape(withState('stays.html')));
+    $('[data-suite-detail]').innerHTML = propertyPage(s, escape(withState('stays.html')), suites.filter(other=>other.id!==s.id).map(other=>({...other,image:propertyPhotos(other)[0],href:escape(withState(`suite.html?id=${other.id}`))})));
   }
 }
 
@@ -101,6 +103,7 @@ if (chosenSuite) {
   $$('[data-property-open]').forEach(button => button.addEventListener('click', () => openDialog(document.getElementById(button.dataset.propertyOpen), button)));
   initPropertyNavigation();
   initPropertyMap();
+  document.querySelectorAll('[data-ssb-reviews]').forEach(window.SiloSuitesReviews.mount);
 }
 function initPropertyNavigation() {
   document.documentElement.classList.add('property-page');
@@ -307,7 +310,7 @@ $('#hero-next')?.addEventListener('click', () => {
 });
 
 if (chosenSuite) {
-  const gallery = propertyPhotos(chosenSuite);
+  const gallery = propertyPhotos(chosenSuite,true);
   let index = 0;
   function galleryImage() {
     $('#lightbox-image').src = `assets/${gallery[index]}`;

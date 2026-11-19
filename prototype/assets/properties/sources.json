@@ -1,0 +1,137 @@
+{
+  "silo-1": [
+    {
+      "file": "properties/silo-1/photo-1.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-143824-1yY5-PTT891GaO6a3SMQ2HLImIHF--emSLMYGt41BJC4-6437840fb9b72",
+      "listing_id": "143824"
+    },
+    {
+      "file": "properties/silo-1/photo-2.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-143824-JgPMD--IGaL5lInDfHW2XWVg47qvdtTVHnhUjDEvOXfo-68cb889167218",
+      "listing_id": "143824"
+    },
+    {
+      "file": "properties/silo-1/photo-3.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-143824-G7ZeIkUurmXNS--eBQTPvilOj8WoWxjEdKvaRai0-XS4-6789882fe7723",
+      "listing_id": "143824"
+    },
+    {
+      "file": "properties/silo-1/photo-4.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-143824-rtTsSjvcP--n4okAbVcDQblD-6GpQe6VvGfXSI7TSIRI-6472356242db7",
+      "listing_id": "143824"
+    },
+    {
+      "file": "properties/silo-1/photo-5.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-143824-I7lAqIUS-o-df680bCWz87pE2rccvfMcgSrM4ZIrkVU-64723573e88d6",
+      "listing_id": "143824"
+    }
+  ],
+  "silo-3": [
+    {
+      "file": "properties/silo-3/photo-1.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-143826-xTWVTpfxKP3nvdACDrTsXvZETn0-QSnG3iEv1STQPRs-68cc0c2382539",
+      "listing_id": "143826"
+    },
+    {
+      "file": "properties/silo-3/photo-2.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-143826-PdoCc79Md-h6imjhkotTu-5jP2IGZ3No33cTEQlsYCI-6472343c12a64",
+      "listing_id": "143826"
+    },
+    {
+      "file": "properties/silo-3/photo-3.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-143826-QpS-ti9ofmld2-G0lNivLBT6URhYswF0lzgCWLraZy8-64723433cbeac",
+      "listing_id": "143826"
+    },
+    {
+      "file": "properties/silo-3/photo-4.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-143826-5LcsgXLpSEO-1Zlbaoc84269Cxyi1C0uK--mNhkHxCQw-68cc0c29b132e",
+      "listing_id": "143826"
+    },
+    {
+      "file": "properties/silo-3/photo-5.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-143826-Or3CR6e8t9W--T1m7B4NOb678v2SiTDG3fhQPzlPPEbs-643a229f399a8",
+      "listing_id": "143826"
+    }
+  ],
+  "silo-4": [
+    {
+      "file": "properties/silo-4/photo-1.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-143825-1sANJs7YsxZOQEP9ErlCd60Oe7WPtjKpM36vhNcdCpE-6436d4a53f87e",
+      "listing_id": "143825"
+    },
+    {
+      "file": "properties/silo-4/photo-2.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-143825-LNb-UKEzasrK5Urw1Io3gUHZU0PKD3SB5yYHXLqIY--M-6436d4c51eb9e",
+      "listing_id": "143825"
+    },
+    {
+      "file": "properties/silo-4/photo-3.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-143825-H5FUp5TPDD6KbFb2Ebz-pZ2uJuXWDzUkbtjrPV4TOWE-647237712f374",
+      "listing_id": "143825"
+    },
+    {
+      "file": "properties/silo-4/photo-4.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-143825-R-uBbIKKETF-tJ2LIdoGBbskXK-BZDLElAa2VSfl4EY-6436d4e17820b",
+      "listing_id": "143825"
+    },
+    {
+      "file": "properties/silo-4/photo-5.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-143825-Dqzof--MX---mRbcVvtV8EqlcIg-WhQkK4NYsQUm9hSj4-6436d4ec603bd",
+      "listing_id": "143825"
+    }
+  ],
+  "dairy": [
+    {
+      "file": "properties/dairy/photo-1.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-603415-xp7UCEJE0XGI1O9wSl5f9wmRI18ivDv2kSpXBYtVLvw-6aebb6ac32302",
+      "listing_id": "603415"
+    },
+    {
+      "file": "properties/dairy/photo-2.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-603415-h0fdFuoeFF4znbH16xb3BZfWPy8HpPzskOdRu3DHKpU-6aebb69b59731",
+      "listing_id": "603415"
+    },
+    {
+      "file": "properties/dairy/photo-3.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-603415--zND57myq8TgKYrBYyMG92TVOwiiHHjyl--SP--93oLec-6aebb693e58a1",
+      "listing_id": "603415"
+    },
+    {
+      "file": "properties/dairy/photo-4.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-603415-FcCUQrxMPp08hpY9rR7ggrMuf0uKcbb2TNUdwSYW9Kk-6aebb6a1e29a0",
+      "listing_id": "603415"
+    },
+    {
+      "file": "properties/dairy/photo-5.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-603415-2IwpAWjSwZL3fF7z6A5DY3YFXU7FOpLJUnRrLG--3eQ8-6aebb6bbd5f54",
+      "listing_id": "603415"
+    }
+  ],
+  "silo-2": [
+    {
+      "file": "properties/silo-2/photo-1.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-143823-IPX1TXjd0PUn4cpvfVdK-v9PJoS7DP9eOihZ51Eo8hM-68cb8574d03f7",
+      "listing_id": "143823"
+    },
+    {
+      "file": "properties/silo-2/photo-2.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-143823-kvsVQfwSPkVVmkydqf-eVTx-DnGq2NVv6nU5LSCP1Jc-68cb857a947e7",
+      "listing_id": "143823"
+    },
+    {
+      "file": "properties/silo-2/photo-3.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-143823-rG60iCNdgaRc--Z5sdxu9qeqW3574TdcucPso--dOBTmg-6472369e720a2",
+      "listing_id": "143823"
+    },
+    {
+      "file": "properties/silo-2/photo-4.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-143823-qDuOkEOCn3J6Gx--X2KSD4mdNsCN5eUy3D6vtoZzFB4o-6436da4d86cb4",
+      "listing_id": "143823"
+    },
+    {
+      "file": "properties/silo-2/photo-5.jpg",
+      "source_url": "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/53758-143823-it4Bc--6krUTTchYOO8roIIg2BOgkSgf8N0TtQj9Q12U-68cb8580719d5",
+      "listing_id": "143823"
+    }
+  ]
+}

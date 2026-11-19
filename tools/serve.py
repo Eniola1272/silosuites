@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 """Serve the design preview only, bound to this computer's loopback interface."""
 import argparse
+import json
+import time
+from datetime import datetime
+from urllib.parse import urlsplit, parse_qs
+from hostaway_discover import read_private
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -9,6 +14,29 @@ PUBLIC = Path(__file__).resolve().parents[1] / "prototype"
 
 
 class PreviewHandler(SimpleHTTPRequestHandler):
+    def do_GET(self):
+        if urlsplit(self.path).path == '/api/property-reviews':
+            params = parse_qs(urlsplit(self.path).query)
+            values = params.get('property', [])
+            if len(values) != 1 or values[0] not in ['silo-1', 'silo-2', 'silo-3', 'silo-4', 'dairy']:
+                self.send_error(400)
+                return
+            try:
+                result = read_private('hostaway-public-reviews.json')[values[0]]
+                if time.time() - datetime.fromisoformat(result['checked_at_utc']).timestamp() > 7 * 86400:
+                    raise ValueError('Expired review preview cache')
+                body = json.dumps(result).encode()
+            except (OSError, ValueError, KeyError, TypeError):
+                self.send_error(503, 'Reviews are unavailable. Refresh the private local review cache.')
+                return
+            self.send_response(200)
+            self.send_header('Content-Type', 'application/json; charset=utf-8')
+            self.send_header('Content-Length', str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+            return
+        super().do_GET()
+
     def translate_path(self, path):
         candidate = Path(super().translate_path(path)).resolve()
         if PUBLIC != candidate and PUBLIC not in candidate.parents:

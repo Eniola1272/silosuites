@@ -16,5 +16,5 @@ $in=(new DateTimeImmutable($service->get_today_in_utah()))->modify('+2 days')->f
 policy_assert(is_wp_error($service->generate_quote('all-silos',$in,$out,2)),'Group quote denied before provider access');
 policy_assert(is_wp_error($service->calendar_range('all-silos',$in,$out)),'Group calendar denied before provider access');
 $GLOBALS['queried']=[];$rows=\SiloSuites\Booking\public_properties();policy_assert(count($rows)===5&&!in_array('all-silos',array_column($rows,'slug'),true),'Dynamic property records exclude retained group content');policy_assert(!in_array('all-silos',$GLOBALS['queried'],true),'Group editorial record never queried');
-$html=strip_tags(\SiloSuites\Booking\group_contact_html());policy_assert($html==='Interested in reserving all four silos? Contact us for availability.','Exact client-approved inquiry text');
-echo 'PASS: five public properties; group absent from widgets/catalog; legacy mapped group rejected by quote/calendar; existing private group data retained; exact inquiry-only copy; no network or database mutations.'.PHP_EOL;
+$html=strip_tags(\SiloSuites\Booking\group_contact_html());policy_assert($html==='','Group invitation is removed');
+echo 'PASS: five public properties; group absent from widgets/catalog; legacy mapped group rejected by quote/calendar; existing private group data retained; no group inquiry message; no network or database mutations.'.PHP_EOL;

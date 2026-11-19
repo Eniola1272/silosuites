@@ -1,6 +1,20 @@
+Client olive and published card rates — 19 November 2026: #81ad7b is the current booking accent. Our suites and recommendation cards show Rates from using the client homepage values. Booking 0.3.7 adds a client-editable marketing starting-rate field; Hostaway quote calculations are unchanged. Latest client bundle: `releases/silosuites-netlify-client-preview-2026-11-19-olive.zip`.
+
+White Our suites update — 19 November 2026: explicit pure-white page/search/card surfaces are included in `releases/silosuites-netlify-client-preview-2026-11-19.zip`, with the existing dated review snapshot. No plugin code or staging page changed.
+
+Netlify client-sharing build — 18 November 2026: `releases/silosuites-netlify-client-preview-2026-11-18.zip` packages the latest booking design with static, anonymous eligible public-review snapshots. No API credentials/backend are needed on Netlify. See NETLIFY-CLIENT-PREVIEW.md for upload steps, scope and extracted-archive testing. No hosted deployment is claimed; plugin version remains 0.3.6.
+
+Gallery and rating layout — 18 November 2026: every local property example now has five property-specific photos, one large/four small, a title rating above the gallery, and two recommendations with View all properties. Booking 0.3.6 matches the two-card behavior and provides a title-rating widget/shortcode. Gallery composition remains in HTML review for later native Elementor conversion. Staging is unchanged.
+
+Property sections and controls — 18 November 2026: each local individual property example now has Meet your hosts (original client photo/copy), four other properties excluding the current suite, and SVG dropdown chevrons. Booking 0.3.5 includes matching control styles and a dynamic related-properties widget/shortcode. Native host-section conversion, full WordPress/staging validation and deployment remain pending; original marketing pages are unchanged.
+
+Review update — 18 November 2026: Booking 0.3.4 adds per-property cached Hostaway review widgets and accessible full-review popups. Local review sections show the public cache for the four silos and an honest Dairy empty state. The Open map link and group inquiry message are removed. PHP live read-only adapter proof and desktop/mobile browser checks pass; no staging deployment or full WordPress integration test has been performed for this release.
+
+White background update — 18 November 2026: the local booking pages, panels and popups now use white. Booking 0.3.3 includes matching widget styles. Staging and the original marketing pages have not been changed.
+
 # Current direction — 16 November 2026
 
-The client wants the original marketing site preserved. Custom design now focuses on booking/search/checkout, using existing copy, US spelling and consistent upright typography. All Four Silos is inquiry-only and removed from online catalogs, widgets and quote/calendar access in Booking 0.3.2. See CLIENT-REVISION-2026-11-16.md for the first revised HTML property example and booking-only Netlify package. Earlier homepage redesigns are historical and must not replace the original Homepage, Hot Springs or Local Guide. No live/staging page was changed during this revision. Stripe access remains pending; payment and reservation submission remain disabled.
+The client wants the original marketing site preserved. Custom design now focuses on booking/search/checkout, using existing copy, US spelling and consistent upright typography. All Four Silos is removed from online catalogs, widgets and quote/calendar access. Its inquiry invitation was also removed on 18 November. See CLIENT-REVISION-2026-11-16.md for the first revised HTML property example and booking-only Netlify package. Earlier homepage redesigns are historical and must not replace the original Homepage, Hot Springs or Local Guide. No live/staging page was changed during this revision. Stripe access remains pending; payment and reservation submission remain disabled.
 
 # Latest booking work — 15 November 2026
 

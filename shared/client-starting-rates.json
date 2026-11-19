@@ -1,0 +1,13 @@
+{
+  "source_url": "https://silosuites.com/",
+  "source_note": "Client-published homepage starting rates, corroborated by the original Elementor export; marketing copy, not a date-specific Hostaway quote.",
+  "reviewed_on": "2026-11-19",
+  "currency": "USD",
+  "rates_minor": {
+    "silo-1": 15000,
+    "silo-2": 16500,
+    "silo-3": 16500,
+    "silo-4": 15900,
+    "dairy": 15900
+  }
+}
